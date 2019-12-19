@@ -1,8 +1,15 @@
 ---
 title: Hello World
+date: 2017-01-24
+categories:
+- Hexo
+tags:
+  - 美化
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+<img src="/img/zero.png" width = "960" height = "540" alt="zero" align=center />
 
+Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+<!-- more -->
 ## Quick Start
 
 ### Create a new post
