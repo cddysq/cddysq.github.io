@@ -365,11 +365,12 @@ codeblock:
     style:
 
 back2top:
+  # 回到顶部按钮
   enable: true
-  # Back to top in sidebar.
+  # true，按钮显示在侧边栏；false，按钮显示在右下角
   sidebar: false
-  # Scroll percent label in b2t button.
-  scrollpercent: false
+  # 按钮上显示百分比
+  scrollpercent: true
 
 # Reading progress bar
 reading_progress:
