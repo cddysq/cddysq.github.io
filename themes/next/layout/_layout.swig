@@ -55,5 +55,18 @@
   {%- if theme.pjax %}
     </div>
   {%- endif %}
+  
+  <!-- 页面点击小红心 -->
+  {% if theme.clicklove %}
+      <script type="text/javascript" src="/js/src/clicklove.js"></script>
+   {% endif %}
+   
+   <!-- 背景样式 -->
+   <div class="bg_content">
+		<canvas id="canvas"></canvas>
+   </div>
+   {% if theme.canvas %}
+      <script type="text/javascript" src="/js/src/dynamic_bg.js"></script>
+   {% endif %}
 </body>
 </html>

@@ -1029,3 +1029,7 @@ vendors:
 css: css
 js: js
 images: images
+# 开启点击爱心特效
+clicklove: true
+# 开启背景效果
+canvas: true 
