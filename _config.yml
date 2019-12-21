@@ -97,7 +97,9 @@ theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
+# 部署地址
 deploy:
   type: git
-  repo: https://github.com/CodeHaotian/CodeHaotian.github.io.git
-  branch: master
+  repo:
+   github: https://github.com/CodeHaotian/CodeHaotian.github.io.git,master
+   coding: git@git.dev.tencent.com:yiyayo/HexoNexT.git,master
