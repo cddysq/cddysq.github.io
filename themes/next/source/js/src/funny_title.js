@@ -11,7 +11,7 @@ window.onload = function () {
       document.title = '(ฅ>ω<*ฅ) 噫又好了鸭~' + OriginTitle;
       titleTime = setTimeout(function () {
         document.title = OriginTitle;
-      }, 2000);
+      }, 4000);
     }
   });
 };
