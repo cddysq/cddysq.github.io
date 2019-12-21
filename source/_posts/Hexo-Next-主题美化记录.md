@@ -97,4 +97,33 @@ back2top:
 }
 ```
 4. 在主题配置文件`_config.yml`合适的位置（一般是最后一行）添加`canvas: true`启用刚才的配置。
+4. 在主题配置文件`_config.yml`合适的位置（一般是最后一行）添加`canvas: true`启用刚才的配置。
+
+## 给每篇文章后添加结束标语
+
+1. 在`themes\next\layout\_macro`中新建`passage-end-tag.swig`文件，添加代码至该文件中：
+```swig
+<div>
+    {% if not is_index %}
+      <div style="text-align:center;color: #ccc;font-size:20px;">------------- 本 文 结 束 <i class="fa fa-paw"></i> 感 谢 您 的 阅 读 -------------</div>
+    {% endif %}
+</div>
+```
+
+2. 打开`themes\next\layout\_macro\post.swig`文件，在`post-body`后，`post-footer`前，添加下面内容：
+```swig
+<div>
+  {% if not is_index %}
+    {% include 'passage-end-tag.swig' %}
+  {% endif %}
+</div>
+```
+![大概位置](https://upload-images.jianshu.io/upload_images/17704372-2f57136feb8e2c69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+3. 在主题配置文件`_config.yml`在末尾添加：
+```yml
+# 文章末尾添加“本文结束”标记
+passage_end_tag:
+  enabled: true
+```
 
