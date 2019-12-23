@@ -1036,3 +1036,6 @@ canvas: true
 # 文章末尾添加“本文结束”标记
 passage_end_tag:
   enabled: true
+# 自定义看板娘
+live2d:
+  enable: true  
