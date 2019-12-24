@@ -75,6 +75,6 @@
    <!-- 看板娘需要jQuery支持 -->
    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
    <!-- 引入看板娘 -->
-   <script src="https://cdn.jsdelivr.net/gh/CodeHaotian/live2d-widget@0.9.0/autoload.js"></script>
+   <script src="https://cdn.jsdelivr.net/gh/CodeHaotian/live2d-widget@1.0.0/autoload.js"></script>
 </body>
 </html>

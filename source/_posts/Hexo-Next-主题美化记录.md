@@ -10,7 +10,7 @@ tags:
 
 未修改时，文内链接颜色和普通文本没有区别：
 
-![初始样式](https://upload-images.jianshu.io/upload_images/17704372-5a17ee3af8b90c55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![初始样式](https://s2.ax1x.com/2019/12/24/lCB73n.png)
 
 为了突出区别性，我们在`themes\next\source\css\_common\components\post\post.styl`文件中添加下列的代码：
 ```css
@@ -25,7 +25,7 @@ tags:
     }
 }
 ```
-![改后样式](https://upload-images.jianshu.io/upload_images/17704372-5b2bc616c7ecdd25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![改后样式](https://s2.ax1x.com/2019/12/24/lCDCg1.png)
 
 <!-- more -->
 
@@ -118,7 +118,7 @@ back2top:
   {% endif %}
 </div>
 ```
-![大概位置](https://upload-images.jianshu.io/upload_images/17704372-2f57136feb8e2c69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![大概位置](https://s2.ax1x.com/2019/12/24/lCDlKP.png)
 
 3. 在主题配置文件`_config.yml`在末尾添加：
 ```yml

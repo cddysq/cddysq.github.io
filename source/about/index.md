@@ -1,5 +1,7 @@
 ---
-title: About
+title: 关于本站
 date: 2019-12-19 16:11:28
 type: "about"
 ---
+
+本站使用 Hexo v7.6.0 进行重构，正在持续优化中。。。
