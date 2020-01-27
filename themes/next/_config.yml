@@ -181,6 +181,7 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
+  简书: https://www.jianshu.com/u/ec346a4e0d4e || heartbeat
   GitHub: https://github.com/CodeHaotian || github
   #E-Mail: mailto:yourname@gmail.com || envelope
   #Weibo: https://weibo.com/yourname || weibo
