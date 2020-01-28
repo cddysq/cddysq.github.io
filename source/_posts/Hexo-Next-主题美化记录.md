@@ -29,6 +29,25 @@ tags:
 
 <!-- more -->
 
+## 文章添加阴影效果
+
+找到`themes\next\source\css\_common\components\post\post.styl`文件，将`post-block`代码进行如下更改：
+```css
+if (hexo-config('motion.transition.post_block')) {
+    .post-block{
+		margin-top: 60px;
+	    margin-bottom: 60px;
+	    padding: 25px;
+	    background:rgba(255,255,255,0.9) none repeat scroll !important; //添加透明效果
+	    -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+	    -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+	}
+	.pagination, .comments {
+      opacity: 0;
+    }
+  }
+```
+
 ## 首页文章折叠
 这里通过文章模板进行实现：
 ```markdown
@@ -154,4 +173,140 @@ window.onload = function () {
 ```swig
 <!--搞怪欺骗-->
 <script type="text/javascript" src="/js/src/funny_title.js"></script>
+```
+
+## 开启不蒜子访问统计
+
+1. 在`themes\next\_config.yml`主题配置文件中，开启配置：
+```yml
+busuanzi_count:
+  enable: true  #开启不蒜子访问统计，默认是false
+  total_visitors: true
+  total_visitors_icon: user
+  total_views: true
+  total_views_icon: eye
+  post_views: true
+  post_views_icon: eye
+```
+2. 为了更加美观，我们在`themes\next\layout\_third-party\statistics\busuanzi-counter.swig`文件中，添加如下提示文字：
+
+![显示优化](https://s2.ax1x.com/2020/01/27/1uWgGd.png)
+
+最终效果：
+
+![底部效果](https://s2.ax1x.com/2020/01/28/1KSYnK.png)
+
+## 给代码块添加复制功能
+
+在`themes\next\_config.yml`文件中，搜索`codeblock`开启复制，如下图：
+
+![开启代码块复制](https://s2.ax1x.com/2020/01/28/1Kusv8.png)
+
+## 文章底部的#号标签改为字体图标
+
+在`themes\next\_config.yml`文件中，搜索`tag_icon`将`false`改成`true`。
+
+## 去除底部页脚`powered By Hexo / 强力驱动......`
+
+在`themes/next/layout/_partials/footer.swig`文件中，删除或者注释掉`<div class="powered-by">`、`<span class="post-meta-divider">`、`<div class="theme-info">`，如下图：
+
+![注释页脚](https://s2.ax1x.com/2020/01/28/1KSsjP.png)
+
+## 设置网站启用时间
+
+在`themes\next\_config.yml`文件中，修改`since`后的值即可。
+
+## 添加版权信息
+
+在`themes\next\_config.yml`文件中搜索`creative_commons`开启版权声明，如下图：
+
+![开启版权](https://s2.ax1x.com/2020/01/28/1KeBCV.png)
+
+在博客根目录的`source`目录下，新建`_data`目录，创建`styles.styl`文件添加如下代码：
+```css
+//版权声明侧边栏颜色
+.post-copyright {
+    margin: 2em 0 0;
+    padding: 0.5em 1em;
+    border-left: 3px solid #81a6ed;
+    background-color: #f9f9f9;
+    list-style: none;
+}
+```
+回到主题配置文件中搜索`custom_file_path:`开启加载自定义样式文件：
+
+![加载自定义样式](https://s2.ax1x.com/2020/01/28/1KesvF.png)
+
+> 新版的自定义样式都是在`sourse`资源文件夹下新建自定义文件 `_data/xxx` 文件实现功能，并在主题配置文件进行开启加载。
+
+## 底部跳动爱心
+
+效果图：
+
+![跳动爱心](https://s2.ax1x.com/2020/01/28/1KSWNQ.png)
+
+1. 前往[图标库](https://fontawesome.com/v4.7.0/icons/)找到心仪的图标(我这里选择`heartbeat`)
+2. 在`themes\next\_config.yml`文件中，搜索 `footer` →  将 `name` 后面的 `user` 替换成 `fas fa-heartbeat` → 将 `animated` 设置成 `true` → 将 `color` 修改为 `#ff0000`，如下图：
+
+![爱心设置](https://s2.ax1x.com/2020/01/28/1KSoj0.png)
+
+## 页脚增加网站运行时间统计
+
+1. 在`themes\next\layout\_partials\footer.swig`文件，如下图位置加入倒计时代码：
+```js
+{%- if theme.footer.powered.enable and theme.footer.theme.enable %}
+  {#<span class="post-meta-divider">|</span>#}
+{%- endif %}
+//此位置插入代码
+{%- if theme.footer.theme.enable %}
+  .....
+{%- endif %}
+```
+倒计时代码：
+```js
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2017,01,04,00,00,00); //你的建站时间
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" Run for "+diffYears+" Year "+diffDays+" Days "+diffHours+" Hours "+diffMinutes+" m "+diffSeconds+" s";
+	}
+	siteTime();
+</script>
+```
+
+2. 在`themes\next\source\css\main.styl`文件中给倒计时添加样式：
+```css
+#sitetime {
+  background-image: -webkit-linear-gradient(left, #aa4b6b, #6b6b83, #3b8d99);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 ```
