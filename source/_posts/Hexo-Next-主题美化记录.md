@@ -310,3 +310,30 @@ busuanzi_count:
   -webkit-text-fill-color: transparent;
 }
 ```
+
+## Hexo新建文章时自动打开编辑器
+
+首先在Hexo目录下的scripts目录中创建一个JavaScript脚本文件。
+如果没有这个scripts目录，则新建一个。
+scripts目录新建的JavaScript脚本文件可以任意取名。
+通过这个脚本，我们用其来监听hexo new这个动作，并在检测到hexo new之后，执行编辑器打开的命令。
+
+如果你是windows平台的Hexo用户，则将下列内容写入你的脚本：
+
+```js
+var spawn = require('child_process').exec;
+hexo.on('new', function(data){
+  spawn('start  "markdown编辑器绝对路径.exe" ' + data.path);
+});
+```
+
+如果你是Mac平台的Hexo用户，则将下列内容写入你的脚本：
+
+```js
+var exec = require('child_process').exec;
+hexo.on('new', function(data){
+    exec('open -a "markdown编辑器绝对路径.app" ' + data.path);
+
+});
+```
+
