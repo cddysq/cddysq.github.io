@@ -261,7 +261,7 @@ symbols_count_time:
   item_text_post: true  # 文章 字数统计 阅读时长 使用图标 还是 文本表示
   item_text_total: false # 博客底部统计 字数统计 阅读时长 使用图标 还是 文本表示
   awl: 2
-  wpm: 300
+  wpm: 200
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
 tag_icon: true
