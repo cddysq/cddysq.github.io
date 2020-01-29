@@ -7,6 +7,8 @@
   <title>{% block title %}{% endblock %}</title>
   {{ partial('_third-party/analytics/index.swig', {}, {cache: theme.cache.enable}) }}
   {{ partial('_scripts/noscript.swig', {}, {cache: theme.cache.enable}) }}
+  <!-- 看板娘需要jQuery支持 -->
+   <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -72,8 +74,6 @@
    <!-- 引入搞怪特效 -->
    <script type="text/javascript" src="/js/src/funny_title.js"></script>
    
-   <!-- 看板娘需要jQuery支持 -->
-   <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
    <!-- 引入看板娘 -->
    <script src="https://cdn.jsdelivr.net/gh/CodeHaotian/live2d-widget@1.0.0/autoload.js"></script>
 </body>
