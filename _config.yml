@@ -4,7 +4,7 @@
 
 # Site
 title: 且听风吟
-subtitle: 日常折腾小破站
+subtitle: 🕊️ gu~gu~gu
 description: 一瞥便是惊鸿 芳华乱了浮生
 keywords:
 author: Rainbow Cat
@@ -109,4 +109,4 @@ deploy:
   type: git
   repo:
    github: git@github.com:CodeHaotian/CodeHaotian.github.io.git,master
-   coding: git@git.dev.tencent.com:yiyayo/HexoNexT.git,master
+   coding: git@e.coding.net:yiya/HexoNexT.git,master

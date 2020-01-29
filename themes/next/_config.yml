@@ -124,6 +124,7 @@ menu:
   categories: /categories/ || th
   archives: /archives/ || archive
   tags: /tags/ || tags
+  links: /links/ || link
   about: /about/ || user
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
@@ -167,7 +168,7 @@ sidebar:
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
-  url: https://upload.jianshu.io/users/upload_avatars/17704372/387f83f3-4dd1-413b-ae77-9688ce70cfea.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240
+  url: images/avatar.png
   # If true, the avatar will be dispalyed in circle.
   rounded: false
   # If true, the avatar will be rotated with the cursor.
@@ -1028,7 +1029,6 @@ vendors:
   # Internal version: 1.0.0
   # canvas_ribbon: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js
   canvas_ribbon:
-
 # Assets
 css: css
 js: js
