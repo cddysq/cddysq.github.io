@@ -1,5 +1,5 @@
 ---
-title: Hexo Next 主题美化记录
+title: Hexo-NexT 主题美化记录
 date: 2019-12-20
 categories:
 - Hexo
