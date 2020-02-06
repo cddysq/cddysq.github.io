@@ -42,7 +42,7 @@ tags:
 
 3. 还是主题配置文件中，填写`appid`和`appkey`等`valine`参数(语言必须小写)：
 
-![参数配置](https://s2.ax1x.com/2020/01/28/1Kqion.png)
+![参数配置](https://s2.ax1x.com/2020/02/06/1yaQHS.png)
 
 ## 第三步：测试valine评论
 

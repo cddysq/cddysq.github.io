@@ -626,7 +626,7 @@ valine:
   appid: Q5VT9MPBKijsAMmCNMBAgG50-MdYXbMMI
   appkey: DCC42olyrpODmP3KYYgPlAoc
   notify: false # Mail notifier
-  verify: false # Verification code
+  verify: true # 是否启用验证码
   placeholder: ヾﾉ≧∀≦)o来啊，快活啊! #默认输入框显示内容
   avatar: mm # 默认显示头像
   guest_info: nick,mail,link # Custom comment header
