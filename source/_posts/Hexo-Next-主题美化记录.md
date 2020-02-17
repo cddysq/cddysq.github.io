@@ -5,8 +5,11 @@ categories:
 - Hexo
 tags:
   - 美化
+top: true
 ---
+{% note info %}
 ## 修改文内链接样式
+{% endnote %}
 
 未修改时，文内链接颜色和普通文本没有区别：
 
@@ -29,7 +32,45 @@ tags:
 
 <!-- more -->
 
+{% note info %}
+## 添加文章置顶功能
+{% endnote %}
+
+在站点根目录执行命令：
+
+```shell
+npm uninstall hexo-generator-index --save
+npm install hexo-generator-index-pin-top --save
+```
+
+找到`themes\next\layout\_macro\post.swig`文件，定位到`<div class="post-meta">`标签下，插入如下代码：
+
+```diff
+<div class="post-meta">
++    {% if post.top %}
++   	<i class="fa fa-thumb-tack"></i>
++    	<font color="RED">置顶</font>
++    	<span class="post-meta-divider">|</span>
++    {% endif %}
+```
+
+接下来在需要置顶的文章头部添加 `top: true` 或者 `top: n`，这里的n是数字，数字越大表示置顶等级越高：
+
+```diff
+title: xxx
+date: xxx
+categories:
+  - xx
+tags:
+  - xx
++top: true
+```
+
+{% note info %}
+
 ## 文章添加阴影效果
+
+{% endnote %}
 
 找到`themes\next\source\css\_common\components\post\post.styl`文件，将`post-block`代码进行如下更改：
 ```css
@@ -48,7 +89,12 @@ if (hexo-config('motion.transition.post_block')) {
   }
 ```
 
+{% note info %}
+
 ## 首页文章折叠
+
+{% endnote %}
+
 这里通过文章模板进行实现：
 ```markdown
 ---
@@ -65,7 +111,11 @@ tags:
 以下为隐藏内容
 ```
 
+{% note info %}
+
 ## 回到顶部按钮显示百分比
+
+{% endnote %}
 
 找到`themes\next\_config.yml`修改如下配置：
 ```yml
@@ -78,7 +128,12 @@ back2top:
     scrollpercent: true
 ```
 
+{% note info %}
+
 ## 点击小爱心特效
+
+{% endnote %}
+
 1. 在`themes\next\source\js\src`下新建文件`clicklove.js`，接着把如下代码拷贝粘贴到`clicklove.js`文件中。
 ```js
 !function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
@@ -93,7 +148,11 @@ back2top:
 ```
 3. 在主题配置文件`_config.yml`合适的位置（一般是最后一行）添加`clicklove : true`启用刚才的配置。
 
+{% note info %}
+
 ## 添加动态背景
+
+{% endnote %}
 
 1. 找到`themes\next\layout\_layout.swig`文件，在 `<body>`里添加内容(不清楚放哪里就放最后吧)：
 ```html
@@ -118,7 +177,11 @@ back2top:
 4. 在主题配置文件`_config.yml`合适的位置（一般是最后一行）添加`canvas: true`启用刚才的配置。
 4. 在主题配置文件`_config.yml`合适的位置（一般是最后一行）添加`canvas: true`启用刚才的配置。
 
+{% note info %}
+
 ## 给每篇文章后添加结束标语
+
+{% endnote %}
 
 1. 在`themes\next\layout\_macro`中新建`passage-end-tag.swig`文件，添加代码至该文件中：
 ```swig
@@ -146,7 +209,11 @@ passage_end_tag:
   enabled: true
 ```
 
+{% note info %}
+
 ## 给网页title添加一些搞怪特效
+
+{% endnote %}
 
 1. 在`themes\next\source\js\src`文件夹下创建`funny_title.js`，添加代码：
 ```js
@@ -175,7 +242,11 @@ window.onload = function () {
 <script type="text/javascript" src="/js/src/funny_title.js"></script>
 ```
 
+{% note info %}
+
 ## 开启不蒜子访问统计
+
+{% endnote %}
 
 1. 在`themes\next\_config.yml`主题配置文件中，开启配置：
 ```yml
@@ -196,27 +267,47 @@ busuanzi_count:
 
 ![底部效果](https://s2.ax1x.com/2020/01/28/1KSYnK.png)
 
+{% note info %}
+
 ## 给代码块添加复制功能
+
+{% endnote %}
 
 在`themes\next\_config.yml`文件中，搜索`codeblock`开启复制，如下图：
 
 ![开启代码块复制](https://s2.ax1x.com/2020/01/28/1Kusv8.png)
 
+{% note info %}
+
 ## 文章底部的#号标签改为字体图标
+
+{% endnote %}
 
 在`themes\next\_config.yml`文件中，搜索`tag_icon`将`false`改成`true`。
 
+{% note info %}
+
 ## 去除底部页脚`powered By Hexo / 强力驱动......`
+
+{% endnote %}
 
 在`themes/next/layout/_partials/footer.swig`文件中，删除或者注释掉`<div class="powered-by">`、`<span class="post-meta-divider">`、`<div class="theme-info">`，如下图：
 
 ![注释页脚](https://s2.ax1x.com/2020/01/28/1KSsjP.png)
 
+{% note info %}
+
 ## 设置网站启用时间
+
+{% endnote %}
 
 在`themes\next\_config.yml`文件中，修改`since`后的值即可。
 
+{% note info %}
+
 ## 添加版权信息
+
+{% endnote %}
 
 在`themes\next\_config.yml`文件中搜索`creative_commons`开启版权声明，如下图：
 
@@ -239,7 +330,11 @@ busuanzi_count:
 
 > 新版的自定义样式都是在`sourse`资源文件夹下新建自定义文件 `_data/xxx` 文件实现功能，并在主题配置文件进行开启加载。
 
+{% note info %}
+
 ## 底部跳动爱心
+
+{% endnote %}
 
 效果图：
 
@@ -250,7 +345,11 @@ busuanzi_count:
 
 ![爱心设置](https://s2.ax1x.com/2020/01/28/1KSoj0.png)
 
+{% note info %}
+
 ## 页脚增加网站运行时间统计
+
+{% endnote %}
 
 1. 在`themes\next\layout\_partials\footer.swig`文件，如下图位置加入倒计时代码：
 ```js
@@ -311,7 +410,11 @@ busuanzi_count:
 }
 ```
 
+{% note info %}
+
 ## Hexo新建文章时自动打开编辑器
+
+{% endnote %}
 
 首先在Hexo目录下的scripts目录中创建一个JavaScript脚本文件。
 如果没有这个scripts目录，则新建一个。
