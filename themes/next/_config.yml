@@ -524,7 +524,7 @@ math:
 
 # Easily enable fast Ajax navigation on your website.
 # Dependencies: https://github.com/theme-next/theme-next-pjax
-pjax: false
+pjax: true
 
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
 # For more information: https://fancyapps.com/fancybox
@@ -1042,4 +1042,4 @@ passage_end_tag:
   enabled: true
 # 自定义看板娘
 live2d:
-  enable: true  
+  enable: true 
