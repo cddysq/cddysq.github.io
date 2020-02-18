@@ -14,7 +14,7 @@ top: true
 - 文章内容仅供参考，不做任何保证
 - ~~xxx~~ : 此标记为可跳过
 - 如对本文有任何建议或提问皆可留言或联系本人
-- 本文初始版本 1.0 → 目前 1.0
+- 本文初始版本 1.0 → 目前 1.1
 
 <!-- more -->
 
@@ -44,6 +44,8 @@ top: true
 
 - 基本的设计模式
 
+- <font color="red">单元测试必会</font>。好的项目测试代码少不了，如果你留意过Github上的顶级开源项目，那么你会发现它的测试代码和业务代码接近 1:1 。
+
 ----
 
 ## Java Web 基础
@@ -67,9 +69,10 @@ top: true
 ## 工具方面
 
 - 操作系统：Linux （CentOS\Ubuntu\...）
-- 代码管理： <font color="red">Git</font> → 必须熟练
+- 代码管理：~~SVN~~ / <font color="red">Git</font> → 必须熟练
 - 持续集成 （CI/CD）：Jenkins
 - Java项目管理工具：Maven / Gradle
+- 压力测试：Apache JMeter
 
 ---
 
@@ -114,6 +117,8 @@ top: true
     | Hystrix | 断路器 |
     | Ribbon | 负载均衡 |
 
+- [ZooKeeper](https://github.com/apache/zookeeper) 服务注册中心
+
 - [Elasticsearch](https://www.elastic.co/cn)  数据库 搜索引擎
 
 ---
@@ -122,6 +127,7 @@ top: true
 
 - Docker：容器化
 - K8s：kubernetes
+- Web 容器：Tomcat、Jetty、Undertow、Netty
 
 # 个人开发环境
 
@@ -150,6 +156,8 @@ top: true
 - Xshell + Xftp：官网自称业界最强大的SSH客户机
 
 - Postman：接口测试
+
+- 常用第三方库：Hutool 、[fastjson](https://github.com/alibaba/fastjson)、[Guava](https://github.com/google/guava)、MyBatis-Plus
 
 ## 碎碎念念
 

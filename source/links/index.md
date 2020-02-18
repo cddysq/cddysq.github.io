@@ -4,7 +4,9 @@ date: 2020-01-29 10:04:12
 type: "links"
 ---
 
-<link rel="stylesheet" href="link.css">
+<base href="/links/">
+
+<link rel="stylesheet" href="link.css" type="text/css">
 
 <div>
     <div class="links-content">
