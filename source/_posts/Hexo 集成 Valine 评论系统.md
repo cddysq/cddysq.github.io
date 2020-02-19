@@ -22,6 +22,8 @@ tags:
 
 ![创建class](https://s2.ax1x.com/2020/01/28/1KbdP0.png)
 
+> Comment库：用于存放网站评论 ，Counter库：用于存放文章阅读量。
+>
 > 如没有创建，那么在显示 post 页面时，请求 LeanCloud 的 api 接口，可能会返回 error code=101
 
 3. 点击设置 → 安全中心 ,将除了数据存储的服务全部关闭，并绑定web安全域名，防止恶意调用。

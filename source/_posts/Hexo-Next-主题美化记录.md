@@ -179,6 +179,49 @@ back2top:
 
 {% note info %}
 
+## 开启站内搜索
+
+{% endnote %}
+
+1.在博客根目录执行以下命令
+
+```shell
+npm install hexo-generator-searchdb --save
+```
+
+2.在站点配置文件中加入以下内容：
+
+```yml
+#搜索配置   
+search:
+  path: search.xml 
+  field: post # 指定搜索范围，可选 post | page | all
+  format: html # 指定页面内容形式，可选 html | raw (Markdown) | excerpt | more
+  limit: 10000 #限定搜索结果
+```
+
+3.在主题配置文件`themes\next\_config.yml`中 → 搜索`local_search`，开启搜索
+
+```yml
+# Local Search
+# Dependencies: https://github.com/theme-next/hexo-generator-searchdb
+local_search:
+  enable: true #默认为false,设置为true
+  # If auto, trigger search by changing input.
+  # If manual, trigger search by pressing enter key or search button.
+  trigger: auto
+  # Show top n results per article, show all results by setting to -1
+  top_n_per_article: 1
+  # Unescape html strings to the readable one.
+  unescape: false
+  # Preload the search data when the page loads.
+  preload: true
+```
+
+
+
+{% note info %}
+
 ## 给每篇文章后添加结束标语
 
 {% endnote %}
@@ -251,12 +294,12 @@ window.onload = function () {
 1. 在`themes\next\_config.yml`主题配置文件中，开启配置：
 ```yml
 busuanzi_count:
-  enable: true  #开启不蒜子访问统计，默认是false
-  total_visitors: true
-  total_visitors_icon: user
-  total_views: true
+  enable: true #开启不蒜子访问统计，默认是false
+  total_visitors: true #站点总访问量
+  total_visitors_icon: user #icon皆为对应图标
+  total_views: true #所有页面的总浏览量
   total_views_icon: eye
-  post_views: true
+  post_views: false #文章浏览量
   post_views_icon: eye
 ```
 2. 为了更加美观，我们在`themes\next\layout\_third-party\statistics\busuanzi-counter.swig`文件中，添加如下提示文字：

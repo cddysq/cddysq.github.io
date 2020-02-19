@@ -632,9 +632,9 @@ valine:
   guest_info: nick,mail,link # Custom comment header
   pageSize: 10 # Pagination size
   language: zh-cn # Language, available values: en, zh-cn
-  visitor: false # Article reading statistic
+  visitor: true # Article reading statistic
   comment_count: true # If false, comment count will only be displayed in post page, not in home page
-  recordIP: false # Whether to record the commenter IP
+  recordIP: true # Whether to record the commenter IP
   serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)
   #post_meta_order: 0
 
@@ -723,12 +723,12 @@ firestore:
 # Show Views / Visitors of the website / page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi
 busuanzi_count:
-  enable: true
-  total_visitors: true
-  total_visitors_icon: user
-  total_views: true
+  enable: true #开启不蒜子访问统计，默认是false
+  total_visitors: true #站点总访问量
+  total_visitors_icon: user #icon皆为对应图标
+  total_views: true #所有页面的总浏览量
   total_views_icon: eye
-  post_views: true
+  post_views: false #文章浏览量
   post_views_icon: eye
 
 
@@ -751,7 +751,7 @@ algolia_search:
 # Local Search
 # Dependencies: https://github.com/theme-next/hexo-generator-searchdb
 local_search:
-  enable: false
+  enable: true
   # If auto, trigger search by changing input.
   # If manual, trigger search by pressing enter key or search button.
   trigger: auto
@@ -760,7 +760,7 @@ local_search:
   # Unescape html strings to the readable one.
   unescape: false
   # Preload the search data when the page loads.
-  preload: false
+  preload: true
 
 # Swiftype Search API Key
 swiftype_key:

@@ -10,7 +10,10 @@ type: "links"
 
 <div>
     <div class="links-content">
-        <div class="link-navigation"></div>
+        <div class="link-navigation">
+        <div class="card"><a href="https://co5.me" target="_blank" data-pjax-state="">
+        <div class="thumb" style="background: url( https://co5.me//images/avatar.png);"></div></a><div class="card-header"><div><a href="https://co5.me" target="_blank" data-pjax-state="">Shioko</a></div></div></div>
+        </div>
     </div>
 </div>
 
@@ -34,4 +37,4 @@ type: "links"
 
 {% endnote %}
 
-<script src="link.js" type="text/javascript"></script>
+<!--<script src="link.js" type="text/javascript"></script>-->
