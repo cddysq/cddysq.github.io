@@ -218,8 +218,6 @@ local_search:
   preload: true
 ```
 
-
-
 {% note info %}
 
 ## 给每篇文章后添加结束标语
