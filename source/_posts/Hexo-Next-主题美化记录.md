@@ -220,6 +220,28 @@ local_search:
 
 {% note info %}
 
+## 添加图片灯箱
+
+{% endnote %}
+
+灯箱功能，实现点击图片后放大聚焦图片，并支持幻灯片播放、全屏播放、缩略图、快速分享到社交媒体等，该功能由 [fancyBox](https://github.com/fancyapps/fancybox) 提供。
+
+在博客根目录执行以下命令安装相关依赖：
+
+```shell
+git clone https://github.com/theme-next/theme-next-fancybox3 themes/next/source/lib/fancybox
+```
+
+在主题配置文件中搜索 `fancybox`设置为`true`
+
+``` yml themes\next\_config.yml
+# FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
+# For more information: https://fancyapps.com/fancybox
+fancybox: true
+```
+
+{% note info %}
+
 ## 给每篇文章后添加结束标语
 
 {% endnote %}
