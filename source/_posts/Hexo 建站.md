@@ -6,6 +6,7 @@ tags:
   - 建站
   - 美化
 top: true
+abbrlink: 8613f919
 date: 2017-01-24 00:00:00
 ---
 
@@ -135,6 +136,19 @@ custom_file_path:
   style: source/_data/styles.styl # 开启自定义样式文件加载
 ```
 
+### 外挂文章顶部配置
+
+对于在主题文章 `themes\next\layout\_macro\post.swig` 文件的修改，迁移到 `blog\source\_data\post-meta.swig` 文件中，只要属性标签相同会覆盖主题默认。
+
+然后在主题配置文件中搜索 `custom_file_path` 选项，取消 `post-meta.swig` 的注释：
+
+```yml next.yml
+custom_file_path:
+  #head: source/_data/head.swig
+  ......
+  postMeta: source/_data/post-meta.swig
+```
+
 
 
 ## 配置主题
@@ -226,6 +240,47 @@ social:
   E-Mail: mailto:2056423011@qq.com || envelope
 ```
 
+### 修改文内链接样式
+
+未修改时，文内链接颜色和普通文本没有区别：
+
+![初始样式](https://s2.ax1x.com/2019/12/24/lCB73n.png)
+
+为了突出区别性，在样式文件中添加下列的代码：
+```css styles.styl
+//修改文内链接样
+.post-body p a {
+    color: #0593d3;
+    border-bottom: none;
+    border-bottom: 1px solid #0593d3;
+    &:hover {
+        color: #fc6423;
+        border-bottom: none;
+        border-bottom: 1px solid #fc6423;
+    }
+}
+```
+![改后样式](https://s2.ax1x.com/2019/12/24/lCDCg1.png)
+
+### 添加文章阴影效果
+
+在样式文件中加入如下内容
+
+```css styles.styl
+//文章阴影
+.post-block{
+		margin-top: 60px;
+	    margin-bottom: 60px;
+	    padding: 25px;
+	    background:rgba(255,255,255,0.9) none repeat scroll !important; //添加透明效果
+	    -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+	    -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+	}
+	.pagination, .comments {
+      opacity: 0;
+    }
+```
+
 ### 开启代码块复制功能
 
 在主题配置文件中，搜索 `codeblock` 进行如下修改：
@@ -237,8 +292,6 @@ social:
     show_result: true # 显示复制结果
     style: flat # 风格
 ```
-
-
 
 ### 回到顶部按钮显示百分比
 
@@ -322,4 +375,64 @@ keywords: Java,Web # 关键字
 author: Rainbow Cat # 作者名称
 language: zh-CN # 网站语言
 timezone: '' # 时区
+```
+
+## 插件使用
+
+### 置顶文章
+
+使用插件： [hexo-generator-index-pin-top](https://github.com/netcan/hexo-generator-index-pin-top) 
+
+在博客根目录执行以下命令：
+
+```shell
+npm uninstall hexo-generator-index --save
+npm install hexo-generator-index-pin-top --save
+```
+
+找到`themes\next\layout\_macro\post.swig`文件，定位到`<div class="post-meta">`标签下，插入如下代码：
+
+```diff
+<div class="post-meta">
++    {% if post.top %}
++   	<i class="fa fa-thumb-tack"></i>
++    	<font color="RED">置顶</font>
++    	<span class="post-meta-divider">|</span>
++    {% endif %}
+```
+
+> 如果在 post-meta.swig 进行添加，会将置顶标签置于顶栏最后显示
+
+接下来在需要置顶的文章头部添加 `top: true` 或者 `top: n`，这里的n是数字，数字越大表示置顶等级越高：
+
+```diff
+title: xxx
+date: xxx
+categories:
+  - xx
+tags:
+  - xx
++top: true
+```
+
+### Url 持久化
+
+使用插件：[hexo-abbrlink](https://github.com/rozbo/hexo-abbrlink)
+
+Hexo 默认的文章链接形式为`domain/year/month/day/postname`，默认就是一个四级url，并且可能造成 url 过长，对搜索引擎是十分不友好的。
+
+在博客根目录安装 `hexo-abbrlink`
+
+```shell 
+npm install hexo-abbrlink --save
+```
+
+打开站点配置文件，搜索 `permalink` 改为如下配置：
+
+```yml _config.yml
+#permalink: :year/:month/:day/:title/
+permalink: archives/:abbrlink.html
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex
 ```

@@ -25,8 +25,8 @@ custom_file_path:
   #head: source/_data/head.swig
   #header: source/_data/header.swig
   #sidebar: source/_data/sidebar.swig
-  #postMeta: source/_data/post-meta.swig
-  #postBodyEnd: source/_data/post-body-end.swig
+  postMeta: source/_data/post-meta.swig
+  postBodyEnd: source/_data/post-body-end.swig
   #footer: source/_data/footer.swig
   #bodyEnd: source/_data/body-end.swig
   #variable: source/_data/variables.styl
@@ -1034,3 +1034,8 @@ vendors:
 css: css
 js: js
 images: images
+
+# ----自定义配置----
+
+# 开启点击爱心特效
+clicklove: true

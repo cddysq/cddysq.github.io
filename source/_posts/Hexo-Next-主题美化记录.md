@@ -8,87 +8,6 @@ top: true
 abbrlink: 15baca53
 date: 2019-12-20 00:00:00
 ---
-{% note info %}
-## 修改文内链接样式
-{% endnote %}
-
-未修改时，文内链接颜色和普通文本没有区别：
-
-![初始样式](https://s2.ax1x.com/2019/12/24/lCB73n.png)
-
-为了突出区别性，我们在`themes\next\source\css\_common\components\post\post.styl`文件中添加下列的代码：
-```css
-.post-body p a {
-    color: #0593d3;
-    border-bottom: none;
-    border-bottom: 1px solid #0593d3;
-    &:hover {
-        color: #fc6423;
-        border-bottom: none;
-        border-bottom: 1px solid #fc6423;
-    }
-}
-```
-![改后样式](https://s2.ax1x.com/2019/12/24/lCDCg1.png)
-
-<!-- more -->
-
-{% note info %}
-## 添加文章置顶功能
-{% endnote %}
-
-在站点根目录执行命令：
-
-```shell
-npm uninstall hexo-generator-index --save
-npm install hexo-generator-index-pin-top --save
-```
-
-找到`themes\next\layout\_macro\post.swig`文件，定位到`<div class="post-meta">`标签下，插入如下代码：
-
-```diff
-<div class="post-meta">
-+    {% if post.top %}
-+   	<i class="fa fa-thumb-tack"></i>
-+    	<font color="RED">置顶</font>
-+    	<span class="post-meta-divider">|</span>
-+    {% endif %}
-```
-
-接下来在需要置顶的文章头部添加 `top: true` 或者 `top: n`，这里的n是数字，数字越大表示置顶等级越高：
-
-```diff
-title: xxx
-date: xxx
-categories:
-  - xx
-tags:
-  - xx
-+top: true
-```
-
-{% note info %}
-
-## 文章添加阴影效果
-
-{% endnote %}
-
-找到`themes\next\source\css\_common\components\post\post.styl`文件，将`post-block`代码进行如下更改：
-```css
-if (hexo-config('motion.transition.post_block')) {
-    .post-block{
-		margin-top: 60px;
-	    margin-bottom: 60px;
-	    padding: 25px;
-	    background:rgba(255,255,255,0.9) none repeat scroll !important; //添加透明效果
-	    -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
-	    -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
-	}
-	.pagination, .comments {
-      opacity: 0;
-    }
-  }
-```
 
 {% note info %}
 
@@ -112,6 +31,7 @@ tags:
 以下为隐藏内容
 ```
 
+<!-- more -->
 
 {% note info %}
 
@@ -119,19 +39,23 @@ tags:
 
 {% endnote %}
 
-1. 在`themes\next\source\js\src`下新建文件`clicklove.js`，接着把如下代码拷贝粘贴到`clicklove.js`文件中。
+1.在`blog\source\js`下新建文件`clicklove.js`，接着把如下代码拷贝粘贴到`clicklove.js`文件中。
+
 ```js
 !function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
 ```
-> 如没有src目录直接新建一个即可，这里只是为了后期统一进行管理。
-2. 在`themes\next\layout\_layout.swig`文件末尾添加如下代码：
+> 如没有 js 目录直接新建一个即可，这里只是为了后期统一进行管理。
+2.在 `post-body-end` 文件中加入如下代码：
+
 ```js
-<!-- 页面点击小红心 -->
+{# 页面点击小红心 #}
 {% if theme.clicklove %}
-      <script type="text/javascript" src="/js/src/clicklove.js"></script>
+      <script type="text/javascript" src="/js/clicklove.js"></script>
 {% endif %}
 ```
-3. 在主题配置文件`_config.yml`合适的位置（一般是最后一行）添加`clicklove : true`启用刚才的配置。
+> `post-body-end` 文件需要在主题配置文件的 `custom_file_path` 选项中取消注释
+
+3.在主题配置文件（一般是最后一行）添加`clicklove : true`启用刚才的配置。
 
 {% note info %}
 

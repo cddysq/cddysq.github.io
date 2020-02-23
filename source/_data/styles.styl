@@ -1,3 +1,26 @@
+//修改文内链接样式
+.post-body p a {
+    color: #0593d3;
+    border-bottom: none;
+    border-bottom: 1px solid #0593d3;
+    &:hover {
+        color: #fc6423;
+        border-bottom: none;
+        border-bottom: 1px solid #fc6423;
+    }
+}
+//文章阴影
+.post-block{
+		margin-top: 60px;
+	    margin-bottom: 60px;
+	    padding: 25px;
+	    background:rgba(255,255,255,0.9) none repeat scroll !important; //添加透明效果
+	    -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+	    -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+	}
+	.pagination, .comments {
+      opacity: 0;
+    }
 //版权声明侧边栏样式
 .post-copyright {
     margin: 2em 0 0;
