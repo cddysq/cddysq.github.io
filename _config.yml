@@ -103,3 +103,12 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: ''
+  
+# ----自定义配置----
+
+#搜索配置   
+search:
+  path: search/search.xml
+  field: post # 指定搜索范围，可选 post | page | all
+  format: html # 指定页面内容形式，可选 html | raw (Markdown) | excerpt | more
+  limit: 10000 # 限定搜索结果条数

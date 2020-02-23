@@ -1,4 +1,5 @@
-{# 页面点击小红心 #}
-{% if theme.clicklove %}
-      <script type="text/javascript" src="/js/clicklove.js"></script>
-{% endif %}
+<div>
+    {% if theme.jiewei %}
+      <div style="text-align:center;color: #ccc;font-size:20px;">------------- 本 文 结 束 <i class="fa fa-paw"></i> 感 谢 您 的 阅 读 -------------</div>
+    {% endif %}
+</div>

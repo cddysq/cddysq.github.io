@@ -149,6 +149,19 @@ custom_file_path:
   postMeta: source/_data/post-meta.swig
 ```
 
+### 外挂文章结束配置
+
+在 `blog/source/_data/` 新建 `post-body-end.swig` 文件
+
+然后在主题配置文件中搜索 `custom_file_path` 选项，取消 `post-body-end.swig` 的注释：
+
+```yml next.yml
+custom_file_path:
+  #head: source/_data/head.swig
+  ......
+  postBodyEnd: source/_data/post-body-end.swig
+```
+
 
 
 ## 配置主题
@@ -304,6 +317,25 @@ back2top:
   scrollpercent: true # 按钮上显示百分比
 ```
 
+### 添加文章结束语
+
+在 `post-body-end.swig` 文件中加入如下配置：
+
+```markdown post-body-end.swig
+<div>
+    {% if theme.jiewei %}
+      <div style="text-align:center;color: #ccc;font-size:20px;">------------- 本 文 结 束 <i class="fa fa-paw"></i> 感 谢 您 的 阅 读 -------------</div>
+    {% endif %}
+</div>
+```
+
+回到主题配置文件中，启用配置：
+
+```yml next.yml
+# 文章末尾添加“本文结束”标记
+jiewei: true
+```
+
 ### 添加版权协议
 
 在主题配置文件中，搜索 `creative_commons` 选项，进行如下修改：
@@ -435,4 +467,35 @@ permalink: archives/:abbrlink.html
 abbrlink:
   alg: crc32  # 算法：crc16(default) and crc32
   rep: hex    # 进制：dec(default) and hex
+```
+
+### 本地搜索
+
+使用插件：[hexo-generator-searchdb](https://github.com/theme-next/hexo-generator-searchdb)
+
+1.在博客根目录执行以下命令
+
+```shell
+npm install hexo-generator-searchdb --save
+```
+
+2.在站点配置文件中加入以下内容：
+
+```yml
+search:
+  path: search.xml 
+  field: post # 指定搜索范围，可选 post | page | all
+  format: html # 指定页面内容形式，可选 html | raw (Markdown) | excerpt | more
+  limit: 10000 # 限定搜索结果条数
+```
+
+3.在主题配置文件中 → 搜索 `local_search` 选项，开启搜索
+
+```yml
+local_search:
+  enable: true # 默认为false,设置为true
+  trigger: auto
+  top_n_per_article: 1
+  unescape: false
+  preload: true
 ```
