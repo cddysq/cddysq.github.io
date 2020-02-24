@@ -534,7 +534,7 @@ pjax: false
 
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
 # For more information: https://fancyapps.com/fancybox
-fancybox: false
+fancybox: true
 
 # A JavaScript library for zooming images like Medium.
 # Do not enable both `fancybox` and `mediumzoom`.
@@ -547,7 +547,7 @@ lazyload: false
 
 # Pangu Support
 # For more information: https://github.com/vinta/pangu.js
-pangu: false
+pangu: true
 
 # Quicklink Support
 # For more information: https://github.com/GoogleChromeLabs/quicklink
@@ -727,12 +727,12 @@ firestore:
 # Show Views / Visitors of the website / page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi
 busuanzi_count:
-  enable: false
-  total_visitors: true
-  total_visitors_icon: user
-  total_views: true
+  enable: true # 开启不蒜子访问统计，默认是false
+  total_visitors: true # 站点总访问量
+  total_visitors_icon: user # icon皆为对应图标
+  total_views: true # 所有页面的总浏览量
   total_views_icon: eye
-  post_views: true
+  post_views: false # 文章浏览量
   post_views_icon: eye
 
 

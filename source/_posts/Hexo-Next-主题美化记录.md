@@ -97,13 +97,7 @@ tags:
 
 灯箱功能，实现点击图片后放大聚焦图片，并支持幻灯片播放、全屏播放、缩略图、快速分享到社交媒体等，该功能由 [fancyBox](https://github.com/fancyapps/fancybox) 提供。
 
-在博客根目录执行以下命令安装相关依赖：
-
-```shell
-git clone https://github.com/theme-next/theme-next-fancybox3 themes/next/source/lib/fancybox
-```
-
-在主题配置文件中搜索 `fancybox`设置为`true`
+在主题配置文件中搜索 `fancybox`设置为`true`。
 
 ``` yml themes\next\_config.yml
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
@@ -139,11 +133,16 @@ window.onload = function () {
 };
 ```
 
-2. 在`head.swig`文件中，添加引用：
+2.在`head.swig`文件中，添加引用：
+
 ```js head.swig
 <!--搞怪欺骗-->
 <script type="text/javascript" src="/js/funny_title.js"></script>
 ```
+
+## 中英文之间自动添加空格
+
+该功能由 [pangu](https://github.com/vinta/pangu.js) 提供，在主题配置文件中设置`pangu: true`即可启用该动能。
 
 {% note info %}
 
@@ -151,7 +150,8 @@ window.onload = function () {
 
 {% endnote %}
 
-1. 在`themes\next\_config.yml`主题配置文件中，开启配置：
+1.在主题配置文件中，开启配置：
+
 ```yml
 busuanzi_count:
   enable: true #开启不蒜子访问统计，默认是false
@@ -162,7 +162,7 @@ busuanzi_count:
   post_views: false #文章浏览量
   post_views_icon: eye
 ```
-2. 为了更加美观，我们在`themes\next\layout\_third-party\statistics\busuanzi-counter.swig`文件中，添加如下提示文字：
+2.为了更加美观，我们在`themes\next\layout\_third-party\statistics\busuanzi-counter.swig`文件中，添加如下提示文字：
 
 ![显示优化](https://s2.ax1x.com/2020/01/27/1uWgGd.png)
 
