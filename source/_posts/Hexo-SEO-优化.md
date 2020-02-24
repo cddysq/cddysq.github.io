@@ -28,7 +28,7 @@ SEO（Search Engine Optimization）即搜索引擎优化，[维基百科](https:
 
 #### 验证域名所有权
 
-谷歌搜索有多种验证方式，这里我选择谷歌推荐的 HTML 文件上传方式。下载 HTML 验证文件，拷贝到 `博客根目录/sources/` 文件夹下。为了使 Hexo 不处理此验证文件，并且不生成关于此文件的 `sitemap`，我们需要打开验证文件，在最上面添加以下代码：
+谷歌搜索有多种验证方式，这里我选择谷歌推荐的 HTML 文件上传方式。下载 HTML 验证文件，拷贝到 `blog/sources/` 文件夹下。为了使 Hexo 不处理此验证文件，并且不生成关于此文件的 `sitemap`，我们需要打开验证文件，在最上面添加以下代码：
 
 ```html
 layout: false
@@ -82,7 +82,7 @@ sitemap:
 #### 添加robots.txt
 
 `robots.txt`（统一小写）是一种存放于网站根目录下的ASCII编码的文本文件，它的作用是告诉搜索引擎此网站中哪些内容是可以被爬取的，哪些是禁止爬取的。
-在 `source` 目录下增加 `rebots.txt` 文件，网站生成后在网站的根目录(`站点目录/public/`)下
+在 `source` 目录下增加 `rebots.txt` 文件，网站生成后在网站的根目录(`blog/public/`)下
 
 ```markdown
 User-agent: *
@@ -104,3 +104,46 @@ Sitemap: https://你的域名/baidusitemap.xml
 - Allow 表示允许被访问的
 - Disallow 是不允许的意思。
 - 后面两个 Sitemap 就是网站地图了。而网站地图前面说了是给爬虫用的。这里配置在 robots 中。
+
+### Baidu
+
+百度站长平台sitemap提交是邀请制的，并没有对所有站长开放，只有网站到一定等级百度才会在你后台开放提交sitemap的入口。
+
+登录[百度站长平台](https://link.jianshu.com/?t=http://ziyuan.baidu.com/site/siteadd)进行网站验证，官方已有说明文档，和Google也类似，不过多赘述。
+
+#### 安装插件
+
+- 插件地址：[Sitemap generator](https://github.com/coneycode/hexo-generator-baidu-sitemap)
+
+```shell
+npm install hexo-generator-baidu-sitemap --save
+```
+
+打开站点配置文件添加如下内容：
+
+```yml _config.yml
+# 百度站点地图
+baidusitemap:
+  path: baidusitemap.xml
+```
+
+#### 百度主动推送
+
+- 插件地址：[Hexo Baidu URL Submit](https://github.com/huiwang/hexo-baidu-url-submit)
+
+```shell
+npm install hexo-baidu-url-submit --save
+```
+
+打开站点配置文件添加如下内容：
+
+```yml _config.yml
+# 百度主动推送
+baidu_url_submit:
+  count: 5 				     # 提交最新的五个链接
+  host: www.yileaf.com 	     # 百度站长平台中注册的域名
+  token:  	 # 秘钥
+  path: baidu_urls.txt 		 # 文本文档的地址， 新链接会保存在此文本文档里  
+```
+
+重新部署博客推送即可将站点连接一并推送至百度。

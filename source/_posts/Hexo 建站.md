@@ -574,4 +574,3 @@ npm install hexo-deployer-git --save
 ```shell
 hexo clean & hexo g & hexo d
 ```
-

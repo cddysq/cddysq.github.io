@@ -474,7 +474,7 @@ disable_baidu_transformation: false
 canonical: true
 
 # Change headers hierarchy on site-subtitle (will be main site description) and on all post / page titles for better SEO-optimization.
-seo: false
+seo: true
 
 # If true, site-subtitle will be added to index page.
 # Remember to set up your site-subtitle in Hexo `_config.yml` (e.g. subtitle: Subtitle)
@@ -1050,4 +1050,4 @@ jiewei: true
 aplayer: true
 # 开启看板娘
 live2d:
-  enable: true
+  enable: true 

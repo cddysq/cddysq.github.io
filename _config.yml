@@ -121,3 +121,15 @@ symbols_count_time:
   time: true # 阅读时长
   total_symbols: true # 所有文章总字数
   total_time: true # 所有文章阅读中时长
+# Google sitemap
+sitemap:
+    path: search/sitemap.xml  
+# 百度站点地图
+baidusitemap:
+  path: search/baidusitemap.xml
+# 百度主动推送
+baidu_url_submit:
+  count: 5 				      # 提交最新的五个链接
+  host: www.yileaf.com 	      # 百度站长平台中注册的域名
+  token: 5J5x8ebbeOD6gEH3 	  # 秘钥，在主动推送文档有写
+  path: search/baidu_urls.txt # 文本文档的地址， 新链接会保存在此文本文档里  
