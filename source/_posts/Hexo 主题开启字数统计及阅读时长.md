@@ -15,7 +15,7 @@ date: 2020-01-28 20:27:30
 在博客根目录执行以下命令：
 
 ```shell
-npm i hexo-symbols-count-time
+npm i hexo-symbols-count-time --save
 ```
 
 <!-- more -->	

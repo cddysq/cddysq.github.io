@@ -39,13 +39,14 @@ tags:
 
 {% endnote %}
 
-1.在`blog\source\js`下新建文件`clicklove.js`，接着把如下代码拷贝粘贴到`clicklove.js`文件中。
+在`blog\source\js`下新建文件`clicklove.js`，接着把如下代码拷贝粘贴到`clicklove.js`文件中。
 
 ```js
 !function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
 ```
 > 如没有 js 目录直接新建一个即可，这里只是为了后期统一进行管理。
-2.在 `body-end.swig` 文件中加入如下代码：
+
+在 `body-end.swig` 文件中加入如下代码：
 
 ```js
 {# 页面点击小红心 #}
@@ -55,7 +56,7 @@ tags:
 ```
 > `body-end.swig` 文件需要在主题配置文件的 `custom_file_path` 选项中取消注释
 
-3.在主题配置文件（一般是最后一行）添加`clicklove : true`启用刚才的配置。
+在主题配置文件（一般是最后一行）添加`clicklove : true`启用刚才的配置。
 
 {% note info %}
 
@@ -63,7 +64,7 @@ tags:
 
 {% endnote %}
 
-1.找到 `body-end.swig` 文件，加入以下内容：
+找到 `body-end.swig` 文件，加入以下内容：
 
 ```html
 <div class="bg_content">
@@ -73,9 +74,9 @@ tags:
    <script type="text/javascript" src="/js/dynamic_bg.js"></script>
 {% endif %}
 ```
-2.在`blog\source\js`中新建文件`dynamic_bg.js`，代码链接中可见：[dynamic_bg.js](https://github.com/CodeHaotian/CodeHaotian.github.io/blob/HexoNexT/themes/next/source/js/src/dynamic_bg.js)
+在`blog\source\js`中新建文件`dynamic_bg.js`，代码链接中可见：[dynamic_bg.js](https://github.com/CodeHaotian/CodeHaotian.github.io/blob/HexoNexT/themes/next/source/js/src/dynamic_bg.js)
 
-3.在 `styles.styl` 文件末尾添加如下内容：
+在 `styles.styl` 文件末尾添加如下内容：
 
 ```css
 .bg_content {
@@ -86,7 +87,7 @@ tags:
   height: 100%;
 }
 ```
-4.在主题配置文件`_config.yml`合适的位置（一般是最后一行）添加`canvas: true`启用刚才的配置。
+在主题配置文件`_config.yml`合适的位置（一般是最后一行）添加`canvas: true`启用刚才的配置。
 
 
 {% note info %}
@@ -111,7 +112,7 @@ fancybox: true
 
 {% endnote %}
 
-1.在`blog\source\js`文件夹下创建`funny_title.js`，添加代码：
+在`blog\source\js`文件夹下创建`funny_title.js`，添加代码：
 
 ```js
 /*离开当前页面时修改网页标题，回到当前页面时恢复原来标题 */
@@ -133,7 +134,7 @@ window.onload = function () {
 };
 ```
 
-2.在`head.swig`文件中，添加引用：
+在`head.swig`文件中，添加引用：
 
 ```js head.swig
 <!--搞怪欺骗-->
@@ -150,7 +151,7 @@ window.onload = function () {
 
 {% endnote %}
 
-1.在主题配置文件中，开启配置：
+在主题配置文件中，开启配置：
 
 ```yml
 busuanzi_count:
@@ -162,7 +163,7 @@ busuanzi_count:
   post_views: false #文章浏览量
   post_views_icon: eye
 ```
-2.为了更加美观，我们在`themes\next\layout\_third-party\statistics\busuanzi-counter.swig`文件中，添加如下提示文字：
+为了更加美观，我们在`themes\next\layout\_third-party\statistics\busuanzi-counter.swig`文件中，添加如下提示文字：
 
 ![显示优化](https://s2.ax1x.com/2020/01/27/1uWgGd.png)
 
@@ -176,7 +177,7 @@ busuanzi_count:
 
 {% endnote %}
 
-1.在`footer.swig`文件，加入倒计时代码：
+在`footer.swig`文件，加入倒计时代码：
 
 ```js
 <span id="sitetime"></span>
@@ -217,7 +218,8 @@ busuanzi_count:
 </script>
 ```
 
-2. 在`styles.styl`文件中给倒计时添加样式：
+在`styles.styl`文件中给倒计时添加样式：
+
 ```css
 #sitetime {
   background-image: -webkit-linear-gradient(left, #aa4b6b, #6b6b83, #3b8d99);

@@ -112,3 +112,9 @@ search:
   field: post # 指定搜索范围，可选 post | page | all
   format: html # 指定页面内容形式，可选 html | raw (Markdown) | excerpt | more
   limit: 10000 # 限定搜索结果条数
+# 统计配置  
+symbols_count_time:
+  symbols: true # 文章字数
+  time: true # 阅读时长
+  total_symbols: true # 所有文章总字数
+  total_time: true # 所有文章阅读中时长
