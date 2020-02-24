@@ -936,7 +936,7 @@ vendors:
 
   # Internal version: 0.2.8
   # pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js
-  pjax:
+  pjax: 
 
   # FancyBox
   # jquery: //cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js
@@ -1046,3 +1046,8 @@ clicklove: true
 canvas: true 
 # 文章末尾添加“本文结束”标记
 jiewei: true
+# 开启APlayer播放器
+aplayer: true
+# 开启看板娘
+live2d:
+  enable: true

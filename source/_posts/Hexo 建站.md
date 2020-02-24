@@ -26,7 +26,7 @@ date: 2017-01-24 00:00:00
 npm install -g hexo-cli
 ```
 
-`-g` 表示全局安装，会将 Hexo 命令加入环境变量中，以使其在 cmd 下有效。
+- `-g` 表示全局安装，会将 Hexo 命令加入环境变量中，以使其在 cmd 下有效。
 
 新建博客目录，然后在该路径下执行初始化命令：
 
@@ -60,6 +60,8 @@ hexo s # 启动服务
 ```
 
 打开浏览器访问 `http://localhost:4000` 即可看到内容。
+
+<!-- more -->
 
 ## 安装 Next 主题
 
@@ -437,7 +439,9 @@ footer:  # 底部信息区
     version: false # 隐藏主题版本号
 ```
 
+![原始页脚](https://s2.ax1x.com/2020/02/24/38244e.png)
 
+![新页脚](https://s2.ax1x.com/2020/02/24/382LHf.png)
 
 ## 配置站点
 
@@ -544,3 +548,30 @@ local_search:
   unescape: false
   preload: true
 ```
+
+## 部署站点
+
+打开站点配置文件，搜索`deploy`选项，填写对应Git仓库地址：
+
+```yml _config.yml
+deploy:
+  type: git
+  repo:
+   github: git@github.com:******.git,master
+   coding: git@e.coding.net:******.git,master
+```
+
+> 我为双向部署，单个仓库去掉一条即可
+
+在博客根目录安装部署插件：[hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git)
+
+```shell
+npm install hexo-deployer-git --save
+```
+
+推送博客
+
+```shell
+hexo clean & hexo g & hexo d
+```
+

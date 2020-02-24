@@ -1,10 +1,9 @@
 ---
-title: Hexo-NexT 主题美化记录
+title: Hexo-NexT 后续优化
 categories:
   - Hexo
 tags:
   - 美化
-top: true
 abbrlink: 15baca53
 date: 2019-12-20 00:00:00
 ---

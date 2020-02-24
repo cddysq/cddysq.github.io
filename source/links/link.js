@@ -1,4 +1,3 @@
-
 link = {
     init: function () {
         const that = this;
