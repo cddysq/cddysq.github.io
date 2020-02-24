@@ -117,7 +117,8 @@ fancybox: true
 
 {% endnote %}
 
-1. 在`themes\next\source\js\src`文件夹下创建`funny_title.js`，添加代码：
+1.在`blog\source\js`文件夹下创建`funny_title.js`，添加代码：
+
 ```js
 /*离开当前页面时修改网页标题，回到当前页面时恢复原来标题 */
 window.onload = function () {
@@ -138,10 +139,10 @@ window.onload = function () {
 };
 ```
 
-2. 在`themes\next\layout\_layout.swig`文件中，添加引用（注：在swig末尾添加）：
-```swig
+2. 在`head.swig`文件中，添加引用：
+```js head.swig
 <!--搞怪欺骗-->
-<script type="text/javascript" src="/js/src/funny_title.js"></script>
+<script type="text/javascript" src="/js/funny_title.js"></script>
 ```
 
 {% note info %}
@@ -175,17 +176,8 @@ busuanzi_count:
 
 {% endnote %}
 
-1. 在`themes\next\layout\_partials\footer.swig`文件，如下图位置加入倒计时代码：
-```js
-{%- if theme.footer.powered.enable and theme.footer.theme.enable %}
-  {#<span class="post-meta-divider">|</span>#}
-{%- endif %}
-//此位置插入代码
-{%- if theme.footer.theme.enable %}
-  .....
-{%- endif %}
-```
-倒计时代码：
+1.在`footer.swig`文件，加入倒计时代码：
+
 ```js
 <span id="sitetime"></span>
 <script language=javascript>
@@ -225,7 +217,7 @@ busuanzi_count:
 </script>
 ```
 
-2. 在`themes\next\source\css\main.styl`文件中给倒计时添加样式：
+2. 在`styles.styl`文件中给倒计时添加样式：
 ```css
 #sitetime {
   background-image: -webkit-linear-gradient(left, #aa4b6b, #6b6b83, #3b8d99);

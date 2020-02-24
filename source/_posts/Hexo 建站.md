@@ -136,6 +136,21 @@ custom_file_path:
   style: source/_data/styles.styl # 开启自定义样式文件加载
 ```
 
+### 外挂网站顶部配置
+
+在 `blog/source/_data/` 新建 `head.swig` 文件。
+
+然后在主题配置文件中搜索 `custom_file_path` 选项，取消 `head.swig`  的注释：
+
+```yml next.yml
+custom_file_path:
+  head: source/_data/head.swig
+```
+
+在此文件中引入的内容位置为：
+
+![最顶层引入](https://s2.ax1x.com/2020/02/24/33XthR.png)
+
 ### 外挂文章顶部配置
 
 对于在主题文章 `themes\next\layout\_macro\post.swig` 文件的修改，迁移到 `blog\source\_data\post-meta.swig` 文件中，只要属性标签相同会覆盖主题默认。
@@ -151,7 +166,7 @@ custom_file_path:
 
 ### 外挂文章结束配置
 
-在 `blog/source/_data/` 新建 `post-body-end.swig` 文件
+在 `blog/source/_data/` 新建 `post-body-end.swig` 文件。
 
 然后在主题配置文件中搜索 `custom_file_path` 选项，取消 `post-body-end.swig` 的注释：
 
@@ -162,7 +177,37 @@ custom_file_path:
   postBodyEnd: source/_data/post-body-end.swig
 ```
 
+### 外挂结尾配置
 
+在 `blog/source/_data/` 新建 `footer.swig` 文件。
+
+然后在主题配置文件中搜索 `custom_file_path` 选项，取消 `footer.swig`  的注释：
+
+```yml next.yml
+custom_file_path:
+  footer: source/_data/footer.swig
+```
+
+在此文件中引入的内容位置为：
+
+![footer 位置](https://s2.ax1x.com/2020/02/24/38piXq.png)
+
+### 外挂网站结束配置
+
+在 `blog/source/_data/` 新建 `body-end.swig` 文件。
+
+然后在主题配置文件中搜索 `custom_file_path` 选项，取消 `body-end.swig`  的注释：
+
+```yml next.yml
+custom_file_path:
+  ......
+  #footer: source/_data/footer.swig
+  bodyEnd: source/_data/body-end.swig
+```
+
+在此文件中引入的内容位置为：
+
+![底部位置](https://s2.ax1x.com/2020/02/24/33j2a4.png)
 
 ## 配置主题
 
