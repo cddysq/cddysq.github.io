@@ -153,6 +153,17 @@ custom_file_path:
 
 ![最顶层引入](https://s2.ax1x.com/2020/02/24/33XthR.png)
 
+### 外挂边栏配置
+
+在 `blog/source/_data/` 新建 `sidebar.swig`文件。
+
+然后在主题配置文件中搜索 `custom_file_path` 选项，取消 `sidebar.swig`  的注释：
+
+```yml next.yml
+custom_file_path:
+  sidebar: source/_data/sidebar.swig
+```
+
 ### 外挂文章顶部配置
 
 对于在主题文章 `themes\next\layout\_macro\post.swig` 文件的修改，迁移到 `blog\source\_data\post-meta.swig` 文件中，只要属性标签相同会覆盖主题默认。
@@ -382,6 +393,26 @@ back2top:
 # 文章末尾添加“本文结束”标记
 jiewei: true
 ```
+
+### 开启文章打赏
+
+在主题配置文件中搜索`reward`选项，配置打赏选项：
+
+```yml next.yml
+reward_settings:
+  enable: false # 设置为true,每篇文章都将开启打赏功能
+  animation: true # 是否开启动画
+
+reward:
+  alipay: /images/alipay.png  #支付宝二维码路径
+  wechatpay: /images/wechatpay.png # 微信二维码路径
+  #paypal: /images/paypal.png
+  #bitcoin: /images/bitcoin.png
+```
+
+> 如果开启全局打赏，可在不需要打赏的文章`front-matter`中设置`reward: false`，反之单独开启设置`reward: true`
+
+将对应二维码，按照主题配置中进行命名，放入`blog/source/images`目录下即可。
 
 ### 添加版权协议
 

@@ -198,9 +198,9 @@ social:
   #Skype: skype:yourname?call|chat || skype
 
 social_icons:
-  enable: true
-  icons_only: false
-  transition: false
+  enable: true # 显示社交图标
+  icons_only: true # 只显示社交图标
+  transition: false # 过渡动画
 
 # Blog rolls
 links_settings:
@@ -249,12 +249,12 @@ read_more_btn: true
 
 # Post meta display settings
 post_meta:
-  item_text: true
-  created_at: true
+  item_text: true # 设为true 可以一行显示，文章的所有属性
+  created_at: true # 显示创建时间
   updated_at:
-    enable: true
-    another_day: true
-  categories: true
+    enable: true # 显示修改的时间
+    another_day: true # 如果创建时间和修改时间一样则显示一个时间
+  categories: true # 显示分类信息
 
 # Post wordcount display settings
 # Dependencies: https://github.com/theme-next/hexo-symbols-count-time
@@ -272,13 +272,13 @@ tag_icon: true # 改用图标前缀
 # Front-matter variable (unsupport animation).
 reward_settings:
   # If true, reward will be displayed in every article by default.
-  enable: false
-  animation: false
+  enable: true
+  animation: true
   #comment: Donate comment here.
 
 reward:
-  #wechatpay: /images/wechatpay.png
-  #alipay: /images/alipay.png
+  alipay: /images/alipay.png
+  wechatpay: /images/wechatpay.png
   #paypal: /images/paypal.png
   #bitcoin: /images/bitcoin.png
 
@@ -690,7 +690,7 @@ add_this_id:
 
 # Google Analytics
 google_analytics:
-  tracking_id: # <app_id>
+  tracking_id: G-KZCY1PM96E # Google Analytics 访问统计id
   # By default, NexT will load an external gtag.js script on your site.
   # If you only need the pageview feature, set the following option to true to get a better performance.
   only_pageview: false
@@ -1026,8 +1026,8 @@ vendors:
   # Internal version: 1.0.0
   # canvas_nest: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js
   # canvas_nest_nomobile: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js
-  canvas_nest:
-  canvas_nest_nomobile:
+  canvas_nest: 
+  canvas_nest_nomobile: 
 
   # Internal version: 1.0.0
   # canvas_ribbon: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js
@@ -1051,3 +1051,7 @@ aplayer: true
 # 开启看板娘
 live2d:
   enable: true 
+# 近期文章配置  
+recent_posts_title: 近期文章
+recent_posts_layout: block
+recent_posts: true

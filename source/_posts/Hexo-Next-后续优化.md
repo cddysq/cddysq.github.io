@@ -10,6 +10,85 @@ date: 2019-12-20 00:00:00
 
 {% note info %}
 
+## 侧边栏添加近期文章
+
+{% endnote %}
+
+打开`blog\source\_data\sidebar.swig`文件，加入以下代码：
+
+```js
+{% if theme.recent_posts %}
+    <div class="links-of-blogroll motion-element {{ "links-of-blogroll-" + theme.recent_posts_layout  }}">
+      <div class="links-of-blogroll-title">
+        <!-- 选择合适的icon -->
+        <i class="fa fa-history fa-{{ theme.recent_posts_icon | lower }}" aria-hidden="true"></i>
+ 		<!-- 这里对应下文主题配置文件的recent_posts_title值 -->
+        {{ theme.recent_posts_title }}
+      </div>
+      <ul class="links-of-blogroll-list"> 
+         <!-- 设置排序规格，此处我采用按照文章更新时间排序 -->
+        {% set posts = site.posts.sort('-updated').toArray() %}
+        <!-- 显示三条近期文章，请自信合理配置 -->
+        {% for post in posts.slice('0', '3') %}
+          <li>
+            <a href="{{ url_for(post.path) }}" title="{{ post.title }}" target="_blank">{{ post.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+{% endif %}
+```
+
+打开主题配置文件，在最后添加如下内容：
+
+```yml next.yml
+# 近期文章配置  
+recent_posts_title: 近期文章
+recent_posts_layout: block
+recent_posts: true
+```
+
+<!-- more -->
+
+重启博客效果如下：
+
+![近期文章默认效果](https://s2.ax1x.com/2020/02/25/3t3br9.png)
+
+> 有点low，开始美化下
+
+打开主题配置文件，搜索`social_icons`选项，进行如下修改：
+
+```yml next.yml
+social_icons:
+  enable: true # 显示社交图标
+  icons_only: true # 只显示社交图标
+  transition: true # 过渡动画
+```
+
+打开`blog\source\_data\styles.styl`文件，加入如下样式：
+
+```css styles.styl
+//近期文章样式
+.links-of-blogroll-title {
+	font-size: 15px;
+}
+.links-of-blogroll-list a {
+	font-weight: bold;
+	border-bottom: none;
+  &:hover{
+	color: #428bca;
+	font-weight: bold;
+	border-bottom: 1px solid #428bca;
+  }
+}
+```
+
+优化后效果如下：
+
+![近期文章效果改](https://s2.ax1x.com/2020/02/25/3tBqqf.png)
+
+{% note info %}
+
 ## 首页文章折叠
 
 {% endnote %}
@@ -29,8 +108,6 @@ tags:
 <!-- more -->
 以下为隐藏内容
 ```
-
-<!-- more -->
 
 {% note info %}
 
@@ -140,7 +217,11 @@ window.onload = function () {
 <script type="text/javascript" src="/js/funny_title.js"></script>
 ```
 
+{% note info %}
+
 ## 中英文之间自动添加空格
+
+{% endnote %}
 
 该功能由 [pangu](https://github.com/vinta/pangu.js) 提供，在主题配置文件中设置`pangu: true`即可启用该动能。
 
