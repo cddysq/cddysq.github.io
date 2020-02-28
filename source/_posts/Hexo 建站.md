@@ -410,7 +410,7 @@ reward:
   #bitcoin: /images/bitcoin.png
 ```
 
-> 如果开启全局打赏，可在不需要打赏的文章`front-matter`中设置`reward: false`，反之单独开启设置`reward: true`
+> 如果开启全局打赏，可在不需要打赏的文章`Front-matter`中设置`reward: false`，反之单独开启设置`reward: true`
 
 将对应二维码，按照主题配置中进行命名，放入`blog/source/images`目录下即可。
 
@@ -580,6 +580,31 @@ local_search:
   preload: true
 ```
 
+### 文章加密
+
+使用插件：[hexo-blog-encrypt](https://github.com/MikeCoder/hexo-blog-encrypt)
+
+1.在博客根目录执行安装命令
+
+```shell
+npm install hexo-blog-encrypt --save
+```
+
+2.在站点配置文件中加入以下内容：
+
+```yml _config.yml
+# Security
+encrypt:
+  abstract: 本文章已加密🐇, 请输入密码查看.
+  message: ( ⓛ ω ⓛ *), 请在此处输入密码，查看加密内容.
+  wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.
+  wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容. 
+```
+
+3.在需要加密的文章`Front-matter`里加入`password: 访问密码`即可。
+
+> 已知问题，解密后初次访问文章，极小部分布局错乱，代码块复制功能失效。刷新页面都可解决。更多高阶用法自行查阅官方文档。
+
 ## 部署站点
 
 打开站点配置文件，搜索`deploy`选项，填写对应Git仓库地址：
@@ -605,3 +630,4 @@ npm install hexo-deployer-git --save
 ```shell
 hexo clean & hexo g & hexo d
 ```
+

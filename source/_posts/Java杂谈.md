@@ -15,7 +15,7 @@ date: 2020-02-17 14:07:53
 - 文章内容仅供参考，不做任何保证
 - ~~xxx~~ : 此标记为可跳过
 - 如对本文有任何建议或提问皆可留言或联系本人
-- 本文初始版本 1.0 → 目前 1.1
+- 本文初始版本 1.0 → 目前 1.2
 
 <!-- more -->
 
@@ -59,11 +59,18 @@ date: 2020-02-17 14:07:53
 
 - Servlet
 
+  | 知识点   |
+  | -------- |
+  | Request  |
+  | Response |
+  | Cookie   |
+  | Session  |
+| Filter   |
+  | Listener |
+
 - Tomcat
 
-- Cookie&Session
-
-- Filter&Listener
+- 浏览器调试网页。F12查看请求路径或者状态码等快速定位异常。
 
 ---
 
@@ -117,6 +124,8 @@ date: 2020-02-17 14:07:53
     | Gateway | 网关           |
     | Hystrix | 断路器 |
     | Ribbon | 负载均衡 |
+
+- 分布式事务：[Seata](https://github.com/seata/seata)
 
 - [ZooKeeper](https://github.com/apache/zookeeper) 服务注册中心
 
