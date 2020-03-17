@@ -15,7 +15,7 @@ date: 2020-02-17 14:07:53
 - 文章内容仅供参考，不做任何保证
 - ~~xxx~~ : 此标记为可跳过
 - 如对本文有任何建议或提问皆可留言或联系本人
-- 本文初始版本 1.0 → 目前 1.2
+- 本文初始版本 1.0 → 目前 1.3
 
 <!-- more -->
 
@@ -131,6 +131,8 @@ date: 2020-02-17 14:07:53
 
 - [Elasticsearch](https://www.elastic.co/cn)  数据库 搜索引擎
 
+- [xxl-job](https://github.com/xuxueli/xxl-job)：分布式可视化任务调度中心 
+
 ---
 
 ## 虚拟化/容器化技术
@@ -143,17 +145,20 @@ date: 2020-02-17 14:07:53
 
 - IntelliJ IDEA  
 
-  | 插件名                         | 概述                      |
-  | ------------------------------ | ------------------------- |
-  | Translation                    | 翻译用                    |
-  | TabNine                        | 代码提示                  |
-  | RestfulToolkit                 | 看接口                    |
-  | MyBatis Log Plugin             | 看 MyBatis 运行产生的 Sql |
-  | JRebel                         | 热加载                    |
-  | Alibaba Java Coding Guidelines | 检查编码规范              |
-  | .ignore                        | Git 文件忽略              |
-  | Maven Helper                   | 排查 Maven 依赖冲突       |
-  | Lombok                         | 此处请自行Google          |
+  | 插件名                                                       | 概述                             |
+  | ------------------------------------------------------------ | -------------------------------- |
+  | Translation                                                  | 翻译用                           |
+  | TabNine                                                      | 代码提示                         |
+  | RestfulToolkit                                               | 看接口                           |
+  | [MyBatisCodeHelper-Pro](https://github.com/gejun123456/MyBatisCodeHelper-Pro) | MyBatis 辅助插件，用过的人都知道 |
+  | MyBatis Log Plugin                                           | 看 MyBatis 运行产生的 Sql        |
+  | JRebel                                                       | 热加载                           |
+  | SonarLint                                                    | 代码质量检查                     |
+  | Alibaba Java Coding Guidelines                               | 检查编码规范                     |
+  | .ignore                                                      | Git 文件忽略                     |
+  | Maven Helper                                                 | 排查 Maven 依赖冲突              |
+  | Lombok                                                       | 此处请自行Google                 |
+  | Background Image Plus                                        | 背景图片更换                     |
 
   推荐教程 → [IntelliJ IDEA 简体中文专题教程](https://github.com/judasn/IntelliJ-IDEA-Tutorial)
 
