@@ -1051,6 +1051,9 @@ aplayer: true
 # 开启看板娘
 live2d:
   enable: true 
+# 开启全站灰白
+huibai:
+  enable: true
 # 近期文章配置  
 recent_posts_title: 近期文章
 recent_posts_layout: block
