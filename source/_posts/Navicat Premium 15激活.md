@@ -8,7 +8,7 @@ abbrlink: 9925702b
 date: 2020-01-16 00:00:00
 ---
 
-> 实测适配目前官网最新15.0.7版
+> 实测适配目前官网最新15.0.14版
 
 ### 下载安装 Navicat
 
@@ -20,13 +20,13 @@ date: 2020-01-16 00:00:00
 
 ### 下载注册工具
 
-- 蓝奏云下载地址：https://www.lanzous.com/i8p64fi
+- 蓝奏云下载地址：https://lanzous.com/icro89a
 - 这里特别感谢工具作者Paolo：~~[项目GitHub地址](https://github.com/Deltafox79/Navicat_Keygen)~~
 
 ### 激活教程
 1. 打开注册工具（最好以管理员的方式运行）
 
-![主界面](https://s2.ax1x.com/2020/01/16/lj8ruQ.png)
+![主界面](https://s1.ax1x.com/2020/05/18/YfxHmR.png)
 
 2. 点击右上角的patch，选择到你安装路径的navicat.exe，点击确定（打开），提示 `navicat.exe - x64 -> Cracked`。
 
@@ -59,6 +59,6 @@ date: 2020-01-16 00:00:00
 
 ![永久许可](https://s2.ax1x.com/2020/01/16/ljYnNn.png)
 
-![版本显示](https://s2.ax1x.com/2020/01/16/ljY8uF.png)
+![版本显示](https://s1.ax1x.com/2020/05/18/YfzP0I.png)
 
 > 如果要更新Navicat，重新打开软件会提示激活失效，重新使用注册机激活即可。
