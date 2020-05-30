@@ -149,7 +149,7 @@ date: 2020-02-17 14:07:53
   | ------------------------------------------------------------ | -------------------------------- |
   | Translation                                                  | 翻译用                           |
   | TabNine                                                      | 代码提示                         |
-  | RestfulToolkit                                               | 看接口                           |
+  | RestfulTool  (~~RestfulToolkit~~)                                       | 看接口                           |
   | [MyBatisCodeHelper-Pro](https://github.com/gejun123456/MyBatisCodeHelper-Pro) | MyBatis 辅助插件，用过的人都知道 |
   | MyBatis Log Plugin                                           | 看 MyBatis 运行产生的 Sql        |
   | JRebel                                                       | 热加载                           |
