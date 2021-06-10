@@ -1,16 +1,7 @@
 ---
 title: Hello World
-categories:
-  - Hexo
-tags:
-  - 美化
-abbrlink: 4a17b156
-date: 2017-01-24 00:00:00
 ---
-
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
-
-<!-- more -->
 
 ## Quick Start
 
@@ -45,5 +36,3 @@ $ hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
-
-<img src="https://s2.ax1x.com/2019/12/23/lSUMRO.md.png" width = "960" height = "540" alt="zero" align=center />
