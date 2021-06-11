@@ -40,10 +40,10 @@ custom_file_path:
 # ---------------------------------------------------------------
 
 favicon:
-  small: /favicon/favicon-16x16.png # 小图标
-  medium: /favicon/favicon-32x32.png # 大图标
-  apple_touch_icon: /favicon/apple-touch-icon-next.png # 苹果图标
-  safari_pinned_tab: /favicon/favicon-48x48.png # safari浏览器标签页图标
+  small: /images/favicon/favicon-16x16.png # 小图标
+  medium: /images/favicon/favicon-32x32.png # 大图标
+  apple_touch_icon: /images/favicon/apple-touch-icon-next.png # 苹果图标
+  safari_pinned_tab: /images/favicon/favicon-48x48.png # safari浏览器标签页图标
   #android_manifest: /images/manifest.json
   #ms_browserconfig: /images/browserconfig.xml
 
