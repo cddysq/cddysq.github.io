@@ -160,14 +160,14 @@ sidebar:
   # Enable sidebar on narrow view (only for Muse | Mist).
   onmobile: false
 
-# Sidebar Avatar
+# Sidebar Avatar 头像配置
 avatar:
   # Replace the default image and set the url here.
-  url: #/images/avatar.gif
+  url: /images/avatar.gif # 头像路径
   # If true, the avatar will be dispalyed in circle.
-  rounded: false
+  rounded: true # 圆形头像
   # If true, the avatar will be rotated with the cursor.
-  rotated: false
+  rotated: false # 头像旋转
 
 # Posts / Categories / Tags in sidebar.
 site_state: true
