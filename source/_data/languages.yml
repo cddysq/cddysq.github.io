@@ -1,3 +1,15 @@
 zh-CN:
     menu:
-      links: 友链
+      home: 博客首页
+      overviews: 文章总览
+      timeline: 时间轴
+      about: 关于本站
+      links: 友链链接
+      search: 全站搜索
+    counter:
+      tag_cloud:
+        one: <i class="fas fa-fw fa-tags"></i> 目前共计 1 个标签
+        other: <i class="fas fa-fw fa-tags"></i> 目前共计 %d 个标签
+      categories:
+        one: <i class="fas fa-fw fa-th"></i> 目前共计 1 个分类
+        other: <i class="fas fa-fw fa-th"></i> 目前共计 %d 个分类
