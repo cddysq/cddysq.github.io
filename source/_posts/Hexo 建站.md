@@ -36,7 +36,7 @@ hexo init
 
 执行完毕后，将会生成以下文件结构：
 
-```
+```markdown
 ├── node_modules       //依赖安装目录
 ├── scaffolds          //模板文件夹，新建的文章将会从此目录下的文件中继承格式
 |   ├── draft.md       //草稿模板
@@ -74,7 +74,7 @@ git clone https://github.com/next-theme/hexo-theme-next.git themes/next
 
 打开站点配置文件，搜索 `theme` 字段的值修改为 `next`。
 
-```yml _config.yml
+```yaml
 theme: next
 ```
 
@@ -96,7 +96,7 @@ hexo clean & hexo s --debug
 
 - 在博客根目录执行以下命令，复制主题配置文件，此后修改`_config.next.yml`中相关参数即可。官方文档 → [点击访问](https://theme-next.js.org/docs/getting-started/configuration.html)
 
-```sh
+```shell
 cp themes/next/_config.yml _config.next.yml
 ```
 
@@ -104,7 +104,7 @@ cp themes/next/_config.yml _config.next.yml
 
 我们原来是通过修改主题目录下的 `languages` 目录中的 `zh-CN.yml` 文件来对菜单等进行中文翻译的，现在我们可以通过在 `blog/source/_data/` 下新建数据文件 `languages.yml`，修改翻译配置如下：
 
-```yml languages.yml
+```yaml
 zh-CN:
     menu:
       home: 博客首页
@@ -126,18 +126,18 @@ zh-CN:
 
 在主题配置文件 `next.yml` 中搜索 `custom_file_path` 选项，下方即为支持外挂数据文件，按照对应命名在 `blog/source/_data/`目录下新建对应名称文件。并取消对应文件的注释即可。文件大致说明如下：
 
-```yml
+```yaml
 custom_file_path:
-  head: source/_data/head.swig #网站顶部配置
+  #head: source/_data/head.swig #网站顶部配置
   #header: source/_data/header.swig
   sidebar: source/_data/sidebar.swig #侧边栏配置
   postMeta: source/_data/post-meta.swig #文章顶部配置对应themes\next\layout\_macro\post.swig文件，只要属性标签相同会覆盖主题默认
   postBodyEnd: source/_data/post-body-end.swig #文章结束配置
   footer: source/_data/footer.swig #结尾配置
   bodyEnd: source/_data/body-end.swig #网站结束配置
-  #variable: source/_data/variables.styl
+  variable: source/_data/variables.styl #变量定义文件
   #mixin: source/_data/mixins.styl
-  #style: source/_data/styles.styl 
+  style: source/_data/styles.styl # 样式文件
 ```
 
 ## 配置主题
@@ -148,11 +148,10 @@ custom_file_path:
 
 Next 默认主题风格为 Muse，用户可以在主题配置文件中修改 `scheme` 字段以选择自己喜欢的主题风格：
 
-```yml
+```yaml
 # Schemes
 #scheme: Muse
-#scheme: Mist
-#scheme: Pisces
+......
 scheme: Gemini
 ```
 
@@ -160,7 +159,7 @@ scheme: Gemini
 
 Favicon 即浏览器标签左侧的图标。下载自己喜欢的图标置于 `blog\source\images\` 目录下，命名方式参考主题配置文件中的 `favicon` 字段。
 
-```yml
+```yaml
 favicon:
   small: /images/favicon-16x16.png # 小图标
   medium: /images/favicon-32x32.png # 大图标
@@ -174,7 +173,7 @@ favicon:
 
 将头像放在 `blog/source/images` 路径下。打开主题配置文件，搜索 `avatar` 字段进行修改：
 
-```yml next.yml
+```yaml
 # Sidebar Avatar
 avatar:
   url: images/avatar.png # 头像路径
@@ -182,25 +181,17 @@ avatar:
   rotated: true # 开启头像旋转
 ```
 
-### 设置菜单
+### 配置菜单
 
 菜单配置项的格式为 `key: /link/ || icon`，包含三个部分，第一是菜单项的名称，第二是菜单项的链接，第三是菜单项对应的图标。
 
-- key
-
-  key 为菜单项显示的名称（如`home`，`archives`等），Hexo 首先会根据 key 在 languages 文件夹找对应语言的翻译，如果找到则会加载该翻译，如果找不到，将使用 key 本身的值。其中 key 的值大小写敏感。
-
-- link
-
-  link 是你网站内相对网址的目标链接。
-
-- icon
-
-  FontAwesome 图标的名称。NexT 使用的是 [Font Awesome](https://fontawesome.com/) 提供的图标， Font Awesome 提供了 600+ 的图标，可以满足绝大的多数的场景。
+- key：菜单项显示的名称（如`home`，`archives`等），Hexo 首先会根据 key 在 languages 文件夹找对应语言的翻译，如果找到则会加载该翻译，如果找不到，将使用 key 本身的值。其中 key 的值大小写敏感。
+- link：是你网站内相对网址的目标链接。
+- icon：FontAwesome 图标的名称。NexT 使用的是 [Font Awesome](https://fontawesome.com/icons) 提供的图标， Font Awesome 提供了 600+ 的图标，可以满足绝大的多数的场景。
 
 打开主题配置文件，搜索 `menu` 选项，进行相应配置：
 
-```yml next.yml
+```yaml
 menu:
   home: / || fas fa-home
   overviews:
@@ -223,12 +214,12 @@ menu_settings:
 
 打开主题配置文件，搜索 `social` 选项，进行对应更改：
 
-```yml next.yml
+```yaml
 social:
-  简书: https://www.jianshu.com/u/ec346a4e0d4e || heartbeat
-  GitHub: https://github.com/CodeHaotian || github
-  Telegram: https://t.me/yileaf || telegram
-  E-Mail: mailto:2056423011@qq.com || envelope
+  简书: https://www.jianshu.com/u/ec346a4e0d4e || fas fa-heartbeat
+  GitHub: https://github.com/CodeHaotian || fab fa-github
+  Telegram: https://t.me/yileaf || fab fa-telegram
+  E-Mail: mailto:2056423011@qq.com || fas fa-envelope
 ```
 
 ### 修改文内链接样式
@@ -237,46 +228,36 @@ social:
 
 ![初始样式](https://s2.ax1x.com/2019/12/24/lCB73n.png)
 
-为了突出区别性，在样式文件中添加下列的代码：
-```css styles.styl
-//修改文内链接样
+在`variables.styl`文件中加入以下代码：
+
+```stylus
+// Color
+$custom-link          = #0593d3;
+$custom-link-hover    = #fc6423;
+```
+
+在`styles.styl`文件中加入以下代码，效果如下图：
+
+```stylus
+/* post-超链接 */
+.post-body li a,
 .post-body p a {
-    color: #0593d3;
-    border-bottom: none;
-    border-bottom: 1px solid #0593d3;
-    &:hover {
-        color: #fc6423;
-        border-bottom: none;
-        border-bottom: 1px solid #fc6423;
-    }
+  color: $custom-link;
+  border-bottom: 1px solid $custom-link;
+
+  &:hover {
+    color: $custom-link-hover;
+    border-bottom: 1px solid $custom-link-hover;
+  }
 }
 ```
 ![改后样式](https://s2.ax1x.com/2019/12/24/lCDCg1.png)
-
-### 添加文章阴影效果
-
-在样式文件中加入如下内容
-
-```css styles.styl
-//文章阴影
-.post-block{
-		margin-top: 60px;
-	    margin-bottom: 60px;
-	    padding: 25px;
-	    background:rgba(255,255,255,0.9) none repeat scroll !important; //添加透明效果
-	    -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
-	    -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
-	}
-	.pagination, .comments {
-      opacity: 0;
-    }
-```
 
 ### 开启代码块复制功能
 
 在主题配置文件中，搜索 `codeblock` 进行如下修改：
 
-```yml next.yml
+```yaml
 # Add copy button on codeblock
   copy_button:
     enable: true # 开启复制
@@ -288,7 +269,7 @@ social:
 
 在主题配置文件中，搜索 `back2top` 选项，进行如下更改：
 
-```yml next.yml
+```yaml
 back2top:
   enable: true # 显示回到顶部按钮
   sidebar: false # true，按钮显示在侧边栏；false，按钮显示在右下角
@@ -299,7 +280,7 @@ back2top:
 
 在 `post-body-end.swig` 文件中加入如下配置：
 
-```markdown post-body-end.swig
+```markdown
 <div>
     {% if theme.jiewei %}
       <div style="text-align:center;color: #ccc;font-size:20px;">------------- 本 文 结 束 <i class="fa fa-paw"></i> 感 谢 您 的 阅 读 -------------</div>
@@ -309,7 +290,7 @@ back2top:
 
 回到主题配置文件中，启用配置：
 
-```yml next.yml
+```yaml
 # 文章末尾添加“本文结束”标记
 jiewei: true
 ```
@@ -318,7 +299,7 @@ jiewei: true
 
 在主题配置文件中搜索`reward`选项，配置打赏选项：
 
-```yml next.yml
+```yaml
 reward_settings:
   enable: false # 设置为true,每篇文章都将开启打赏功能
   animation: true # 是否开启动画
@@ -338,7 +319,7 @@ reward:
 
 在主题配置文件中，搜索 `creative_commons` 选项，进行如下修改：
 
-```yml next.yml
+```yaml
 creative_commons:
   license: by-nc-sa # 协议名
   sidebar: false
@@ -348,7 +329,7 @@ creative_commons:
 
 默认版权侧边栏是红色的，我这里在样式文件中，修改侧边栏样式：
 
-```yml styles.styl
+```stylus
 //版权声明侧边栏颜色
 .post-copyright {
     margin: 2em 0 0;
@@ -363,7 +344,7 @@ creative_commons:
 
 底部标签默认使用 `#` 当前缀，打开主题配置文件搜索`tag_icon`：
 
-```yml next.yml
+```yaml
 tag_icon: true # 改用图标前缀
 ```
 
@@ -371,7 +352,7 @@ tag_icon: true # 改用图标前缀
 
 打开主题配置文件搜索`footer`：
 
-```yml next.yml
+```yaml
 footer:  # 底部信息区
   since: 2017 # 建站时间
   icon:
@@ -398,7 +379,7 @@ footer:  # 底部信息区
 
 在站点配置文件中完善网站基本信息：
 
-```yml _config.yml
+```yaml
 # Site 站点信息
 title: 且听风吟 # 站点名称
 subtitle: 🕊️ gu~gu~gu # 站点副标题
@@ -461,7 +442,7 @@ npm install hexo-abbrlink --save
 
 打开站点配置文件，搜索 `permalink` 改为如下配置：
 
-```yml _config.yml
+```yaml
 #permalink: :year/:month/:day/:title/
 permalink: archives/:abbrlink.html
 abbrlink:
@@ -481,7 +462,7 @@ npm install hexo-generator-searchdb --save
 
 2.在站点配置文件中加入以下内容：
 
-```yml
+```yaml
 search:
   path: search.xml 
   field: post # 指定搜索范围，可选 post | page | all
@@ -512,7 +493,7 @@ npm install hexo-blog-encrypt --save
 
 2.在站点配置文件中加入以下内容：
 
-```yml _config.yml
+```yaml
 # Security
 encrypt:
   abstract: 本文章已加密🐇, 请输入密码查看.
@@ -529,7 +510,7 @@ encrypt:
 
 打开站点配置文件，搜索`deploy`选项，填写对应Git仓库地址：
 
-```yml _config.yml
+```yaml
 deploy:
   type: git
   repo:

@@ -1,0 +1,63 @@
+/************************* Header **************************/
+
+/* header-隐藏顶部线条 */
+.headband {
+  display: none;
+}
+
+/* header-顶部空白 */
+.header, .main-inner {
+  margin-top: 10px;
+
+  +mobile() {
+    margin-top: 0;
+  }
+}
+
+/* 圆角 */
+.header-inner, ///顶部圆角
+.sidebar-inner { //侧边头像圆角
+  border-radius: $custom-radius;
+}
+
+.site-brand-container {
+  border-radius: $custom-radius $custom-radius 0 0;
+
+  +mobile() {
+    border-radius: 0 0 $custom-radius $custom-radius;
+  }
+}
+
+/************************ Sidebar **************************/
+
+/* sidebar-标题 */
+.site-title {
+  font-weight: bold;
+}
+
+/* sidebar-二级菜单圆角 */
+.sub-menu {
+  border-radius: $custom-radius !important;
+}
+
+/************************** Post ***************************/
+
+/* post-文章卡片圆角 */
+.post-block,
+.post-block + .post-block {
+  border-radius: $custom-radius !important;
+}
+
+/* post-超链接 */
+.post-body li a,
+.post-body p a {
+  color: $custom-link;
+  border-bottom: 1px solid $custom-link;
+
+  &:hover {
+    color: $custom-link-hover;
+    border-bottom: 1px solid $custom-link-hover;
+  }
+}
+
+/****************** Pagination & Footer ********************/
