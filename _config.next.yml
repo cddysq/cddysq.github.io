@@ -884,7 +884,7 @@ vendors:
   fontawesome:
 
   # Prism
-  prism:
+  prism: 
   prism_autoloader:
   prism_line_numbers:
 

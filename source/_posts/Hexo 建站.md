@@ -5,7 +5,6 @@ categories:
 tags:
   - 建站
   - 美化
-top: true
 abbrlink: 8613f919
 date: 2017-01-24 00:00:00
 ---
@@ -22,7 +21,7 @@ date: 2017-01-24 00:00:00
 
 在命令行中通过npm来安装Hexo：
 
-```shell
+```sh
 npm install -g hexo-cli
 ```
 
