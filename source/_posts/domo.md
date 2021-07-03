@@ -1,6 +1,6 @@
 shell
 
-```shell
+```bash
 npm i prismjs
 ```
 

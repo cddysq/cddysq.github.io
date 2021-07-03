@@ -21,7 +21,7 @@ date: 2017-01-24 00:00:00
 
 在命令行中通过npm来安装Hexo：
 
-```sh
+```bash
 npm install -g hexo-cli
 ```
 
@@ -29,7 +29,7 @@ npm install -g hexo-cli
 
 新建博客目录blog，然后在该路径下执行初始化命令：
 
-```shell
+```bash
 hexo init
 ```
 
@@ -52,7 +52,7 @@ hexo init
 
 在根目录下执行如下命令启动 hexo 的内置 Web 服务器
 
-```shell
+```bash
 hexo g # 生成
 hexo s # 启动服务
 ```
@@ -67,7 +67,7 @@ hexo s # 启动服务
 
 在博客根目录下执行以下命令下载主题文件：
 
-```shell
+```bash
 git clone https://github.com/next-theme/hexo-theme-next.git themes/next
 ```
 
@@ -79,7 +79,7 @@ theme: next
 
 清除缓存并重启服务，刷新浏览器查看默认效果如下图：
 
-```shell
+```bash
 hexo clean & hexo s --debug
 ```
 
@@ -95,7 +95,7 @@ hexo clean & hexo s --debug
 
 - 在博客根目录执行以下命令，复制主题配置文件，此后修改`_config.next.yml`中相关参数即可。官方文档 → [点击访问](https://theme-next.js.org/docs/getting-started/configuration.html)
 
-```shell
+```bash
 cp themes/next/_config.yml _config.next.yml
 ```
 
@@ -397,7 +397,7 @@ timezone: '' # 时区
 
 在博客根目录执行以下命令：
 
-```shell
+```bash
 npm uninstall hexo-generator-index --save
 npm install hexo-generator-index-pin-top --save
 ```
@@ -435,7 +435,7 @@ Hexo 默认的文章链接形式为`domain/year/month/day/postname`，默认就�
 
 在博客根目录安装 `hexo-abbrlink`
 
-```shell 
+```bash
 npm install hexo-abbrlink --save
 ```
 
@@ -455,7 +455,7 @@ abbrlink:
 
 1.在博客根目录执行以下命令
 
-```shell
+```bash
 npm install hexo-generator-searchdb --save
 ```
 
@@ -471,7 +471,7 @@ search:
 
 3.在主题配置文件中 → 搜索 `local_search` 选项，开启搜索
 
-```yml
+```yaml
 local_search:
   enable: true # 默认为false,设置为true
   trigger: auto
@@ -486,7 +486,7 @@ local_search:
 
 1.在博客根目录执行安装命令
 
-```shell
+```bash
 npm install hexo-blog-encrypt --save
 ```
 
@@ -521,13 +521,13 @@ deploy:
 
 在博客根目录安装部署插件：[hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git)
 
-```shell
+```bash
 npm install hexo-deployer-git --save
 ```
 
 推送博客
 
-```shell
+```bash
 hexo clean & hexo g & hexo d
 ```
 
