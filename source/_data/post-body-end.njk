@@ -1,0 +1,14 @@
+{###########################}
+{### COMPLIMENTARY CLOSE ###}
+{###########################}
+{%- if theme.complimentary_close.enable %}
+  <div class="complimentary-close">
+    --------- 本文结束
+    {%- if theme.complimentary_close.icon %}
+        <i class="{{theme.complimentary_close.icon}}"></i>
+    {%- else %}
+        <i class="fas fa-paw"></i>
+    {%- endif %}
+    感谢您的阅读 ----------
+  </div>
+{%- endif %}

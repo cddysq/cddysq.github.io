@@ -123,17 +123,17 @@ zh-CN:
 
 ### [外挂其他配置](https://theme-next.js.org/docs/advanced-settings/custom-files.html)
 
-在主题配置文件 `next.yml` 中搜索 `custom_file_path` 选项，下方即为支持外挂数据文件，按照对应命名在 `blog/source/_data/`目录下新建对应名称文件。并取消对应文件的注释即可。文件大致说明如下：
+在主题配置文件中搜索 `custom_file_path` 选项，下方即为支持外挂数据文件，按照对应命名在 `blog/source/_data/`目录下新建对应名称文件。并取消相应文件的注释即可。文件大致说明如下：
 
 ```yaml
 custom_file_path:
-  #head: source/_data/head.swig #网站顶部配置
-  #header: source/_data/header.swig
-  sidebar: source/_data/sidebar.swig #侧边栏配置
-  postMeta: source/_data/post-meta.swig #文章顶部配置对应themes\next\layout\_macro\post.swig文件，只要属性标签相同会覆盖主题默认
-  postBodyEnd: source/_data/post-body-end.swig #文章结束配置
-  footer: source/_data/footer.swig #结尾配置
-  bodyEnd: source/_data/body-end.swig #网站结束配置
+  #head: source/_data/head.njk #网站顶部配置
+  #header: source/_data/header.njk
+  sidebar: source/_data/sidebar.njk #侧边栏配置
+  postMeta: source/_data/post-meta.njk #文章顶部配置对应themes\next\layout\_macro\post.njk文件，只要属性标签相同会覆盖主题默认
+  postBodyEnd: source/_data/post-body-end.njk #文章结束配置
+  footer: source/_data/footer.njk #结尾配置
+  bodyEnd: source/_data/body-end.njk #网站结束配置
   variable: source/_data/variables.styl #变量定义文件
   #mixin: source/_data/mixins.styl
   style: source/_data/styles.styl # 样式文件
@@ -252,16 +252,40 @@ $custom-link-hover    = #fc6423;
 ```
 ![改后样式](https://s2.ax1x.com/2019/12/24/lCDCg1.png)
 
-### 开启代码块复制功能
+### 配置页面代码块
 
-在主题配置文件中，搜索 `codeblock` 进行如下修改：
+在站点配置文件中选择`prismjs`或者`highlight`用于代码块高亮。
 
 ```yaml
-# Add copy button on codeblock
+highlight: 
+  enable: false # 关闭highlight
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+prismjs:
+  enable: true # 启用prismjs
+  preprocess: true
+  line_number: true
+  tab_replace: ''
+```
+
+在主题配置文件中，搜索 `codeblock` ,配置喜欢的主题，开启代码块复制。
+
+```yaml
+codeblock:
+  # 在线代码块高亮调试网站: https://theme-next.js.org/highlight/
+  theme: #对应highlight
+    light: default
+    dark: tomorrow-night
+  prism: #对应prismjs
+    light: prism 
+    dark: prism-dark
   copy_button:
-    enable: true # 开启复制
-    show_result: true # 显示复制结果
-    style: flat # 风格
+    enable: true # 启用代码块复制
+    # Available values: default | flat | mac
+    style: #风格
 ```
 
 ### 回到顶部按钮显示百分比
@@ -277,21 +301,54 @@ back2top:
 
 ### 添加文章结束语
 
-在 `post-body-end.swig` 文件中加入如下配置：
+![结束语效果图](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210705165124.png)
 
-```markdown
-<div>
-    {% if theme.jiewei %}
-      <div style="text-align:center;color: #ccc;font-size:20px;">------------- 本 文 结 束 <i class="fa fa-paw"></i> 感 谢 您 的 阅 读 -------------</div>
-    {% endif %}
-</div>
+在 `post-body-end.njk` 文件中加入如下配置：
+
+```js
+{%- if theme.complimentary_close.enable %}
+  <div class="complimentary-close">
+    --------- 本文结束
+    {%- if theme.complimentary_close.icon %}
+        <i class="{{theme.complimentary_close.icon}}"></i>
+    {%- else %}
+        <i class="fas fa-paw"></i>
+    {%- endif %}
+    感谢您的阅读 ----------
+  </div>
+{%- endif %}
+```
+
+在`styles.styl`文件中加入如下样式：
+
+```css
+/* post-结束语 */
+.complimentary-close {
+  text-align: center;
+  color: $grey-light;
+  font-size: $font-size-largest;
+  letter-spacing: $font-spacing;
+
+  +mobile() {
+    font-size: $font-size-medium;
+  }
+}
+```
+
+在`variables.styl`文件中加入如下配置：
+
+```stylus
+// font
+$font-spacing         = 0.2em;
 ```
 
 回到主题配置文件中，启用配置：
 
 ```yaml
-# 文章末尾添加“本文结束”标记
-jiewei: true
+# 文章结束语配置
+complimentary_close:
+  enable: true
+  icon:  # 图标默认fas fa-paw
 ```
 
 ### 开启文章打赏
@@ -300,19 +357,32 @@ jiewei: true
 
 ```yaml
 reward_settings:
-  enable: false # 设置为true,每篇文章都将开启打赏功能
+  enable: true # 设置为true,每篇文章都将开启打赏功能
   animation: true # 是否开启动画
+  comment: Buy me a coffee # 打赏文案
 
 reward:
-  alipay: /images/alipay.png  #支付宝二维码路径
   wechatpay: /images/wechatpay.png # 微信二维码路径
+  alipay: /images/alipay.png  #支付宝二维码路径
   #paypal: /images/paypal.png
   #bitcoin: /images/bitcoin.png
 ```
 
-> 如果开启全局打赏，可在不需要打赏的文章`Front-matter`中设置`reward: false`，反之单独开启设置`reward: true`
+找到`\themes\next\layout\_partials\post\post-reward.njk`文件添加爱心图标：
 
-将对应二维码，按照主题配置中进行命名，放入`blog/source/images`目录下即可。
+```js
+<button>
+    <i class="fas fa-hand-holding-heart" style="color:red;"></i> #加入爱心图标
+    {{ __('reward.donate') }}
+  </button>
+```
+
+如果开启全局打赏，可在不需要打赏的文章`Front-matter`中进行关闭：
+
+```yaml
+reward_settings: 
+  enable: false  
+```
 
 ### 添加版权协议
 
