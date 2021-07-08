@@ -368,13 +368,13 @@ reward:
   #bitcoin: /images/bitcoin.png
 ```
 
-找到`\themes\next\layout\_partials\post\post-reward.njk`文件添加爱心图标：
+打开`\themes\next\layout\_partials\post\post-reward.njk`文件找到如下位置，添加爱心图标：
 
 ```js
 <button>
     <i class="fas fa-hand-holding-heart" style="color:red;"></i> #加入爱心图标
     {{ __('reward.donate') }}
-  </button>
+</button>
 ```
 
 如果开启全局打赏，可在不需要打赏的文章`Front-matter`中进行关闭：
