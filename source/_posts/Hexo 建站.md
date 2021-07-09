@@ -6,6 +6,7 @@ tags:
   - 建站
   - 美化
 abbrlink: 8613f919
+sticky: 10
 date: 2017-01-24 00:00:00
 ---
 
@@ -25,7 +26,7 @@ date: 2017-01-24 00:00:00
 npm install -g hexo-cli
 ```
 
-- `-g` 表示全局安装，会将Hexo命令加入环境变量中，以使其在cmd下有效。
+- `-g`  表示全局安装，会将Hexo命令加入环境变量中，以使其在cmd下有效。
 
 新建博客目录blog，然后在该路径下执行初始化命令：
 
@@ -71,7 +72,7 @@ hexo s # 启动服务
 git clone https://github.com/next-theme/hexo-theme-next.git themes/next
 ```
 
-打开站点配置文件，搜索 `theme` 字段的值修改为 `next`。
+打开站点配置文件，搜索  `theme`  字段的值修改为  `next`。
 
 ```yaml
 theme: next
@@ -93,7 +94,7 @@ hexo clean & hexo s --debug
 
 ### 外挂主题配置
 
-- 在博客根目录执行以下命令，复制主题配置文件，此后修改`_config.next.yml`中相关参数即可。官方文档 → [点击访问](https://theme-next.js.org/docs/getting-started/configuration.html)
+- 在博客根目录执行以下命令，复制主题配置文件，此后修改 `_config.next.yml` 中相关参数即可。官方文档 → [点击访问](https://theme-next.js.org/docs/getting-started/configuration.html)
 
 ```bash
 cp themes/next/_config.yml _config.next.yml
@@ -101,7 +102,7 @@ cp themes/next/_config.yml _config.next.yml
 
 ### 外挂语言配置
 
-我们原来是通过修改主题目录下的 `languages` 目录中的 `zh-CN.yml` 文件来对菜单等进行中文翻译的，现在我们可以通过在 `blog/source/_data/` 下新建数据文件 `languages.yml`，修改翻译配置如下：
+我们原来是通过修改主题目录下的  `languages`  目录中的  `zh-CN.yml`  文件来对菜单等进行中文翻译的，现在我们可以通过在  `blog/source/_data/`  下新建数据文件  `languages.yml`，修改翻译配置如下：
 
 ```yaml
 zh-CN:
@@ -123,7 +124,7 @@ zh-CN:
 
 ### [外挂其他配置](https://theme-next.js.org/docs/advanced-settings/custom-files.html)
 
-在主题配置文件中搜索 `custom_file_path` 选项，下方即为支持外挂数据文件，按照对应命名在 `blog/source/_data/`目录下新建对应名称文件。并取消相应文件的注释即可。文件大致说明如下：
+在主题配置文件中搜索  `custom_file_path`  选项，下方即为支持外挂数据文件，按照对应命名在  `blog/source/_data/` 目录下新建对应名称文件。并取消相应文件的注释即可。文件大致说明如下：
 
 ```yaml
 custom_file_path:
@@ -141,11 +142,11 @@ custom_file_path:
 
 ## 配置主题
 
-> 下文修改主题配置，皆为修改 `_config.next.yml` 中的选项
+> 下文修改主题配置，皆为修改  `_config.next.yml`  中的选项
 
 ### 主题风格修改
 
-Next 默认主题风格为 Muse，用户可以在主题配置文件中修改 `scheme` 字段以选择自己喜欢的主题风格：
+Next 默认主题风格为 Muse，用户可以在主题配置文件中修改  `scheme`  字段以选择自己喜欢的主题风格：
 
 ```yaml
 # Schemes
@@ -156,7 +157,7 @@ scheme: Gemini
 
 ### 修改网站 Favicon
 
-Favicon 即浏览器标签左侧的图标。下载自己喜欢的图标置于 `blog\source\images\` 目录下，命名方式参考主题配置文件中的 `favicon` 字段。
+Favicon 即浏览器标签左侧的图标。下载自己喜欢的图标置于  `blog\source\images\`  目录下，命名方式参考主题配置文件中的  `favicon`  字段。
 
 ```yaml
 favicon:
@@ -170,7 +171,7 @@ favicon:
 
 ### 设置头像
 
-将头像放在 `blog/source/images` 路径下。打开主题配置文件，搜索 `avatar` 字段进行修改：
+将头像放在  `blog/source/images`  路径下。打开主题配置文件，搜索  `avatar`  字段进行修改：
 
 ```yaml
 # Sidebar Avatar
@@ -182,13 +183,13 @@ avatar:
 
 ### 配置菜单
 
-菜单配置项的格式为 `key: /link/ || icon`，包含三个部分，第一是菜单项的名称，第二是菜单项的链接，第三是菜单项对应的图标。
+菜单配置项的格式为  `key: /link/ || icon`，包含三个部分，第一是菜单项的名称，第二是菜单项的链接，第三是菜单项对应的图标。
 
-- key：菜单项显示的名称（如`home`，`archives`等），Hexo 首先会根据 key 在 languages 文件夹找对应语言的翻译，如果找到则会加载该翻译，如果找不到，将使用 key 本身的值。其中 key 的值大小写敏感。
+- key：菜单项显示的名称（如 `home`，`archives` 等），Hexo 首先会根据 key 在 languages 文件夹找对应语言的翻译，如果找到则会加载该翻译，如果找不到，将使用 key 本身的值。其中 key 的值大小写敏感。
 - link：是你网站内相对网址的目标链接。
 - icon：FontAwesome 图标的名称。NexT 使用的是 [Font Awesome](https://fontawesome.com/icons) 提供的图标， Font Awesome 提供了 600+ 的图标，可以满足绝大的多数的场景。
 
-打开主题配置文件，搜索 `menu` 选项，进行相应配置：
+打开主题配置文件，搜索  `menu`  选项，进行相应配置：
 
 ```yaml
 menu:
@@ -207,11 +208,11 @@ menu_settings:
   badges: false  # 显示数量统计
 ```
 
-- 开启对应菜单后，需在 `blog/source` 下新建对应分类文件夹，并添加 `index.md`
+- 开启对应菜单后，需在  `blog/source` 下新建对应分类文件夹，并添加  `index.md`
 
 ### 添加社交链接
 
-打开主题配置文件，搜索 `social` 选项，进行对应更改：
+打开主题配置文件，搜索  `social`  选项，进行对应更改：
 
 ```yaml
 social:
@@ -227,7 +228,7 @@ social:
 
 ![初始样式](https://s2.ax1x.com/2019/12/24/lCB73n.png)
 
-在`variables.styl`文件中加入以下代码：
+在 `variables.styl` 文件中加入以下代码：
 
 ```stylus
 // Color
@@ -235,7 +236,7 @@ $custom-link          = #0593d3;
 $custom-link-hover    = #fc6423;
 ```
 
-在`styles.styl`文件中加入以下代码，效果如下图：
+在 `styles.styl` 文件中加入以下代码，效果如下图：
 
 ```stylus
 /* post-超链接 */
@@ -252,9 +253,13 @@ $custom-link-hover    = #fc6423;
 ```
 ![改后样式](https://s2.ax1x.com/2019/12/24/lCDCg1.png)
 
+### 中英文之间自动空格
+
+该功能由 [pangu](https://github.com/vinta/pangu.js) 提供，在主题配置文件中设置 `pangu: true` 即可启用该动能。
+
 ### 配置页面代码块
 
-在站点配置文件中选择`prismjs`或者`highlight`用于代码块高亮。
+在站点配置文件中选择 `prismjs` 或者 `highlight` 用于代码块高亮。
 
 ```yaml
 highlight: 
@@ -271,7 +276,7 @@ prismjs:
   tab_replace: ''
 ```
 
-在主题配置文件中，搜索 `codeblock` ,配置喜欢的主题，开启代码块复制。
+在主题配置文件中，搜索  `codeblock` ,配置喜欢的主题，开启代码块复制。
 
 ```yaml
 codeblock:
@@ -290,7 +295,7 @@ codeblock:
 
 ### 回到顶部按钮显示百分比
 
-在主题配置文件中，搜索 `back2top` 选项，进行如下更改：
+在主题配置文件中，搜索  `back2top`  选项，进行如下更改：
 
 ```yaml
 back2top:
@@ -303,7 +308,7 @@ back2top:
 
 ![结束语效果图](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210705165124.png)
 
-在 `post-body-end.njk` 文件中加入如下配置：
+在  `post-body-end.njk`  文件中加入如下配置：
 
 ```js
 {%- if theme.complimentary_close.enable %}
@@ -319,7 +324,7 @@ back2top:
 {%- endif %}
 ```
 
-在`styles.styl`文件中加入如下样式：
+在 `styles.styl` 文件中加入如下样式：
 
 ```css
 /* post-结束语 */
@@ -335,7 +340,7 @@ back2top:
 }
 ```
 
-在`variables.styl`文件中加入如下配置：
+在 `variables.styl` 文件中加入如下配置：
 
 ```stylus
 // font
@@ -353,7 +358,7 @@ complimentary_close:
 
 ### 开启文章打赏
 
-在主题配置文件中搜索`reward`选项，配置打赏选项：
+在主题配置文件中搜索 `reward` 选项，配置打赏选项：
 
 ```yaml
 reward_settings:
@@ -363,12 +368,12 @@ reward_settings:
 
 reward:
   wechatpay: /images/wechatpay.png # 微信二维码路径
-  alipay: /images/alipay.png  #支付宝二维码路径
+  alipay: /images/alipay.png  # 支付宝二维码路径
   #paypal: /images/paypal.png
   #bitcoin: /images/bitcoin.png
 ```
 
-打开`\themes\next\layout\_partials\post\post-reward.njk`文件找到如下位置，添加爱心图标：
+打开 `\themes\next\layout\_partials\post\post-reward.njk` 文件找到如下位置，添加爱心图标：
 
 ```js
 <button>
@@ -377,41 +382,44 @@ reward:
 </button>
 ```
 
-如果开启全局打赏，可在不需要打赏的文章`Front-matter`中进行关闭：
+如果开启全局打赏，可在不需要打赏的文章 `Front-matter` 中进行关闭：
 
 ```yaml
 reward_settings: 
-  enable: false  
+  enable: false
 ```
 
 ### 添加版权协议
 
-在主题配置文件中，搜索 `creative_commons` 选项，进行如下修改：
+在主题配置文件中，搜索  `creative_commons`  选项，进行如下修改：
 
 ```yaml
 creative_commons:
   license: by-nc-sa # 协议名
-  sidebar: false
+  size: small # 字体大小
+  sidebar: false # 是否在侧边栏显示协议图标
   post: true # 开启版权声明
   language: deed.zh # 协议语言
 ```
 
-默认版权侧边栏是红色的，我这里在样式文件中，修改侧边栏样式：
+默认版权侧边栏颜色修改，打开 `variables.styl` 定义颜色：
 
 ```stylus
-//版权声明侧边栏颜色
-.post-copyright {
-    margin: 2em 0 0;
-    padding: 0.5em 1em;
-    border-left: 3px solid #81a6ed;
-    background-color: #f9f9f9;
-    list-style: none;
+$post-copyright-boder    = #81a6ed;
+```
+
+打开 `styles.styl` 替换样式：
+
+```stylus
+/* post-版权声明 */
+.post-copyright ul {
+   border-left: 3px solid $post-copyright-boder;
 }
 ```
 
 ### 底部标签修改
 
-底部标签默认使用 `#` 当前缀，打开主题配置文件搜索`tag_icon`：
+底部标签默认使用 `#` 当前缀，打开主题配置文件搜索 `tag_icon`：
 
 ```yaml
 tag_icon: true # 改用图标前缀
@@ -419,7 +427,7 @@ tag_icon: true # 改用图标前缀
 
 ### 底部页脚修改
 
-打开主题配置文件搜索`footer`：
+打开主题配置文件搜索 `footer`：
 
 ```yaml
 footer:  # 底部信息区
@@ -428,25 +436,19 @@ footer:  # 底部信息区
     name: fas fa-heartbeat # 图标名称,Icon name in Font Awesome
     animated: true # 开启动画
     color: "#ff0000" # 图标颜色
-    
   copyright:
-  
-  powered:
-    enable: false  # 隐藏由 Hexo 强力驱动
-    version: false # 隐藏 Hexo 版本号
-
-  theme:
-    enable: false # 隐藏所用的主题名称
-    version: false # 隐藏主题版本号
+  powered: false # 隐藏Hexo & NexT
 ```
 
-![原始页脚](https://s2.ax1x.com/2020/02/24/38244e.png)
+![原始页脚](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210709161721.png)
 
-![新页脚](https://s2.ax1x.com/2020/02/24/382LHf.png)
+![新页脚](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210709161825.png)
 
 ## 配置站点
 
-在站点配置文件中完善网站基本信息：
+### 完善网站基本信息
+
+打开站点配置文件，完善网站基本信息：
 
 ```yaml
 # Site 站点信息
@@ -458,6 +460,30 @@ author: Rainbow Cat # 作者名称
 language: zh-CN # 网站语言
 timezone: '' # 时区
 ```
+
+### 配置网址url
+
+```yaml
+url: https://yileaf.com # 配置为你的域名
+```
+
+### 配置站点目录
+
+如果你在`next`中自定义了菜单目录，此处需要修改为对应路径
+
+```yaml
+source_dir: source # 资源文件夹
+public_dir: public # 公共文件夹
+tag_dir: overviews/tags # 标签文件夹
+archive_dir: overviews/timeline # 归档文件夹
+category_dir: overviews # 分类文件夹
+code_dir: downloads/code 
+i18n_dir: :lang # 国际化
+skip_render:
+  - 404.html # 跳过指定文件的渲染。匹配到的文件将会被不做改动地复制到 public 目录中
+```
+
+> 更多站点配置内容移步 →  [Hexo文档](https://hexo.io/zh-cn/docs/configuration) 进行查看
 
 ## 插件使用
 
@@ -472,7 +498,7 @@ npm uninstall hexo-generator-index --save
 npm install hexo-generator-index-pin-top --save
 ```
 
-找到`themes\next\layout\_macro\post.swig`文件，定位到`<div class="post-meta">`标签下，插入如下代码：
+找到 `themes\next\layout\_macro\post.swig` 文件，定位到 `<div class="post-meta">` 标签下，插入如下代码：
 
 ```diff
 <div class="post-meta">
@@ -485,7 +511,7 @@ npm install hexo-generator-index-pin-top --save
 
 > 如果在 post-meta.swig 进行添加，会将置顶标签置于顶栏最后显示
 
-接下来在需要置顶的文章头部添加 `top: true` 或者 `top: n`，这里的n是数字，数字越大表示置顶等级越高：
+接下来在需要置顶的文章头部添加  `top: true`  或者  `top: n`，这里的n是数字，数字越大表示置顶等级越高：
 
 ```diff
 title: xxx
@@ -501,19 +527,19 @@ tags:
 
 使用插件：[hexo-abbrlink](https://github.com/rozbo/hexo-abbrlink)
 
-Hexo 默认的文章链接形式为`domain/year/month/day/postname`，默认就是一个四级url，并且可能造成 url 过长，对搜索引擎是十分不友好的。
+Hexo默认的文章链接形式为 `:year/:month/:day/:title/`，是一个四级url，并且可能造成 url 过长，会影响网站的SEO，对搜索引擎是十分不友好。
 
-在博客根目录安装 `hexo-abbrlink`
+在博客根目录安装  `hexo-abbrlink`：
 
 ```bash
 npm install hexo-abbrlink --save
 ```
 
-打开站点配置文件，搜索 `permalink` 改为如下配置：
+打开站点配置文件，搜索  `permalink`  改为如下配置：
 
 ```yaml
 #permalink: :year/:month/:day/:title/
-permalink: archives/:abbrlink.html
+permalink: posts/:abbrlink/
 abbrlink:
   alg: crc32  # 算法：crc16(default) and crc32
   rep: hex    # 进制：dec(default) and hex
@@ -521,25 +547,15 @@ abbrlink:
 
 ### 本地搜索
 
-使用插件：[hexo-generator-searchdb](https://github.com/theme-next/hexo-generator-searchdb)
+使用插件：[hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
 
 1.在博客根目录执行以下命令
 
 ```bash
-npm install hexo-generator-searchdb --save
+npm install hexo-generator-search --save
 ```
 
-2.在站点配置文件中加入以下内容：
-
-```yaml
-search:
-  path: search.xml 
-  field: post # 指定搜索范围，可选 post | page | all
-  format: html # 指定页面内容形式，可选 html | raw (Markdown) | excerpt | more
-  limit: 10000 # 限定搜索结果条数
-```
-
-3.在主题配置文件中 → 搜索 `local_search` 选项，开启搜索
+2.在主题配置文件中 → 搜索  `local_search`  选项，开启搜索：
 
 ```yaml
 local_search:
@@ -577,7 +593,7 @@ encrypt:
 
 ## 部署站点
 
-打开站点配置文件，搜索`deploy`选项，填写对应Git仓库地址：
+打开站点配置文件，搜索 `deploy` 选项，填写对应Git仓库地址：
 
 ```yaml
 deploy:
