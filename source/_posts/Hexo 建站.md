@@ -222,6 +222,39 @@ social:
   E-Mail: mailto:2056423011@qq.com || fas fa-envelope
 ```
 
+### 文章置顶
+
+1.在需要置顶的文章 `Front-matter` 中添加 `sticky: n`，这里的n是数字要求>0，数字越大表示置顶等级越高，文章越靠前，例：
+
+```diff
+---
+title: xxx
+date: xxx
+categories:
+  - xx
++sticky: 1
+---
+```
+
+![置顶样式](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210712173931.png)
+
+2.置顶图标颜色修改（根据个人喜欢）
+
+在 `variables.styl` 文件中加入以下代码：
+
+```stylus
+$custom-thumbtack-color  = #FF6666;
+```
+
+在 `styles.styl` 文件中加入以下代码：
+
+```stylus
+/* post-文章置顶 */
+.post-sticky-flag {
+  color: $custom-thumbtack-color;
+}
+```
+
 ### 修改文内链接样式
 
 未修改时，文内链接颜色和普通文本没有区别：
@@ -384,9 +417,15 @@ reward:
 
 如果开启全局打赏，可在不需要打赏的文章 `Front-matter` 中进行关闭：
 
-```yaml
-reward_settings: 
-  enable: false
+```diff
+---
+title: xxx
+date: xxx
+categories:
+  - xx
++reward_settings: 
++  enable: false
+---  
 ```
 
 ### 添加版权协议
@@ -487,42 +526,6 @@ skip_render:
 
 ## 插件使用
 
-### 置顶文章
-
-使用插件： [hexo-generator-index-pin-top](https://github.com/netcan/hexo-generator-index-pin-top) 
-
-在博客根目录执行以下命令：
-
-```bash
-npm uninstall hexo-generator-index --save
-npm install hexo-generator-index-pin-top --save
-```
-
-找到 `themes\next\layout\_macro\post.swig` 文件，定位到 `<div class="post-meta">` 标签下，插入如下代码：
-
-```diff
-<div class="post-meta">
-+    {% if post.top %}
-+   	<i class="fa fa-thumb-tack"></i>
-+    	<font color="RED">置顶</font>
-+    	<span class="post-meta-divider">|</span>
-+    {% endif %}
-```
-
-> 如果在 post-meta.swig 进行添加，会将置顶标签置于顶栏最后显示
-
-接下来在需要置顶的文章头部添加  `top: true`  或者  `top: n`，这里的n是数字，数字越大表示置顶等级越高：
-
-```diff
-title: xxx
-date: xxx
-categories:
-  - xx
-tags:
-  - xx
-+top: true
-```
-
 ### Url 持久化
 
 使用插件：[hexo-abbrlink](https://github.com/rozbo/hexo-abbrlink)
@@ -565,6 +568,8 @@ local_search:
   unescape: false
   preload: true
 ```
+
+3.如果你不想改篇文章出现在搜索结过中，可文章 `Front-matter` 中加入`indexing: false`。
 
 ### 文章加密
 
