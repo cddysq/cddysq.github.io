@@ -238,20 +238,27 @@ categories:
 
 ![置顶样式](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210712173931.png)
 
-2.置顶图标颜色修改（根据个人喜欢）
-
-在 `variables.styl` 文件中加入以下代码：
-
-```stylus
-$custom-thumbtack-color  = #FF6666;
-```
+2.置顶图标动态颜色（根据个人喜欢）
 
 在 `styles.styl` 文件中加入以下代码：
 
 ```stylus
 /* post-文章置顶 */
 .post-sticky-flag {
-  color: $custom-thumbtack-color;
+  color: transparent;
+  background: linear-gradient(88deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 33.3%, rgba(252, 176, 69, 1) 66.6%, rgba(131, 58, 180, 1) 100%);
+  background-size: 300% 100%; /*扩大背景区域*/
+  -webkit-background-clip: text; /*截取背景区域为文字*/
+  animation: thumbtack 4s infinite linear;
+}
+
+@keyframes thumbtack {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -150% 0;
+  }
 }
 ```
 
