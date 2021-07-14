@@ -5,7 +5,6 @@ categories:
 tags:
   - 美化
 abbrlink: 15baca53
-sticky: 20
 date: 2019-12-20 00:00:00
 ---
 
@@ -331,3 +330,27 @@ hexo.on('new', function(data){
 });
 ```
 
+### 文章加密
+
+使用插件：[hexo-blog-encrypt](https://github.com/MikeCoder/hexo-blog-encrypt)
+
+1.在博客根目录执行安装命令
+
+```bash
+npm install hexo-blog-encrypt --save
+```
+
+2.在站点配置文件中加入以下内容：
+
+```yaml
+# Security
+encrypt:
+  abstract: 本文章已加密🐇, 请输入密码查看.
+  message: ( ⓛ ω ⓛ *), 请在此处输入密码，查看加密内容.
+  wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.
+  wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容. 
+```
+
+3.在需要加密的文章`Front-matter`里加入`password: 访问密码`即可。
+
+> 已知问题，解密后初次访问文章，极小部分布局错乱，代码块复制功能失效。刷新页面都可解决。更多高阶用法自行查阅官方文档。

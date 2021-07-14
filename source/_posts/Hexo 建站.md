@@ -222,6 +222,45 @@ social:
   E-Mail: mailto:2056423011@qq.com || fas fa-envelope
 ```
 
+### 网站圆角
+
+1.在 `variables.styl` 文件中定义圆角大小：
+
+```stylus
+$custom-radius           = 8px;
+```
+
+2.在 `styles.styl` 文件中加定义圆角样式，效果如下图：
+
+```stylus
+/* 圆角 */
+.header-inner, ///顶部圆角
+.sidebar-inner { //侧边头像圆角
+  border-radius: $custom-radius;
+}
+
+.site-brand-container {
+  border-radius: $custom-radius $custom-radius 0 0;
+
+  +mobile() {
+    border-radius: 0 0 $custom-radius $custom-radius;
+  }
+}
+
+/* sidebar-二级菜单圆角 */
+.sub-menu {
+  border-radius: $custom-radius !important;
+}
+
+/* post-文章卡片圆角 */
+.post-block,
+.post-block + .post-block {
+  border-radius: $custom-radius !important;
+}
+```
+
+![网站圆角效果](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210714112014.png)
+
 ### 文章置顶
 
 1.在需要置顶的文章 `Front-matter` 中添加 `sticky: n`，这里的n是数字要求>0，数字越大表示置顶等级越高，文章越靠前，例：
@@ -246,7 +285,7 @@ categories:
 /* post-文章置顶 */
 .post-sticky-flag {
   color: transparent;
-  background: linear-gradient(88deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 33.3%, rgba(252, 176, 69, 1) 66.6%, rgba(131, 58, 180, 1) 100%);
+  background: linear-gradient(90deg, #333333 0%, #CC0033 33.3%, #FF0033 66.6%, #333333 100%);
   background-size: 300% 100%; /*扩大背景区域*/
   -webkit-background-clip: text; /*截取背景区域为文字*/
   animation: thumbtack 4s infinite linear;
@@ -531,29 +570,7 @@ skip_render:
 
 > 更多站点配置内容移步 →  [Hexo文档](https://hexo.io/zh-cn/docs/configuration) 进行查看
 
-## 插件使用
-
-### Url 持久化
-
-使用插件：[hexo-abbrlink](https://github.com/rozbo/hexo-abbrlink)
-
-Hexo默认的文章链接形式为 `:year/:month/:day/:title/`，是一个四级url，并且可能造成 url 过长，会影响网站的SEO，对搜索引擎是十分不友好。
-
-在博客根目录安装  `hexo-abbrlink`：
-
-```bash
-npm install hexo-abbrlink --save
-```
-
-打开站点配置文件，搜索  `permalink`  改为如下配置：
-
-```yaml
-#permalink: :year/:month/:day/:title/
-permalink: posts/:abbrlink/
-abbrlink:
-  alg: crc32  # 算法：crc16(default) and crc32
-  rep: hex    # 进制：dec(default) and hex
-```
+## 功能拓展
 
 ### 本地搜索
 
@@ -578,52 +595,46 @@ local_search:
 
 3.如果你不想改篇文章出现在搜索结过中，可文章 `Front-matter` 中加入`indexing: false`。
 
-### 文章加密
+### Url 持久化
 
-使用插件：[hexo-blog-encrypt](https://github.com/MikeCoder/hexo-blog-encrypt)
+使用插件：[hexo-abbrlink](https://github.com/rozbo/hexo-abbrlink)
 
-1.在博客根目录执行安装命令
+Hexo默认的文章链接形式为 `:year/:month/:day/:title/`，是一个四级url，并且可能造成 url 过长，会影响网站的SEO，对搜索引擎是十分不友好。
+
+在博客根目录安装  `hexo-abbrlink`：
 
 ```bash
-npm install hexo-blog-encrypt --save
+npm install hexo-abbrlink --save
 ```
 
-2.在站点配置文件中加入以下内容：
+打开站点配置文件，搜索  `permalink`  改为如下配置：
 
 ```yaml
-# Security
-encrypt:
-  abstract: 本文章已加密🐇, 请输入密码查看.
-  message: ( ⓛ ω ⓛ *), 请在此处输入密码，查看加密内容.
-  wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.
-  wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容. 
+#permalink: :year/:month/:day/:title/
+permalink: posts/:abbrlink/
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex
 ```
-
-3.在需要加密的文章`Front-matter`里加入`password: 访问密码`即可。
-
-> 已知问题，解密后初次访问文章，极小部分布局错乱，代码块复制功能失效。刷新页面都可解决。更多高阶用法自行查阅官方文档。
 
 ## 部署站点
 
-打开站点配置文件，搜索 `deploy` 选项，填写对应Git仓库地址：
+1.在博客根目录安装部署插件：[hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git)
+
+```bash
+npm install hexo-deployer-git --save
+```
+
+2.打开站点配置文件，搜索 `deploy` 选项，填写对应Git仓库地址：
 
 ```yaml
 deploy:
   type: git
   repo:
    github: git@github.com:******.git,master
-   coding: git@e.coding.net:******.git,master
 ```
 
-> 我为双向部署，单个仓库去掉一条即可
-
-在博客根目录安装部署插件：[hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git)
-
-```bash
-npm install hexo-deployer-git --save
-```
-
-推送博客
+3.推送博客
 
 ```bash
 hexo clean & hexo g & hexo d

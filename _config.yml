@@ -106,4 +106,7 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo:
+   github: git@github.com:CodeHaotian/CodeHaotian.github.io.git,master
+   coding: git@e.coding.net:yiya/HexoNexT.git,master  
