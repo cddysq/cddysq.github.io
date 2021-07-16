@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
     <link rel="mask-icon" href="/images/favicon/favicon-48x48.png" color="#222">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chgibb/css-spinners@2.2.1/css/spinners.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB+Garamond:400,700|Noto+Serif+SC:400,700&display=swap">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
     <title>404 | hao</title>
@@ -21,34 +22,40 @@
             box-sizing: border-box
         }
 
+        .container .hitokoto, .container .box {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%)
+        }
+
         .box {
+            top: 50%;
             width: 350px;
             height: 100%;
             max-height: 600px;
             min-height: 450px;
             background: #332f63;
             border-radius: 20px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
             padding: 30px 50px
         }
 
-        .box .box__ghost {
-            padding: 15px 25px 25px;
+        .container .box .box-ghost, .container .box .box-description {
             position: absolute;
-            left: 50%;
+            left: 50%
+        }
+
+        .box .box-ghost {
+            padding: 15px 25px 25px;
             top: 20%;
             transform: translate(-50%, -30%)
         }
 
-        .box .box__ghost .symbol:nth-child(1) {
+        .box .box-ghost .symbol:nth-child(1) {
             opacity: .2;
             animation: shine 4s ease-in-out 3s infinite
         }
 
-        .box .box__ghost .symbol:nth-child(1):after, .box .box__ghost .symbol:nth-child(1):before {
+        .box .box-ghost .symbol:nth-child(1):after, .box .box-ghost .symbol:nth-child(1):before {
             content: '';
             width: 12px;
             height: 4px;
@@ -59,15 +66,15 @@
             left: 0
         }
 
-        .box .box__ghost .symbol:nth-child(1):before {
+        .box .box-ghost .symbol:nth-child(1):before {
             transform: rotate(45deg)
         }
 
-        .box .box__ghost .symbol:nth-child(1):after {
+        .box .box-ghost .symbol:nth-child(1):after {
             transform: rotate(-45deg)
         }
 
-        .box .box__ghost .symbol:nth-child(2) {
+        .box .box-ghost .symbol:nth-child(2) {
             position: absolute;
             left: -5px;
             top: 30px;
@@ -79,12 +86,12 @@
             animation: shine 4s ease-in-out 1.3s infinite
         }
 
-        .box .box__ghost .symbol:nth-child(3) {
+        .box .box-ghost .symbol:nth-child(3) {
             opacity: .2;
             animation: shine 3s ease-in-out .5s infinite
         }
 
-        .box .box__ghost .symbol:nth-child(3):after, .box .box__ghost .symbol:nth-child(3):before {
+        .box .box-ghost .symbol:nth-child(3):after, .box .box-ghost .symbol:nth-child(3):before {
             content: '';
             width: 12px;
             height: 4px;
@@ -95,20 +102,20 @@
             left: 40px
         }
 
-        .box .box__ghost .symbol:nth-child(3):before {
+        .box .box-ghost .symbol:nth-child(3):before {
             transform: rotate(90deg)
         }
 
-        .box .box__ghost .symbol:nth-child(3):after {
+        .box .box-ghost .symbol:nth-child(3):after {
             transform: rotate(180deg)
         }
 
-        .box .box__ghost .symbol:nth-child(4) {
+        .box .box-ghost .symbol:nth-child(4) {
             opacity: .2;
             animation: shine 6s ease-in-out 1.6s infinite
         }
 
-        .box .box__ghost .symbol:nth-child(4):after, .box .box__ghost .symbol:nth-child(4):before {
+        .box .box-ghost .symbol:nth-child(4):after, .box .box-ghost .symbol:nth-child(4):before {
             content: '';
             width: 15px;
             height: 4px;
@@ -119,15 +126,15 @@
             right: 30px
         }
 
-        .box .box__ghost .symbol:nth-child(4):before {
+        .box .box-ghost .symbol:nth-child(4):before {
             transform: rotate(45deg)
         }
 
-        .box .box__ghost .symbol:nth-child(4):after {
+        .box .box-ghost .symbol:nth-child(4):after {
             transform: rotate(-45deg)
         }
 
-        .box .box__ghost .symbol:nth-child(5) {
+        .box .box-ghost .symbol:nth-child(5) {
             position: absolute;
             right: 5px;
             top: 40px;
@@ -139,12 +146,12 @@
             animation: shine 1.7s ease-in-out 7s infinite
         }
 
-        .box .box__ghost .symbol:nth-child(6) {
+        .box .box-ghost .symbol:nth-child(6) {
             opacity: .2;
             animation: shine 2s ease-in-out 6s infinite
         }
 
-        .box .box__ghost .symbol:nth-child(6):after, .box .box__ghost .symbol:nth-child(6):before {
+        .box .box-ghost .symbol:nth-child(6):after, .box .box-ghost .symbol:nth-child(6):before {
             content: '';
             width: 15px;
             height: 4px;
@@ -155,15 +162,15 @@
             right: -5px
         }
 
-        .box .box__ghost .symbol:nth-child(6):before {
+        .box .box-ghost .symbol:nth-child(6):before {
             transform: rotate(90deg)
         }
 
-        .box .box__ghost .symbol:nth-child(6):after {
+        .box .box-ghost .symbol:nth-child(6):after {
             transform: rotate(180deg)
         }
 
-        .box .box__ghost .box__ghost-container {
+        .box .box-ghost .box-ghost-container {
             background: #fff;
             width: 100px;
             height: 100px;
@@ -173,7 +180,7 @@
             animation: upndown 3s ease-in-out infinite
         }
 
-        .box .box__ghost .box__ghost-container .box__ghost-eyes {
+        .box .box-ghost .box-ghost-container .box-ghost-eyes {
             position: absolute;
             left: 50%;
             top: 45%;
@@ -181,7 +188,7 @@
             width: 70px
         }
 
-        .box .box__ghost .box__ghost-container .box__ghost-eyes .box__eye-left {
+        .box .box-ghost .box-ghost-container .box-ghost-eyes .box__eye-left {
             width: 12px;
             height: 12px;
             background: #332f63;
@@ -191,7 +198,7 @@
             left: 0
         }
 
-        .box .box__ghost .box__ghost-container .box__ghost-eyes .box__eye-right {
+        .box .box-ghost .box-ghost-container .box-ghost-eyes .box__eye-right {
             width: 12px;
             height: 12px;
             background: #332f63;
@@ -201,7 +208,7 @@
             right: 0
         }
 
-        .box .box__ghost .box__ghost-container .box__ghost-bottom {
+        .box .box-ghost .box-ghost-container .box-ghost-bottom {
             display: flex;
             position: absolute;
             top: 100%;
@@ -209,7 +216,7 @@
             right: 0
         }
 
-        .box .box__ghost .box__ghost-container .box__ghost-bottom div {
+        .box .box-ghost .box-ghost-container .box-ghost-bottom div {
             flex-grow: 1;
             position: relative;
             top: -10px;
@@ -218,14 +225,14 @@
             background-color: #fff
         }
 
-        .box .box__ghost .box__ghost-container .box__ghost-bottom div:nth-child(2n) {
+        .box .box-ghost .box-ghost-container .box-ghost-bottom div:nth-child(2n) {
             top: -12px;
             margin: 0 0;
             border-top: 15px solid #332f63;
             background: 0 0
         }
 
-        .box .box__ghost .box__ghost-shadow {
+        .box .box-ghost .box-ghost-shadow {
             height: 20px;
             box-shadow: 0 50px 15px 5px #3b3769;
             border-radius: 50%;
@@ -233,33 +240,31 @@
             animation: smallnbig 3s ease-in-out infinite
         }
 
-        .box .box__description {
-            position: absolute;
+        .box .box-description {
             bottom: 108px;
-            left: 50%;
             transform: translateX(-50%)
         }
 
-        .box .box__description .box__description-container {
-            color: #fff;
+        .box .box-description .box-description-container {
             text-align: center;
             width: 200px;
-            font-size: 16px;
             margin: 0 auto
         }
 
-        .box .box__description .box__description-container .box__description-title {
+        .box .box-description .box-description-container .box-description-title {
+            color: #fff;
             font-size: 28px;
             letter-spacing: .5px
         }
 
-        .box .box__description .box__description-container .box__description-text {
+        .box .box-description .box-description-container .box-description-text {
             color: #8c8aa7;
+            font-size: 16px;
             line-height: 20px;
             margin-top: 20px
         }
 
-        .box .box__description .box__button {
+        .box .box-description .box-button {
             display: block;
             position: relative;
             background: #ff5e65;
@@ -278,7 +283,7 @@
             overflow: hidden
         }
 
-        .box .box__description .box__button:before {
+        .box .box-description .box-button:before {
             content: '';
             position: absolute;
             width: 20px;
@@ -291,12 +296,12 @@
             transition: transform .5s ease
         }
 
-        .box .box__description .box__button:hover {
+        .box .box-description .box-button:hover {
             background: 0 0;
             border-color: #fff
         }
 
-        .box .box__description .box__button:hover:before {
+        .box .box-description .box-button:hover:before {
             transform: translateX(250px) rotate(45deg)
         }
 
@@ -337,55 +342,126 @@
             100% {
                 opacity: .2
             }
-        }</style>
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .hitokoto {
+            top: 8%;
+            height: 76px;
+            min-height: 38px;
+            width: 800px;
+            line-height: 38px;
+            font-size: 1.2em;
+            color: #CCFFCC;
+            z-index: 9999;
+            letter-spacing: 1px;
+            text-align: center;
+            font-family: cursive, "PingFang SC", Arial, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif
+        }
+
+        .fadeIn {
+            animation: fade-in 8s ease-in-out 0s 1;
+            animation-fill-mode: forwards
+        }
+
+        .hitokoto a {
+            text-decoration: none;
+            color: #999999
+        }
+
+        .hitokoto .hitokoto-author {
+            float: right;
+            font-size: 0.8em
+        }
+    </style>
 </head>
 <body>
-<div class="hitokoto">
-    <a href="#" id="hitokoto_content">:D 一言获取中...</a>
-    <p id="hitokoto_author"></p>
-</div>
-<div class="box">
-    <div class="box__ghost">
-        <div class="symbol"></div>
-        <div class="symbol"></div>
-        <div class="symbol"></div>
-        <div class="symbol"></div>
-        <div class="symbol"></div>
-        <div class="symbol"></div>
-        <div class="box__ghost-container">
-            <div class="box__ghost-eyes">
-                <div class="box__eye-left"></div>
-                <div class="box__eye-right"></div>
-            </div>
-            <div class="box__ghost-bottom">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+<div class="container">
+    <div id="hitokoto" class="hitokoto fadeIn">
+        <div id="hitokoto_content" class="hitokoto-content">
+            <a href="https://github.com/hitokoto-osc/hitokoto-api">一言获取中</a>
+            <div class="spinner-loader">Loading...</div>
         </div>
-        <div class="box__ghost-shadow"></div>
+        <div id="hitokoto_author" class="hitokoto-author"></div>
     </div>
-    <div class="box__description">
-        <div class="box__description-container">
-            <div class="box__description-title">404</div>
-            <div class="box__description-text">您似乎来到了</div>
-            <div class="box__description-text">没有知识存在的荒原……</div>
-            <div class="box__description-text">Page Not Found</div>
+    <div class="box">
+        <div class="box-ghost">
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="box-ghost-container">
+                <div class="box-ghost-eyes">
+                    <div class="box__eye-left"></div>
+                    <div class="box__eye-right"></div>
+                </div>
+                <div class="box-ghost-bottom">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="box-ghost-shadow"></div>
         </div>
-        <a href="https://yileaf.com" class="box__button">主页 Home</a>
+        <div class="box-description">
+            <div class="box-description-container">
+                <div class="box-description-title">404</div>
+                <div class="box-description-text">您似乎来到了</div>
+                <div class="box-description-text">没有知识存在的荒原……</div>
+                <div class="box-description-text">Page Not Found</div>
+            </div>
+            <a href="https://yileaf.com" class="box-button">主页 Home</a>
+        </div>
     </div>
 </div>
+
 <script>
-    fetch('https://v1.hitokoto.cn')
-        .then(response => response.json())
-        .then(data => {
-            const hitokoto = document.getElementById('hitokoto_text')
-            hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
-            hitokoto.innerText = data.hitokoto
-        })
-        .catch(console.error)
+    let errorCount = 0;
+    requestHitokoto();
+
+    function requestHitokoto() {
+        fetch('https://v1.hitokoto.cn')
+            .then(response => response.json())
+            .then(data => {
+                $('#hitokoto_content').text(data.hitokoto);
+                const author = !!data.from ? data.from : "无名氏";
+                $('#hitokoto_author').text("—— " + (data.from_who || '') + "「" + author + "」");
+                window.setTimeout(requestHitokoto, 10000);
+                reloadAnimation();
+            })
+            .catch(function (err) {
+                console.error(`在更新一言时捕获错误， 错误信息: ${err.message}. 当前时间: ${new Date().toISOString()}`);
+                if (errorCount < 10) {
+                    errorCount++;
+                    requestHitokoto();
+                }
+            });
+    }
+
+    /**
+     * 重载动画
+     * Reference link: https://css-tricks.com/restart-css-animation/
+     */
+    function reloadAnimation() {
+        let element = document.getElementById("hitokoto");
+        // 移除动画
+        element.classList.remove('fadeIn');
+        void element.offsetWidth;
+        // 重载动画
+        element.classList.add('fadeIn');
+    }
 </script>
 
 <script>
@@ -398,7 +474,7 @@
         xAxis = -mouseX * 100 - 100;
         mouseY = event.pageY;
         yAxis = (pageY / 2 - mouseY) / pageY * 300;
-        $('.box__ghost-eyes').css({'transform': 'translate(' + xAxis + '%,-' + yAxis + '%)'})
+        $('.box-ghost-eyes').css({'transform': 'translate(' + xAxis + '%,-' + yAxis + '%)'})
     });
 </script>
 </body>
