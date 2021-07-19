@@ -552,6 +552,14 @@ timezone: '' # 时区
 url: https://yileaf.com # 配置为你的域名
 ```
 
+### 添加404页面
+
+在 `blog/source`目录下新建404.html，编写该页面，当线上访问不存在的路径时会自动重定向到该页面。附上我的页面效果：
+
+![404](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210719112918.png)
+
+- 网页源码链接 → [点击访问源码存档](https://github.com/CodeHaotian/CodeHaotian.github.io/blob/HexoNexT/source/404.html) ，页面参考：[@lei2rock](https://dlzhang.com/)
+
 ### 配置站点目录
 
 如果你在`next`中自定义了菜单目录，此处需要修改为对应路径

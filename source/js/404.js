@@ -1,6 +1,6 @@
 let errorCount = 0;
 
-$(function () {
+window.onload = function() {
     // 页面初始化完毕执行js
     requestHitokoto();
 
@@ -15,7 +15,7 @@ $(function () {
         yAxis = (pageY / 2 - mouseY) / pageY * 300;
         $('.box-ghost-eyes').css({'transform': 'translate(' + xAxis + '%,-' + yAxis + '%)'});
     });
-});
+};
 
 function requestHitokoto() {
     fetch('https://v1.hitokoto.cn')
