@@ -128,17 +128,66 @@ zh-CN:
 
 ```yaml
 custom_file_path:
-  #head: source/_data/head.njk #网站顶部配置
+  head: source/_data/head.njk #网站顶部配置
   #header: source/_data/header.njk
   sidebar: source/_data/sidebar.njk #侧边栏配置
   postMeta: source/_data/post-meta.njk #文章顶部配置对应themes\next\layout\_macro\post.njk文件，只要属性标签相同会覆盖主题默认
   postBodyEnd: source/_data/post-body-end.njk #文章结束配置
-  footer: source/_data/footer.njk #结尾配置
+  footer: source/_data/footer.njk #底部配置
   bodyEnd: source/_data/body-end.njk #网站结束配置
   variable: source/_data/variables.styl #变量定义文件
   #mixin: source/_data/mixins.styl
   style: source/_data/styles.styl # 样式文件
 ```
+
+## 配置站点
+
+### 完善网站基本信息
+
+打开站点配置文件，完善网站基本信息：
+
+```yaml
+# Site 站点信息
+title: 且听风吟 # 站点名称
+subtitle: 🕊️ gu~gu~gu # 站点副标题
+description: 一瞥便是惊鸿 芳华乱了浮生 # 站点描述
+keywords: Java,Web # 关键字
+author: 浮生 # 作者名称
+language: zh-CN # 网站语言
+timezone: '' # 时区
+```
+
+### 配置网址url
+
+```yaml
+url: https://yileaf.com # 配置为你的域名
+```
+
+### 添加404页面
+
+在 `blog/source`目录下新建404.html，编写该页面，当线上访问不存在的路径时会自动重定向到该页面。附上我的页面效果：
+
+![404](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210720171933.png)
+
+- 网页源码链接 → [点击访问源码存档](https://github.com/CodeHaotian/CodeHaotian.github.io/blob/HexoNexT/source/404.html) ，页面参考：[@lei2rock](https://dlzhang.com/)
+
+### 配置站点目录
+
+如果你在`next`中自定义了菜单目录，此处需要修改为对应路径
+
+```yaml
+source_dir: source # 资源文件夹
+public_dir: public # 公共文件夹
+tag_dir: overviews/tags # 标签文件夹
+archive_dir: overviews/timeline # 归档文件夹
+category_dir: overviews # 分类文件夹
+code_dir: downloads/code 
+i18n_dir: :lang # 国际化
+skip_render:
+  - 404.html # 跳过指定文件的渲染。匹配到的文件将会被不做改动地复制到 public 目录中
+```
+
+> 更多站点配置内容移步 →  [Hexo文档](https://hexo.io/zh-cn/docs/configuration) 进行查看
 
 ## 配置主题
 
@@ -220,6 +269,41 @@ social:
   GitHub: https://github.com/CodeHaotian || fab fa-github
   Telegram: https://t.me/yileaf || fab fa-telegram
   E-Mail: mailto:2056423011@qq.com || fas fa-envelope
+```
+
+### 侧边栏美化
+
+1.在 `variables.styl` 文件中定义字体格式：
+
+```stylus
+// Font families.
+$font-family-custom       = cursive, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+```
+
+2.在 `styles.styl` 文件中修改样式：
+
+```stylus
+/* sidebar-网站拥有者 */
+.site-author-name {
+  font-size: $font-size-larger;
+  font-family: $font-family-custom;
+}
+
+/* sidebar-网站描述 */
+.site-description {
+  font-size: $font-size-medium;
+  font-family: $font-family-custom;
+}
+```
+
+### 加载进度条
+
+打开主题配置文件，搜索  `nprogress`  选项：
+
+```yml
+nprogress:
+  enable: true
+  spinner: true
 ```
 
 ### 网站圆角
@@ -490,7 +574,7 @@ creative_commons:
 默认版权侧边栏颜色修改，打开 `variables.styl` 定义颜色：
 
 ```stylus
-$post-copyright-boder    = #81a6ed;
+$post-copyright-border    = #81a6ed;
 ```
 
 打开 `styles.styl` 替换样式：
@@ -498,7 +582,7 @@ $post-copyright-boder    = #81a6ed;
 ```stylus
 /* post-版权声明 */
 .post-copyright ul {
-   border-left: 3px solid $post-copyright-boder;
+   border-left: 3px solid $post-copyright-border;
 }
 ```
 
@@ -528,55 +612,6 @@ footer:  # 底部信息区
 ![原始页脚](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210709161721.png)
 
 ![新页脚](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210709161825.png)
-
-## 配置站点
-
-### 完善网站基本信息
-
-打开站点配置文件，完善网站基本信息：
-
-```yaml
-# Site 站点信息
-title: 且听风吟 # 站点名称
-subtitle: 🕊️ gu~gu~gu # 站点副标题
-description: 一瞥便是惊鸿 芳华乱了浮生 # 站点描述
-keywords: Java,Web # 关键字
-author: Rainbow Cat # 作者名称
-language: zh-CN # 网站语言
-timezone: '' # 时区
-```
-
-### 配置网址url
-
-```yaml
-url: https://yileaf.com # 配置为你的域名
-```
-
-### 添加404页面
-
-在 `blog/source`目录下新建404.html，编写该页面，当线上访问不存在的路径时会自动重定向到该页面。附上我的页面效果：
-
-![404](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210719112918.png)
-
-- 网页源码链接 → [点击访问源码存档](https://github.com/CodeHaotian/CodeHaotian.github.io/blob/HexoNexT/source/404.html) ，页面参考：[@lei2rock](https://dlzhang.com/)
-
-### 配置站点目录
-
-如果你在`next`中自定义了菜单目录，此处需要修改为对应路径
-
-```yaml
-source_dir: source # 资源文件夹
-public_dir: public # 公共文件夹
-tag_dir: overviews/tags # 标签文件夹
-archive_dir: overviews/timeline # 归档文件夹
-category_dir: overviews # 分类文件夹
-code_dir: downloads/code 
-i18n_dir: :lang # 国际化
-skip_render:
-  - 404.html # 跳过指定文件的渲染。匹配到的文件将会被不做改动地复制到 public 目录中
-```
-
-> 更多站点配置内容移步 →  [Hexo文档](https://hexo.io/zh-cn/docs/configuration) 进行查看
 
 ## 功能拓展
 

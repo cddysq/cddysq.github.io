@@ -40,6 +40,34 @@
   border-radius: $custom-radius !important;
 }
 
+/* sidebar-网站拥有者 */
+.site-author-name {
+  font-size: $font-size-larger;
+  font-family: $font-family-custom;
+}
+
+/* sidebar-网站描述 */
+.site-description {
+  font-size: $font-size-medium;
+  font-family: $font-family-custom;
+}
+
+/* sidebar-近期文章 */
+.links-of-blogroll-title {
+  font-size: $font-size-large;
+}
+
+.links-of-blogroll-list a {
+  font-weight: bold;
+  border-bottom: none;
+
+  &:hover {
+    color: $recent-articles-link;
+    font-weight: bold;
+    border-bottom: 1px solid $recent-articles-link;
+  }
+}
+
 /************************** Post ***************************/
 
 /* post-文章置顶 */
@@ -92,8 +120,29 @@
 
 /* post-版权声明 */
 .post-copyright ul {
-   border-left: 3px solid $post-copyright-boder;
+  border-left: 3px solid $post-copyright-border;
 }
 
 
 /****************** Pagination & Footer ********************/
+
+/* footer-不蒜子统计 */
+.busuanzi-count .post-meta-item:nth-child(1) {
+  &::before {
+    content: '访客数'
+  }
+
+  &::after {
+    content: '人次'
+  }
+}
+
+.busuanzi-count .post-meta-item:nth-child(2) {
+  & .post-meta-item-icon::before {
+    content: '总访问量'
+  }
+
+  &::after {
+    content: '次';
+  }
+}

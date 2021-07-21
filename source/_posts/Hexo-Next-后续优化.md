@@ -10,26 +10,62 @@ date: 2019-12-20 00:00:00
 
 {% note info %}
 
+## 网页title添加搞怪特效
+
+{% endnote %}
+
+在`blog\source\js`文件夹下创建`funny_title.js`，添加如下代码：
+
+```js
+/* 离开当前页面时修改网页标题，回到当前页面时恢复原来标题 */
+window.onload = function () {
+  let OriginTitle = document.title;
+  let titleTime;
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+      document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
+      clearTimeout(titleTime);
+    } else {
+      // $('[rel="icon"]').attr('href', "/images/favicon-32x32.png"); 替换网站icon图标(可选)
+      document.title = '(ฅ>ω<*ฅ) 噫又好了鸭~' + OriginTitle;
+      titleTime = setTimeout(function () {
+        document.title = OriginTitle;
+      }, 4000);
+    }
+  });
+};
+```
+
+<!-- more -->
+
+在`head.njk`文件中，添加引用：
+
+```js
+<!-- 搞怪欺骗 -->
+<script type="text/javascript" src="/js/funny_title.js"></script>
+```
+
+{% note info %}
+
 ## 侧边栏添加近期文章
 
 {% endnote %}
 
-打开`blog\source\_data\sidebar.swig`文件，加入以下代码：
+1.打开`blog\source\_data\sidebar.njk`文件，加入以下代码：
 
 ```js
-{% if theme.recent_posts %}
-    <div class="links-of-blogroll motion-element {{ "links-of-blogroll-" + theme.recent_posts_layout  }}">
+{% if theme.recent_posts.enable %}
+    <div class="links-of-blogroll">
       <div class="links-of-blogroll-title">
-        <!-- 选择合适的icon -->
-        <i class="fa fa-history fa-{{ theme.recent_posts_icon | lower }}" aria-hidden="true"></i>
- 		<!-- 这里对应下文主题配置文件的recent_posts_title值 -->
-        {{ theme.recent_posts_title }}
+		<!-- 选择合适的icon -->
+		{%- if theme.recent_posts.icon %}<i class="{{ theme.recent_posts.icon }}" aria-hidden="true"></i>{%- endif %}
+        {{ theme.recent_posts.description }}
       </div>
-      <ul class="links-of-blogroll-list"> 
-         <!-- 设置排序规格，此处我采用按照文章更新时间排序 -->
+      <ul class="links-of-blogroll-list">
+		<!-- 文章排序规格,-updated 按照文章更新时间倒排 -->
         {% set posts = site.posts.sort('-updated').toArray() %}
-        <!-- 显示三条近期文章，请自信合理配置 -->
-        {% for post in posts.slice('0', '3') %}
+		 <!-- 显示四条近期文章 -->
+        {% for post in posts.slice('0', '4') %}
           <li>
             <a href="{{ url_for(post.path) }}" title="{{ post.title }}" target="_blank">{{ post.title }}</a>
           </li>
@@ -39,53 +75,59 @@ date: 2019-12-20 00:00:00
 {% endif %}
 ```
 
-打开主题配置文件，在最后添加如下内容：
+2.打开主题配置文件，在最后添加如下内容：
 
-```yml next.yml
+```yml
 # 近期文章配置  
-recent_posts_title: 近期文章
-recent_posts_layout: block
-recent_posts: true
+recent_posts:
+  enable: true
+  icon: fas fa-history
+  description: 近期文章
 ```
-
-<!-- more -->
 
 重启博客效果如下：
 
-![近期文章默认效果](https://s2.ax1x.com/2020/02/25/3t3br9.png)
+![近期文章默认效果](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210720175939.png)
 
-> 有点low，开始美化下
+> 有点low，开始美化
 
-打开主题配置文件，搜索`social_icons`选项，进行如下修改：
+3.1.打开主题配置文件，搜索`social_icons`选项，进行如下修改：
 
-```yml next.yml
+```yml
 social_icons:
   enable: true # 显示社交图标
   icons_only: true # 只显示社交图标
   transition: true # 过渡动画
 ```
 
-打开`blog\source\_data\styles.styl`文件，加入如下样式：
+3.2.打开 `blog\source\_data\variables.styl` 定义颜色：
 
-```css styles.styl
-//近期文章样式
+```stylus
+$recent-articles-link     = #428bca;
+```
+
+3.3.打开`blog\source\_data\styles.styl`文件，加入如下样式：
+
+```css
 .links-of-blogroll-title {
-	font-size: 15px;
+  font-size: $font-size-large;
 }
+
 .links-of-blogroll-list a {
-	font-weight: bold;
-	border-bottom: none;
-  &:hover{
-	color: #428bca;
-	font-weight: bold;
-	border-bottom: 1px solid #428bca;
+  font-weight: bold;
+  border-bottom: none;
+
+  &:hover {
+    color: $recent-articles-link;
+    font-weight: bold;
+    border-bottom: 1px solid $recent-articles-link;
   }
 }
 ```
 
 优化后效果如下：
 
-![近期文章效果改](https://s2.ax1x.com/2020/02/25/3tBqqf.png)
+![近期文章效果改](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210721110116.png)
 
 {% note info %}
 
@@ -148,7 +190,7 @@ click_love:
 
 {% endnote %}
 
-找到 `body-end.swig` 文件，加入以下内容：
+找到 `body-end.njk` 文件，加入以下内容：
 
 ```html
 <div class="bg_content">
@@ -171,7 +213,7 @@ click_love:
   height: 100%;
 }
 ```
-在主题配置文件`_config.yml`合适的位置（一般是最后一行）添加`canvas: true`启用刚才的配置。
+在主题配置文件中添加`canvas: true`启用刚才的配置。
 
 
 {% note info %}
@@ -184,45 +226,10 @@ click_love:
 
 在主题配置文件中搜索 `fancybox`设置为`true`。
 
-``` yml themes\next\_config.yml
+``` yaml
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
 # For more information: https://fancyapps.com/fancybox
 fancybox: true
-```
-
-{% note info %}
-
-## 给网页title添加一些搞怪特效
-
-{% endnote %}
-
-在`blog\source\js`文件夹下创建`funny_title.js`，添加代码：
-
-```js
-/*离开当前页面时修改网页标题，回到当前页面时恢复原来标题 */
-window.onload = function () {
-  let OriginTitle = document.title;
-  let titleTime;
-  document.addEventListener('visibilitychange', function () {
-    if (document.hidden) {
-      document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
-      clearTimeout(titleTime);
-    } else {
-      // $('[rel="icon"]').attr('href', "/uploads/favicon-32x32.png"); 换图测试失败
-      document.title = '(ฅ>ω<*ฅ) 噫又好了鸭~' + OriginTitle;
-      titleTime = setTimeout(function () {
-        document.title = OriginTitle;
-      }, 4000);
-    }
-  });
-};
-```
-
-在`head.swig`文件中，添加引用：
-
-```js head.swig
-<!--搞怪欺骗-->
-<script type="text/javascript" src="/js/funny_title.js"></script>
 ```
 
 {% note info %}
@@ -233,19 +240,38 @@ window.onload = function () {
 
 在主题配置文件中，开启配置：
 
-```yml
+```yaml
 busuanzi_count:
-  enable: true #开启不蒜子访问统计，默认是false
-  total_visitors: true #站点总访问量
-  total_visitors_icon: user #icon皆为对应图标
-  total_views: true #所有页面的总浏览量
-  total_views_icon: eye
-  post_views: false #文章浏览量
-  post_views_icon: eye
+  enable: true # 开启不蒜子访问统计，默认是false
+  total_visitors: true # 站点总访问量
+  total_visitors_icon: fas fa-user # icon皆为对应图标
+  total_views: true # 所有页面的总浏览量
+  total_views_icon: fas fa-eye
+  post_views: false # 文章浏览量
+  post_views_icon: far fa-eye
 ```
-为了更加美观，我们在`themes\next\layout\_third-party\statistics\busuanzi-counter.swig`文件中，添加如下提示文字：
+默认效果只有图标，不是特别直观，打开`styles.styl`文件添加如下代码：
 
-![显示优化](https://s2.ax1x.com/2020/01/27/1uWgGd.png)
+```css
+/* footer-不蒜子统计 */
+.busuanzi-count .post-meta-item:nth-child(1) {
+  &::before {
+    content: '访客数'
+  }
+  &::after {
+    content: '人次'
+  }
+}
+
+.busuanzi-count .post-meta-item:nth-child(2) {
+  & .post-meta-item-icon::before {
+    content: '总访问量'
+  }
+  &::after {
+    content: '次';
+  }
+}
+```
 
 最终效果：
 
@@ -257,45 +283,46 @@ busuanzi_count:
 
 {% endnote %}
 
-在`footer.swig`文件，加入倒计时代码：
+在`footer.njk`文件中加入倒计时代码：
 
 ```js
-<span id="sitetime"></span>
+<span id="website-time"></span>
 <script language=javascript>
-	function siteTime(){
-		window.setTimeout("siteTime()", 1000);
-		var seconds = 1000;
-		var minutes = seconds * 60;
-		var hours = minutes * 60;
-		var days = hours * 24;
-		var years = days * 365;
-		var today = new Date();
-		var todayYear = today.getFullYear();
-		var todayMonth = today.getMonth()+1;
-		var todayDate = today.getDate();
-		var todayHour = today.getHours();
-		var todayMinute = today.getMinutes();
-		var todaySecond = today.getSeconds();
-		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
-		year - 作为date对象的年份，为4位年份值
-		month - 0-11之间的整数，做为date对象的月份
-		day - 1-31之间的整数，做为date对象的天数
-		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
-		minutes - 0-59之间的整数，做为date对象的分钟数
-		seconds - 0-59之间的整数，做为date对象的秒数
-		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
-		var t1 = Date.UTC(2017,01,04,00,00,00); //你的建站时间
-		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
-		var diff = t2-t1;
-		var diffYears = Math.floor(diff/years);
-		var diffDays = Math.floor((diff/days)-diffYears*365);
-		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
-		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
-		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML=" Run for "+diffYears+" Year "+diffDays+" Days "+diffHours+" Hours "+diffMinutes+" m "+diffSeconds+" s";
-	}
-	siteTime();
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        const seconds = 1000;
+        const minutes = seconds * 60;
+        const hours = minutes * 60;
+        const days = hours * 24;
+        const years = days * 365;
+        const today = new Date();
+        const todayYear = today.getFullYear();
+        const todayMonth = today.getMonth() + 1;
+        const todayDate = today.getDate();
+        const todayHour = today.getHours();
+        const todayMinute = today.getMinutes();
+        const todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        const t1 = Date.UTC(2017, 1, 4, 0, 0, 0); //你的建站时间
+        const t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        const diff = t2 - t1;
+        const diffYears = Math.floor(diff / years);
+        const diffDays = Math.floor((diff / days) - diffYears * 365);
+        const diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        const diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        const diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("website-time").innerHTML = " Run for " + diffYears + " Year " + diffDays + " Days " + diffHours + " Hours " + diffMinutes + " m " + diffSeconds + " s";
+    }
+    siteTime();
 </script>
+
 ```
 
 在`styles.styl`文件中给倒计时添加样式：
@@ -338,7 +365,7 @@ hexo.on('new', function(data){
 });
 ```
 
-### 文章加密
+## 文章加密
 
 使用插件：[hexo-blog-encrypt](https://github.com/MikeCoder/hexo-blog-encrypt)
 

@@ -19,12 +19,12 @@ minify: false
 # Define custom file paths.
 # Create your custom files in site directory `source/_data` and uncomment needed files below.
 custom_file_path:
-  #head: source/_data/head.njk
+  head: source/_data/head.njk
   #header: source/_data/header.njk
-  #sidebar: source/_data/sidebar.njk
+  sidebar: source/_data/sidebar.njk
   #postMeta: source/_data/post-meta.njk
   postBodyEnd: source/_data/post-body-end.njk
-  #footer: source/_data/footer.njk
+  footer: source/_data/footer.njk
   bodyEnd: source/_data/body-end.njk
   variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
@@ -158,9 +158,9 @@ social:
   #Skype: skype:yourname?call|chat || fab fa-skype
 
 social_icons:
-  enable: true
-  icons_only: false
-  transition: false
+  enable: true # 显示社交图标
+  icons_only: true # 只显示社交图标
+  transition: true # 过渡动画
 
 # Blog rolls
 links_settings:
@@ -522,7 +522,7 @@ pjax: false
 
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
 # For more information: https://fancyapps.com/fancybox/
-fancybox: false
+fancybox: true
 
 # A JavaScript library for zooming images like Medium.
 # Warning: Do not enable both `fancybox` and `mediumzoom`.
@@ -710,12 +710,12 @@ firestore:
 # Show Views / Visitors of the website / page with busuanzi.
 # For more information: http://ibruce.info/2015/04/04/busuanzi/
 busuanzi_count:
-  enable: false
-  total_visitors: true
-  total_visitors_icon: fa fa-user
-  total_views: true
-  total_views_icon: fa fa-eye
-  post_views: true
+  enable: true # 开启不蒜子访问统计，默认是false
+  total_visitors: true # 站点总访问量
+  total_visitors_icon: fas fa-user # icon皆为对应图标
+  total_views: true # 所有页面的总浏览量
+  total_views_icon: fas fa-eye
+  post_views: false # 文章浏览量
   post_views_icon: far fa-eye
 
 
@@ -842,7 +842,7 @@ motion:
 # Progress bar in the top during page loading.
 # For more information: https://github.com/rstacruz/nprogress
 nprogress:
-  enable: false
+  enable: true
   spinner: true
 
 # Canvas ribbon
@@ -965,3 +965,9 @@ click_love:
 complimentary_close:
   enable: true
   icon:  # 图标默认fas fa-paw
+  
+# 近期文章配置  
+recent_posts:
+  enable: true
+  icon: fas fa-history
+  description: 近期文章
