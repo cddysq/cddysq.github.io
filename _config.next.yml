@@ -145,7 +145,7 @@ site_state: true
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
   简书: https://www.jianshu.com/u/ec346a4e0d4e || fas fa-heartbeat
-  GitHub: https://github.com/CodeHaotian || fab fa-github
+  GitHub: https://github.com/moyuhs || fab fa-github
   Telegram: https://t.me/yileaf || fab fa-telegram
   E-Mail: mailto:2056423011@qq.com || fas fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo

@@ -108,5 +108,4 @@ theme: next
 deploy:
   type: git
   repo:
-   github: git@github.com:CodeHaotian/CodeHaotian.github.io.git,master
-   coding: git@e.coding.net:yiya/HexoNexT.git,master  
+   github: git@github.com:moyuhs/moyuhs.github.io.git,master
