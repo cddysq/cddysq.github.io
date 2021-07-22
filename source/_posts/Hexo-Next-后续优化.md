@@ -87,7 +87,7 @@ recent_posts:
 
 重启博客效果如下：
 
-![近期文章默认效果](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210720175939.png)
+![近期文章默认效果](https://cdn.jsdelivr.net/gh/moyuhs/images/20210720175939.png)
 
 > 有点low，开始美化
 
@@ -127,7 +127,7 @@ $recent-articles-link     = #428bca;
 
 优化后效果如下：
 
-![近期文章效果改](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210721110116.png)
+![近期文章效果改](https://cdn.jsdelivr.net/gh/moyuhs/images/20210721110116.png)
 
 {% note info %}
 
@@ -200,7 +200,7 @@ click_love:
    <script type="text/javascript" src="/js/dynamic_bg.js"></script>
 {% endif %}
 ```
-在`blog\source\js`中新建文件`dynamic_bg.js`，代码链接中可见：[dynamic_bg.js](https://github.com/CodeHaotian/CodeHaotian.github.io/blob/HexoNexT/themes/next/source/js/src/dynamic_bg.js)
+在`blog\source\js`中新建文件`dynamic_bg.js`，代码链接中可见：[dynamic_bg.js](https://github.com/moyuhs/moyuhs.github.io/blob/HexoNexT/source/js/dynamic_bg.js)
 
 在 `styles.styl` 文件末尾添加如下内容：
 
@@ -283,56 +283,91 @@ busuanzi_count:
 
 {% endnote %}
 
-在`footer.njk`文件中加入倒计时代码：
+1.在`footer.njk`文件中加入以下代码：
 
 ```js
-<span id="website-time"></span>
-<script language=javascript>
-    function siteTime() {
-        window.setTimeout("siteTime()", 1000);
-        const seconds = 1000;
-        const minutes = seconds * 60;
-        const hours = minutes * 60;
-        const days = hours * 24;
-        const years = days * 365;
-        const today = new Date();
-        const todayYear = today.getFullYear();
-        const todayMonth = today.getMonth() + 1;
-        const todayDate = today.getDate();
-        const todayHour = today.getHours();
-        const todayMinute = today.getMinutes();
-        const todaySecond = today.getSeconds();
-        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
-        year - 作为date对象的年份，为4位年份值
-        month - 0-11之间的整数，做为date对象的月份
-        day - 1-31之间的整数，做为date对象的天数
-        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
-        minutes - 0-59之间的整数，做为date对象的分钟数
-        seconds - 0-59之间的整数，做为date对象的秒数
-        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
-        const t1 = Date.UTC(2017, 1, 4, 0, 0, 0); //你的建站时间
-        const t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
-        const diff = t2 - t1;
-        const diffYears = Math.floor(diff / years);
-        const diffDays = Math.floor((diff / days) - diffYears * 365);
-        const diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
-        const diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
-        const diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
-        document.getElementById("website-time").innerHTML = " Run for " + diffYears + " Year " + diffDays + " Days " + diffHours + " Hours " + diffMinutes + " m " + diffSeconds + " s";
-    }
-    siteTime();
-</script>
+<div id="website-time" class="{{ 'website-time-dynamic' if theme.website_running_time.style == 'dynamic' else 'website-time-static' }}"></div>
 
 ```
 
-在`styles.styl`文件中给倒计时添加样式：
+2.在`body-end.njk`文件中加入以下代码：
+
+```js
+{############################}
+{### WEBSITE RUNNING TIME ###}
+{############################}
+{% if theme.website_running_time.enable %}
+<script type="text/javascript" id="website-js" src="/js/website.min.js" code="all"></script>
+{% endif %}
+```
+
+3.在`blog\source\js`下新建`website.js`加入倒计时：
+
+```js
+window.onload = function () {
+    siteTime();
+}    
+function siteTime() {
+    const seconds = 1000;
+    const minutes = seconds * 60;
+    const hours = minutes * 60;
+    const days = hours * 24;
+    const years = days * 365;
+    const today = new Date();
+    const todayYear = today.getFullYear();
+    const todayMonth = today.getMonth() + 1;
+    const todayDate = today.getDate();
+    const todayHour = today.getHours();
+    const todayMinute = today.getMinutes();
+    const todaySecond = today.getSeconds();
+    /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+    year - 作为date对象的年份，为4位年份值
+    month - 0-11之间的整数，做为date对象的月份
+    day - 1-31之间的整数，做为date对象的天数
+    hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+    minutes - 0-59之间的整数，做为date对象的分钟数
+    seconds - 0-59之间的整数，做为date对象的秒数
+    microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+    const t1 = Date.UTC(2017, 1, 4, 0, 0, 0, 0); //建站时间
+    const t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+    const diff = t2 - t1;
+    const diffYears = Math.floor(diff / years);
+    const diffDays = Math.floor((diff / days) - diffYears * 365);
+    const diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+    const diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+    const diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+    $('#website-time').html(" Run for " + diffYears + " Year " + diffDays + " Days " + diffHours + " Hours " + diffMinutes + " m " + diffSeconds + " s");
+
+    window.setTimeout(siteTime, 1000);
+}
+```
+
+4.在`styles.styl`文件中给倒计时添加样式：
 
 ```css
-#sitetime {
-  background-image: -webkit-linear-gradient(left, #aa4b6b, #6b6b83, #3b8d99);
+.website-time-static {
+  color: transparent;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-image: -webkit-linear-gradient(left, #aa4b6b, #6b6b83, #3b8d99);
 }
+
+.website-time-dynamic {
+  color: transparent;
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  animation: general-animation 36s infinite linear;
+  background-image: linear-gradient(to right, #077dcc 0%, #f47920 10%, #d71345 20%, #ff2a2a 30%, #7e36ff 40%, #077dcc 50%, #f47920 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #077dcc 100%);
+}
+```
+
+5.在主题配置文件中启用配置
+
+```yaml
+# 网站运行时间
+website_running_time:
+  enable: true
+  # 默认 static 可选 dynamic
+  style: dynamic
 ```
 
 {% note info %}

@@ -76,10 +76,10 @@
   background: linear-gradient(90deg, #333333 0%, #CC0033 33.3%, #FF0033 66.6%, #333333 100%);
   background-size: 300% 100%; /*扩大背景区域*/
   -webkit-background-clip: text; /*截取背景区域为文字*/
-  animation: thumbtack 4s infinite linear;
+  animation: general-animation 4s infinite linear;
 }
 
-@keyframes thumbtack {
+@keyframes general-animation {
   0% {
     background-position: 0 0
   }
@@ -145,4 +145,19 @@
   &::after {
     content: '次';
   }
+}
+
+/* footer-网站倒计时 */
+.website-time-static {
+  color: transparent;
+  -webkit-background-clip: text;
+  background-image: -webkit-linear-gradient(left, #aa4b6b, #6b6b83, #3b8d99);
+}
+
+.website-time-dynamic {
+  color: transparent;
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  animation: general-animation 36s infinite linear;
+  background-image: linear-gradient(to right, #077dcc 0%, #f47920 10%, #d71345 20%, #ff2a2a 30%, #7e36ff 40%, #077dcc 50%, #f47920 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #077dcc 100%);
 }

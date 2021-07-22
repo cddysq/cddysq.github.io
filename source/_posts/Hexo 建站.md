@@ -84,7 +84,7 @@ theme: next
 hexo clean & hexo s --debug
 ```
 
-![Next默认效果](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210611102418.png)
+![Next默认效果](https://cdn.jsdelivr.net/gh/moyuhs/images/20210611102418.png)
 
 > > 主题管理参考此文章 → [主题版本管理](https://wylu.github.io/posts/6f2f62d0/)
 
@@ -167,9 +167,9 @@ url: https://yileaf.com # 配置为你的域名
 
 在 `blog/source`目录下新建404.html，编写该页面，当线上访问不存在的路径时会自动重定向到该页面。附上我的页面效果：
 
-![404](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210720171933.png)
+![404](https://cdn.jsdelivr.net/gh/moyuhs/images/20210720171933.png)
 
-- 网页源码链接 → [点击访问源码存档](https://github.com/CodeHaotian/CodeHaotian.github.io/blob/HexoNexT/source/404.html) ，页面参考：[@lei2rock](https://dlzhang.com/)
+- 网页源码链接 → [点击访问源码存档](https://github.com/moyuhs/moyuhs.github.io/blob/HexoNexT/source/404.html) ，页面参考：[@lei2rock](https://dlzhang.com/)
 
 ### 配置站点目录
 
@@ -266,7 +266,7 @@ menu_settings:
 ```yaml
 social:
   简书: https://www.jianshu.com/u/ec346a4e0d4e || fas fa-heartbeat
-  GitHub: https://github.com/CodeHaotian || fab fa-github
+  GitHub: https://github.com/moyuhs || fab fa-github
   Telegram: https://t.me/yileaf || fab fa-telegram
   E-Mail: mailto:2056423011@qq.com || fas fa-envelope
 ```
@@ -343,7 +343,7 @@ $custom-radius           = 8px;
 }
 ```
 
-![网站圆角效果](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210714112014.png)
+![网站圆角效果](https://cdn.jsdelivr.net/gh/moyuhs/images/20210714112014.png)
 
 ### 文章置顶
 
@@ -359,7 +359,7 @@ categories:
 ---
 ```
 
-![置顶样式](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210712173931.png)
+![置顶样式](https://cdn.jsdelivr.net/gh/moyuhs/images/20210712173931.png)
 
 2.置顶图标动态颜色（根据个人喜欢）
 
@@ -469,7 +469,7 @@ back2top:
 
 ### 添加文章结束语
 
-![结束语效果图](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210705165124.png)
+![结束语效果图](https://cdn.jsdelivr.net/gh/moyuhs/images/20210705165124.png)
 
 在  `post-body-end.njk`  文件中加入如下配置：
 
@@ -609,9 +609,9 @@ footer:  # 底部信息区
   powered: false # 隐藏Hexo & NexT
 ```
 
-![原始页脚](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210709161721.png)
+![原始页脚](https://cdn.jsdelivr.net/gh/moyuhs/images/20210709161721.png)
 
-![新页脚](https://cdn.jsdelivr.net/gh/CodeHaotian/images/20210709161825.png)
+![新页脚](https://cdn.jsdelivr.net/gh/moyuhs/images/20210709161825.png)
 
 ## 功能拓展
 

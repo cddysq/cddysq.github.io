@@ -971,3 +971,9 @@ recent_posts:
   enable: true
   icon: fas fa-history
   description: 近期文章
+  
+# 网站运行时间
+website_running_time:
+  enable: true
+  # 默认 static 可选 dynamic
+  style: dynamic 
