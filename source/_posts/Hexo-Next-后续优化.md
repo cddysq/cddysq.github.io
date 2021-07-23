@@ -77,7 +77,7 @@ window.onload = function () {
 
 2.打开主题配置文件，在最后添加如下内容：
 
-```yml
+```yaml
 # 近期文章配置  
 recent_posts:
   enable: true
@@ -93,7 +93,7 @@ recent_posts:
 
 3.1.打开主题配置文件，搜索`social_icons`选项，进行如下修改：
 
-```yml
+```yaml
 social_icons:
   enable: true # 显示社交图标
   icons_only: true # 只显示社交图标

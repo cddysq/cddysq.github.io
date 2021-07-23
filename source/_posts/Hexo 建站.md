@@ -660,6 +660,8 @@ abbrlink:
   rep: hex    # 进制：dec(default) and hex
 ```
 
+> 更多进阶配置请参考我的 [Hexo-NexT 后续优化](https://yileaf.com/archives/15baca53.html) 这篇文章
+
 ## 部署站点
 
 1.在博客根目录安装部署插件：[hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git)

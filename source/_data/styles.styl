@@ -79,15 +79,6 @@
   animation: general-animation 4s infinite linear;
 }
 
-@keyframes general-animation {
-  0% {
-    background-position: 0 0
-  }
-  100% {
-    background-position: -150% 0
-  }
-}
-
 /* post-文章卡片圆角 */
 .post-block,
 .post-block + .post-block {
@@ -160,4 +151,15 @@
   -webkit-background-clip: text;
   animation: general-animation 36s infinite linear;
   background-image: linear-gradient(to right, #077dcc 0%, #f47920 10%, #d71345 20%, #ff2a2a 30%, #7e36ff 40%, #077dcc 50%, #f47920 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #077dcc 100%);
+}
+
+
+/****************** Animations ********************/
+@keyframes general-animation {
+  0% {
+    background-position: 0 0
+  }
+  100% {
+    background-position: -150% 0
+  }
 }
