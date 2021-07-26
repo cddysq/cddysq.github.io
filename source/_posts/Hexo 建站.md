@@ -6,7 +6,7 @@ tags:
   - 建站
   - 美化
 abbrlink: 8613f919
-sticky: 10
+sticky: 1
 date: 2017-01-24 00:00:00
 ---
 
@@ -637,6 +637,17 @@ local_search:
 ```
 
 3.如果你不想改篇文章出现在搜索结过中，可文章 `Front-matter` 中加入`indexing: false`。
+
+4.打开博客配置文件添加搜索文件配置(可选)
+
+```yaml
+#搜索配置   
+search:
+  path: search/search.xml # 搜索文件生成路径
+  field: post # 指定搜索范围，可选 post | page | all
+  format: html # 指定页面内容形式，可选 html | raw (Markdown) | excerpt | more
+  limit: 10000 # 限定搜索结果条数
+```
 
 ### Url 持久化
 

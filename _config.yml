@@ -35,7 +35,8 @@ i18n_dir: :lang
 skip_render:
   - 404.html
   - CNAME
-
+  - robots.txt
+  
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
@@ -111,3 +112,26 @@ deploy:
   type: git
   repo:
    github: git@github.com:moyuhs/moyuhs.github.io.git,master
+
+# ---- 自定义配置 ----
+
+#搜索配置   
+search:
+  path: search/search.xml # 搜索文件生成路径
+  field: post # 指定搜索范围，可选 post | page | all
+  format: html # 指定页面内容形式，可选 html | raw (Markdown) | excerpt | more
+  limit: 10000 # 限定搜索结果条数
+  
+# Google sitemap
+sitemap:
+    path: seo/sitemap.xml  
+# Baidu sitemap
+baidusitemap:
+  path: seo/baidusitemap.xml
+  
+# 百度主动推送
+baidu_url_submit:
+  count: 5 				      # 提交最新的五个链接
+  host: www.yileaf.com 	      # 百度站长平台中注册的域名
+  token: 5J5x8ebbeOD6gEH3 	  # 秘钥，在主动推送文档有写
+  path: seo/baidu_urls.txt    # 文本文档的地址,新链接会保存在此文本文档里   
