@@ -112,7 +112,8 @@ deploy:
   type: git
   repo:
    github: git@github.com:moyuhs/moyuhs.github.io.git,master
-
+   coding: https://e.coding.net/yiya/HexoNexT.git,master
+   
 # ---- 自定义配置 ----
 
 #搜索配置   
