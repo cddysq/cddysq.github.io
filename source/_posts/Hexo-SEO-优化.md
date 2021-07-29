@@ -4,7 +4,7 @@ categories:
   - Hexo
 tags:
   - SEO
-abbrlink: '1e319277'
+abbrlink: 1e319277
 date: 2020-02-22 12:34:13
 ---
 
@@ -146,7 +146,7 @@ npm install hexo-baidu-url-submit --save
 # 百度主动推送
 baidu_url_submit:
   count: 5 				     # 提交最新的五个链接
-  host: www.yileaf.com 	     # 百度站长平台中注册的域名
+  host: blog.yileaf.com 	 # 百度站长平台中注册的域名
   token:  	                 # 秘钥
   path: seo/baidu_urls.txt   # 文本文档的地址,新链接会保存在此文本文档里  
 ```

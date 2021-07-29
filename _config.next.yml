@@ -668,7 +668,7 @@ add_this_id:
 # Google Analytics
 # See: https://analytics.google.com
 google_analytics:
-  tracking_id: G-KZCY1PM96E # Google Analytics 访问统计id
+  tracking_id: G-FMWC81W2SX # Google Analytics 访问统计id
   # By default, NexT will load an external gtag.js script on your site.
   # If you only need the pageview feature, set the following option to true to get a better performance.
   only_pageview: false
@@ -829,7 +829,7 @@ mermaid:
 # For more information: https://animate.style
 motion:
   enable: true
-  async: false
+  async: true
   transition:
     # All available transition variants: https://theme-next.js.org/animate/
     post_block: fadeIn
@@ -848,9 +848,9 @@ nprogress:
 # Canvas ribbon
 # For more information: https://github.com/hustcc/ribbon.js
 canvas_ribbon:
-  enable: false
-  size: 300 # The width of the ribbon
-  alpha: 0.6 # The transparency of the ribbon
+  enable: true
+  size: 150 # The width of the ribbon
+  alpha: 0.4 # The transparency of the ribbon
   zIndex: -1 # The display level of the ribbon
 
 
@@ -976,4 +976,34 @@ recent_posts:
 website_running_time:
   enable: true
   # 默认 static 可选 dynamic
-  style: dynamic 
+  style: dynamic
+  
+# Waline
+# For more information: https://waline.js.org, https://github.com/lizheming/waline
+waline:
+  enable: true #启用Waline
+  serverURL: https://waline.yileaf.com # Waline server address url
+  avatar: wavatar # Gravatar style
+  avatarCDN: https://sdn.geekzu.org/avatar/
+  meta: [nick, mail, link]  # Custom comment header
+  requiredMeta: [nick, mail] # Set required fields: [nick] | [nick, mail]
+  pageSize: 10 # Pagination size
+  lang: zh-cn  # Language, available values: en, zh-cn
+  visitor: true # 文章阅读统计
+  comment_count: true # If false, comment count will only be displayed in post page, not in home page
+  libUrl: https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js # waline client cdn
+  # 自定义加载emoji,支持内容参见 https://cdn.jsdelivr.net/gh/walinejs/emojis/
+  emoji:  [
+    'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/weibo',
+    'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili',
+    'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-emoji',
+    'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq',
+  ]
+  locale:
+    placeholder: ヾﾉ≧∀≦)o来啊，快活啊!   # 默认输入框显示内容older
+    admin: 博主
+    nick: 昵称
+    mail: 邮箱
+    link: 网址（https://）
+  copyright: true # 是否显示页脚版权信息
+  dark: auto # Dark mode css selector, for more information: https://waline.js.org/client/basic.html#dark 

@@ -3,7 +3,7 @@ title: Hexo 建站
 categories:
   - Hexo
 tags:
-  - 建站
+  - website
   - 美化
 abbrlink: 8613f919
 sticky: 1
@@ -160,7 +160,7 @@ timezone: '' # 时区
 ### 配置网址url
 
 ```yaml
-url: https://yileaf.com # 配置为你的域名
+url: https://blog.yileaf.com # 配置为你的域名
 ```
 
 ### 添加404页面
@@ -582,7 +582,17 @@ $post-copyright-border    = #81a6ed;
 ```stylus
 /* post-版权声明 */
 .post-copyright ul {
-   border-left: 3px solid $post-copyright-border;
+  border-left: 3px solid $post-copyright-border;
+}
+
+.post-copyright ul li a {
+  color: $custom-link;
+  border-bottom: none
+
+  &:hover {
+    color: $custom-link-hover;
+    border-bottom: 1px solid $custom-link-hover;
+  }
 }
 ```
 
