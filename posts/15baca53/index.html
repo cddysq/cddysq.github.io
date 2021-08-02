@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon/favicon-48x48.png" color="#222">
+  <meta name="google-site-verification" content="g-bkKiySQ1LSSEi3N5woAPXqfgag4qOBoTg4a5fuYdw">
+  <meta name="baidu-site-verification" content="code-VbnZSxzRze">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css" integrity="sha256-no0c5ccDODBwp+9hSmV5VvPpKwHCpbVzXHexIkupM6U=" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.yileaf.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="网页title添加搞怪特效  在blog\source\js文件夹下创建funny_title.js，添加如下代码： &#x2F;* 离开当前页面时修改网页标题，回到当前页面时恢复原来标题 *&#x2F; window.onload &#x3D; function () &amp;#123;   let OriginTitle &#x3D; document.title;   let titleTime;   document.addEvent">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo-NexT 后续优化">
+<meta property="og:url" content="https://blog.yileaf.com/posts/15baca53/index.html">
+<meta property="og:site_name" content="且听风吟">
+<meta property="og:description" content="网页title添加搞怪特效  在blog\source\js文件夹下创建funny_title.js，添加如下代码： &#x2F;* 离开当前页面时修改网页标题，回到当前页面时恢复原来标题 *&#x2F; window.onload &#x3D; function () &amp;#123;   let OriginTitle &#x3D; document.title;   let titleTime;   document.addEvent">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/moyuhs/images/20210720175939.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/moyuhs/images/20210721110116.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/28/1KSYnK.png">
+<meta property="article:published_time" content="2019-12-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-23T03:02:06.589Z">
+<meta property="article:author" content="浮生">
+<meta property="article:tag" content="美化">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/moyuhs/images/20210720175939.png">
+
+
+<link rel="canonical" href="https://blog.yileaf.com/posts/15baca53/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.yileaf.com/posts/15baca53/","path":"posts/15baca53/","title":"Hexo-NexT 后续优化"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo-NexT 后续优化 | 且听风吟</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FMWC81W2SX"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-FMWC81W2SX","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?e025886cabed1ca9482114dc269a957e"></script>
+
+
+<link rel="dns-prefetch" href="https://waline.yileaf.com">
+
+
+<script type="text/javascript" src="/js/funny_title.js"></script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">且听风吟</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">🕊️ gu~gu~gu</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fas fa-home fa-fw"></i>博客首页</a></li>
+        
+            
+  <li class="menu-item menu-item-overviews"><a href="/overviews/" rel="section"><i class="fas fa-archive fa-fw"></i>文章总览</a></li>
+
+
+      
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-location-arrow fa-fw"></i>关于本站</a></li>
+        <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fas fa-link fa-fw"></i>友链链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>全站搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E9%A1%B5title%E6%B7%BB%E5%8A%A0%E6%90%9E%E6%80%AA%E7%89%B9%E6%95%88"><span class="nav-number">1.</span> <span class="nav-text">网页title添加搞怪特效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%A7%E8%BE%B9%E6%A0%8F%E6%B7%BB%E5%8A%A0%E8%BF%91%E6%9C%9F%E6%96%87%E7%AB%A0"><span class="nav-number">2.</span> <span class="nav-text">侧边栏添加近期文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E6%8A%98%E5%8F%A0"><span class="nav-number">3.</span> <span class="nav-text">首页文章折叠</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%B9%E5%87%BB%E5%B0%8F%E7%88%B1%E5%BF%83%E7%89%B9%E6%95%88"><span class="nav-number">4.</span> <span class="nav-text">点击小爱心特效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%8A%A8%E6%80%81%E8%83%8C%E6%99%AF"><span class="nav-number">5.</span> <span class="nav-text">添加动态背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87%E7%81%AF%E7%AE%B1"><span class="nav-number">6.</span> <span class="nav-text">添加图片灯箱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%90%AF%E4%B8%8D%E8%92%9C%E5%AD%90%E8%AE%BF%E9%97%AE%E7%BB%9F%E8%AE%A1"><span class="nav-number">7.</span> <span class="nav-text">开启不蒜子访问统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B5%E8%84%9A%E5%A2%9E%E5%8A%A0%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4%E7%BB%9F%E8%AE%A1"><span class="nav-number">8.</span> <span class="nav-text">页脚增加网站运行时间统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0%E6%97%B6%E8%87%AA%E5%8A%A8%E6%89%93%E5%BC%80%E7%BC%96%E8%BE%91%E5%99%A8"><span class="nav-number">9.</span> <span class="nav-text">Hexo新建文章时自动打开编辑器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86"><span class="nav-number">10.</span> <span class="nav-text">文章加密</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="浮生"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">浮生</p>
+  <div class="site-description" itemprop="description">一瞥便是惊鸿 芳华乱了浮生</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/overviews/timeline/">
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/overviews/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/overviews/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/ec346a4e0d4e" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;ec346a4e0d4e" rel="noopener" target="_blank"><i class="fas fa-heartbeat fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/moyuhs" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;moyuhs" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/yileaf" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;yileaf" rel="noopener" target="_blank"><i class="fab fa-telegram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2056423011@qq.com" title="E-Mail → mailto:2056423011@qq.com" rel="noopener" target="_blank"><i class="fas fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+    <div class="links-of-blogroll">
+      <div class="links-of-blogroll-title">
+		<!-- 选择合适的icon --><i class="fas fa-history" aria-hidden="true"></i>
+        近期文章
+      </div>
+      <ul class="links-of-blogroll-list">
+		<!-- 文章排序规格,-updated 按照文章更新时间倒排 -->
+        
+		 <!-- 显示四条近期文章 -->
+        
+          <li>
+            <a href="/posts/3368d4d6/" title="Next主题评论系统由Valine迁移至Waline" target="_blank">Next主题评论系统由Valine迁移至Waline</a>
+          </li>
+        
+          <li>
+            <a href="/posts/8613f919/" title="Hexo 建站" target="_blank">Hexo 建站</a>
+          </li>
+        
+          <li>
+            <a href="/posts/74e90fd6/" title="Hexo 集成 Valine 评论系统" target="_blank">Hexo 集成 Valine 评论系统</a>
+          </li>
+        
+          <li>
+            <a href="/posts/Infinity/" title="Hexo SEO 优化" target="_blank">Hexo SEO 优化</a>
+          </li>
+        
+      </ul>
+    </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.yileaf.com/posts/15baca53/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="浮生">
+      <meta itemprop="description" content="一瞥便是惊鸿 芳华乱了浮生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="且听风吟">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo-NexT 后续优化
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-20 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-20T00:00:00+08:00">2019-12-20</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-07-23 11:02:06" itemprop="dateModified" datetime="2021-07-23T11:02:06+08:00">2021-07-23</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/overviews/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论数：</span>
+  
+    <a title="waline" href="/posts/15baca53/#waline-comments" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" id="/posts/15baca53/" data-xid="/posts/15baca53/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span id="/posts/15baca53/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo-NexT 后续优化" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <div class="note info"><h2 id="网页title添加搞怪特效"><a href="#网页title添加搞怪特效" class="headerlink" title="网页title添加搞怪特效"></a>网页title添加搞怪特效</h2></div>
+
+<p>在<code>blog\source\js</code>文件夹下创建<code>funny_title.js</code>，添加如下代码：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">/* 离开当前页面时修改网页标题，回到当前页面时恢复原来标题 */</span>
+window<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> OriginTitle <span class="token operator">=</span> document<span class="token punctuation">.</span>title<span class="token punctuation">;</span>
+  <span class="token keyword">let</span> titleTime<span class="token punctuation">;</span>
+  document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'visibilitychange'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>document<span class="token punctuation">.</span>hidden<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      document<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token string">'╭(°A°`)╮ 页面崩溃啦 ~'</span><span class="token punctuation">;</span>
+      <span class="token function">clearTimeout</span><span class="token punctuation">(</span>titleTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// $('[rel="icon"]').attr('href', "/images/favicon-32x32.png"); 替换网站icon图标(可选)</span>
+      document<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token string">'(ฅ>ω&lt;*ฅ) 噫又好了鸭~'</span> <span class="token operator">+</span> OriginTitle<span class="token punctuation">;</span>
+      titleTime <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        document<span class="token punctuation">.</span>title <span class="token operator">=</span> OriginTitle<span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">4000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<span id="more"></span>
+
+<p>在<code>head.njk</code>文件中，添加引用：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 搞怪欺骗 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span> src<span class="token operator">=</span><span class="token string">"/js/funny_title.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<div class="note info"><h2 id="侧边栏添加近期文章"><a href="#侧边栏添加近期文章" class="headerlink" title="侧边栏添加近期文章"></a>侧边栏添加近期文章</h2></div>
+
+<p>1.打开<code>blog\source\_data\sidebar.njk</code>文件，加入以下代码：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span><span class="token operator">%</span> <span class="token keyword">if</span> theme<span class="token punctuation">.</span>recent_posts<span class="token punctuation">.</span>enable <span class="token operator">%</span><span class="token punctuation">&#125;</span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"links-of-blogroll"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"links-of-blogroll-title"</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 选择合适的icon <span class="token operator">--</span><span class="token operator">></span>
+		<span class="token punctuation">&#123;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token keyword">if</span> theme<span class="token punctuation">.</span>recent_posts<span class="token punctuation">.</span>icon <span class="token operator">%</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span>i <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"&#123;&#123; theme.recent_posts.icon &#125;&#125;"</span> aria<span class="token operator">-</span>hidden<span class="token operator">=</span><span class="token string">"true"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">></span><span class="token punctuation">&#123;</span><span class="token operator">%</span><span class="token operator">-</span> endif <span class="token operator">%</span><span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> theme<span class="token punctuation">.</span>recent_posts<span class="token punctuation">.</span>description <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+      <span class="token operator">&lt;</span>ul <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"links-of-blogroll-list"</span><span class="token operator">></span>
+		<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 文章排序规格<span class="token punctuation">,</span><span class="token operator">-</span>updated 按照文章更新时间倒排 <span class="token operator">--</span><span class="token operator">></span>
+        <span class="token punctuation">&#123;</span><span class="token operator">%</span> <span class="token keyword">set</span> posts <span class="token operator">=</span> site<span class="token punctuation">.</span>posts<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token string">'-updated'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token punctuation">&#125;</span>
+		 <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 显示四条近期文章 <span class="token operator">--</span><span class="token operator">></span>
+        <span class="token punctuation">&#123;</span><span class="token operator">%</span> <span class="token keyword">for</span> post <span class="token keyword">in</span> posts<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'4'</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token punctuation">&#125;</span>
+          <span class="token operator">&lt;</span>li<span class="token operator">></span>
+            <span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"&#123;&#123; url_for(post.path) &#125;&#125;"</span> title<span class="token operator">=</span><span class="token string">"&#123;&#123; post.title &#125;&#125;"</span> target<span class="token operator">=</span><span class="token string">"_blank"</span><span class="token operator">></span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> post<span class="token punctuation">.</span>title <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>
+        <span class="token punctuation">&#123;</span><span class="token operator">%</span> endfor <span class="token operator">%</span><span class="token punctuation">&#125;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token punctuation">&#123;</span><span class="token operator">%</span> endif <span class="token operator">%</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>2.打开主题配置文件，在最后添加如下内容：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 近期文章配置  </span>
+<span class="token key atrule">recent_posts</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">icon</span><span class="token punctuation">:</span> fas fa<span class="token punctuation">-</span>history
+  <span class="token key atrule">description</span><span class="token punctuation">:</span> 近期文章<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>重启博客效果如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/moyuhs/images/20210720175939.png" alt="近期文章默认效果"></p>
+<blockquote>
+<p>有点low，开始美化</p>
+</blockquote>
+<p>3.1.打开主题配置文件，搜索<code>social_icons</code>选项，进行如下修改：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">social_icons</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 显示社交图标</span>
+  <span class="token key atrule">icons_only</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 只显示社交图标</span>
+  <span class="token key atrule">transition</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 过渡动画</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>3.2.打开 <code>blog\source\_data\variables.styl</code> 定义颜色：</p>
+<pre class="line-numbers language-stylus" data-language="stylus"><code class="language-stylus"><span class="token variable-declaration"><span class="token variable">$recent-articles-link</span>     <span class="token operator">=</span> <span class="token hexcode">#428bca</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>3.3.打开<code>blog\source\_data\styles.styl</code>文件，加入如下样式：</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.links-of-blogroll-title</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> $font-size-large<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">.links-of-blogroll-list a</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+  <span class="token property">border-bottom</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+
+  <span class="token selector">&amp;:hover</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> $recent-articles-link<span class="token punctuation">;</span>
+    <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+    <span class="token property">border-bottom</span><span class="token punctuation">:</span> 1px solid $recent-articles-link<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>优化后效果如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/moyuhs/images/20210721110116.png" alt="近期文章效果改"></p>
+<div class="note info"><h2 id="首页文章折叠"><a href="#首页文章折叠" class="headerlink" title="首页文章折叠"></a>首页文章折叠</h2></div>
+
+<p>这里通过文章模板进行实现：</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
+<span class="token font-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> Hexo美化
+<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2019-12-19</span>
+<span class="token key atrule">categories</span><span class="token punctuation">:</span>
+<span class="token punctuation">-</span> Hexo
+<span class="token key atrule">tags</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> study</span>
+<span class="token punctuation">---</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/img/haha.png<span class="token punctuation">"</span></span> <span class="token attr-name">width</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>900<span class="token punctuation">"</span></span> <span class="token attr-name">height</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>600<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>git<span class="token punctuation">"</span></span> <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>center</span> <span class="token punctuation">/></span></span>
+摘要内容......
+<span class="token comment">&lt;!-- more --></span>
+以下为隐藏内容<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div class="note info"><h2 id="点击小爱心特效"><a href="#点击小爱心特效" class="headerlink" title="点击小爱心特效"></a>点击小爱心特效</h2></div>
+
+<p>1.在<code>blog\source\js</code>下新建<code>click-love.js</code>，接着把如下代码拷贝粘贴到<code>click-love.js</code>文件中。</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">!</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">e<span class="token punctuation">,</span>t<span class="token punctuation">,</span>a</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token keyword">function</span> <span class="token function">n</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token function">c</span><span class="token punctuation">(</span><span class="token string">".heart&#123;width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);&#125;.heart:after,.heart:before&#123;content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;&#125;.heart:after&#123;top: -5px;&#125;.heart:before&#123;left: -5px;&#125;"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">o</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">r</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token keyword">function</span> <span class="token function">r</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> e<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>e<span class="token operator">&lt;</span>d<span class="token punctuation">.</span>length<span class="token punctuation">;</span>e<span class="token operator">++</span><span class="token punctuation">)</span>d<span class="token punctuation">[</span>e<span class="token punctuation">]</span><span class="token punctuation">.</span>alpha<span class="token operator">&lt;=</span><span class="token number">0</span><span class="token operator">?</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>d<span class="token punctuation">[</span>e<span class="token punctuation">]</span><span class="token punctuation">.</span>el<span class="token punctuation">)</span><span class="token punctuation">,</span>d<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>e<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token punctuation">(</span>d<span class="token punctuation">[</span>e<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token operator">--</span><span class="token punctuation">,</span>d<span class="token punctuation">[</span>e<span class="token punctuation">]</span><span class="token punctuation">.</span>scale<span class="token operator">+=</span><span class="token number">.004</span><span class="token punctuation">,</span>d<span class="token punctuation">[</span>e<span class="token punctuation">]</span><span class="token punctuation">.</span>alpha<span class="token operator">-=</span><span class="token number">.013</span><span class="token punctuation">,</span>d<span class="token punctuation">[</span>e<span class="token punctuation">]</span><span class="token punctuation">.</span>el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>cssText<span class="token operator">=</span><span class="token string">"left:"</span><span class="token operator">+</span>d<span class="token punctuation">[</span>e<span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token operator">+</span><span class="token string">"px;top:"</span><span class="token operator">+</span>d<span class="token punctuation">[</span>e<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token operator">+</span><span class="token string">"px;opacity:"</span><span class="token operator">+</span>d<span class="token punctuation">[</span>e<span class="token punctuation">]</span><span class="token punctuation">.</span>alpha<span class="token operator">+</span><span class="token string">";transform:scale("</span><span class="token operator">+</span>d<span class="token punctuation">[</span>e<span class="token punctuation">]</span><span class="token punctuation">.</span>scale<span class="token operator">+</span><span class="token string">","</span><span class="token operator">+</span>d<span class="token punctuation">[</span>e<span class="token punctuation">]</span><span class="token punctuation">.</span>scale<span class="token operator">+</span><span class="token string">") rotate(45deg);background:"</span><span class="token operator">+</span>d<span class="token punctuation">[</span>e<span class="token punctuation">]</span><span class="token punctuation">.</span>color<span class="token operator">+</span><span class="token string">";z-index:99999"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token keyword">function</span> <span class="token function">o</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token keyword">var</span> t<span class="token operator">=</span><span class="token string">"function"</span><span class="token operator">==</span><span class="token keyword">typeof</span> e<span class="token punctuation">.</span>onclick<span class="token operator">&amp;&amp;</span>e<span class="token punctuation">.</span>onclick<span class="token punctuation">;</span>e<span class="token punctuation">.</span><span class="token function-variable function">onclick</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>t<span class="token operator">&amp;&amp;</span><span class="token function">t</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">i</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token keyword">function</span> <span class="token function">i</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token keyword">var</span> a<span class="token operator">=</span>t<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">"div"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>a<span class="token punctuation">.</span>className<span class="token operator">=</span><span class="token string">"heart"</span><span class="token punctuation">,</span>d<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>el<span class="token operator">:</span>a<span class="token punctuation">,</span>x<span class="token operator">:</span>e<span class="token punctuation">.</span>clientX<span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span>y<span class="token operator">:</span>e<span class="token punctuation">.</span>clientY<span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span>scale<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>alpha<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>color<span class="token operator">:</span><span class="token function">s</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>t<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token keyword">function</span> <span class="token function">c</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token keyword">var</span> a<span class="token operator">=</span>t<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">"style"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>a<span class="token punctuation">.</span>type<span class="token operator">=</span><span class="token string">"text/css"</span><span class="token punctuation">;</span><span class="token keyword">try</span><span class="token punctuation">&#123;</span>a<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span><span class="token function">createTextNode</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token keyword">catch</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>a<span class="token punctuation">.</span>styleSheet<span class="token punctuation">.</span>cssText<span class="token operator">=</span>e<span class="token punctuation">&#125;</span>t<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"head"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token keyword">function</span> <span class="token function">s</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token keyword">return</span><span class="token string">"rgb("</span><span class="token operator">+</span><span class="token operator">~</span><span class="token operator">~</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token operator">*</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">","</span><span class="token operator">+</span><span class="token operator">~</span><span class="token operator">~</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token operator">*</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">","</span><span class="token operator">+</span><span class="token operator">~</span><span class="token operator">~</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token operator">*</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">")"</span><span class="token punctuation">&#125;</span><span class="token keyword">var</span> d<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>e<span class="token punctuation">.</span><span class="token function-variable function">requestAnimationFrame</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token keyword">return</span> e<span class="token punctuation">.</span>requestAnimationFrame<span class="token operator">||</span>e<span class="token punctuation">.</span>webkitRequestAnimationFrame<span class="token operator">||</span>e<span class="token punctuation">.</span>mozRequestAnimationFrame<span class="token operator">||</span>e<span class="token punctuation">.</span>oRequestAnimationFrame<span class="token operator">||</span>e<span class="token punctuation">.</span>msRequestAnimationFrame<span class="token operator">||</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token function">setTimeout</span><span class="token punctuation">(</span>e<span class="token punctuation">,</span><span class="token number">1e3</span><span class="token operator">/</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">n</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span>document<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>如没有 js 目录直接新建一个即可，这里只是为了后期统一进行管理。</p>
+</blockquote>
+<p>2.在 <code>blog\source\_data\body-end.njk</code> 文件中加入如下代码：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>##########################<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#123;</span>### <span class="token constant">PAGE</span> <span class="token constant">CLICK</span> <span class="token constant">EFFECTS</span> ###<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#123;</span>##########################<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#123;</span><span class="token operator">%</span> <span class="token keyword">if</span> theme<span class="token punctuation">.</span>click_love<span class="token punctuation">.</span>enable <span class="token operator">%</span><span class="token punctuation">&#125;</span>
+    <span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span> src<span class="token operator">=</span><span class="token string">"/js/click-love.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token punctuation">&#123;</span><span class="token operator">%</span> endif <span class="token operator">%</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><code>body-end.njk</code> 文件需要在主题配置文件的 <code>custom_file_path</code> 选项中取消注释</p>
+</blockquote>
+<p>3.在主题配置文件（一般是最后一行）启用配置：</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"><span class="token comment"># 页面点击爱心特效</span>
+<span class="token key atrule">click_love</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<div class="note info"><h2 id="添加动态背景"><a href="#添加动态背景" class="headerlink" title="添加动态背景"></a>添加动态背景</h2></div>
+
+<p>找到 <code>body-end.njk</code> 文件，加入以下内容：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bg_content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>canvas</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>canvas<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>canvas</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+&#123;% if theme.canvas %&#125;
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/js/dynamic_bg.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+&#123;% endif %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在<code>blog\source\js</code>中新建文件<code>dynamic_bg.js</code>，代码链接中可见：<a target="_blank" rel="noopener" href="https://github.com/moyuhs/moyuhs.github.io/blob/HexoNexT/source/js/dynamic_bg.js">dynamic_bg.js</a></p>
+<p>在 <code>styles.styl</code> 文件末尾添加如下内容：</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.bg_content</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">z-index</span><span class="token punctuation">:</span> -1<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在主题配置文件中添加<code>canvas: true</code>启用刚才的配置。</p>
+<div class="note info"><h2 id="添加图片灯箱"><a href="#添加图片灯箱" class="headerlink" title="添加图片灯箱"></a>添加图片灯箱</h2></div>
+
+<p>灯箱功能，实现点击图片后放大聚焦图片，并支持幻灯片播放、全屏播放、缩略图、快速分享到社交媒体等，该功能由 <a target="_blank" rel="noopener" href="https://github.com/fancyapps/fancybox">fancyBox</a> 提供。</p>
+<p>在主题配置文件中搜索 <code>fancybox</code>设置为<code>true</code>。</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.</span>
+<span class="token comment"># For more information: https://fancyapps.com/fancybox</span>
+<span class="token key atrule">fancybox</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<div class="note info"><h2 id="开启不蒜子访问统计"><a href="#开启不蒜子访问统计" class="headerlink" title="开启不蒜子访问统计"></a>开启不蒜子访问统计</h2></div>
+
+<p>在主题配置文件中，开启配置：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">busuanzi_count</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 开启不蒜子访问统计，默认是false</span>
+  <span class="token key atrule">total_visitors</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 站点总访问量</span>
+  <span class="token key atrule">total_visitors_icon</span><span class="token punctuation">:</span> fas fa<span class="token punctuation">-</span>user <span class="token comment"># icon皆为对应图标</span>
+  <span class="token key atrule">total_views</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 所有页面的总浏览量</span>
+  <span class="token key atrule">total_views_icon</span><span class="token punctuation">:</span> fas fa<span class="token punctuation">-</span>eye
+  <span class="token key atrule">post_views</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 文章浏览量</span>
+  <span class="token key atrule">post_views_icon</span><span class="token punctuation">:</span> far fa<span class="token punctuation">-</span>eye<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>默认效果只有图标，不是特别直观，打开<code>styles.styl</code>文件添加如下代码：</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/* footer-不蒜子统计 */</span>
+<span class="token selector">.busuanzi-count .post-meta-item:nth-child(1)</span> <span class="token punctuation">&#123;</span>
+  <span class="token selector">&amp;::before</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'访客数'</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token selector">&amp;::after</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'人次'</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">.busuanzi-count .post-meta-item:nth-child(2)</span> <span class="token punctuation">&#123;</span>
+  <span class="token selector">&amp; .post-meta-item-icon::before</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'总访问量'</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token selector">&amp;::after</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'次'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>最终效果：</p>
+<p><img src="https://s2.ax1x.com/2020/01/28/1KSYnK.png" alt="底部效果"></p>
+<div class="note info"><h2 id="页脚增加网站运行时间统计"><a href="#页脚增加网站运行时间统计" class="headerlink" title="页脚增加网站运行时间统计"></a>页脚增加网站运行时间统计</h2></div>
+
+<p>1.在<code>footer.njk</code>文件中加入以下代码：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"website-time"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"&#123;&#123; 'website-time-dynamic' if theme.website_running_time.style == 'dynamic' else 'website-time-static' &#125;&#125;"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>2.在<code>body-end.njk</code>文件中加入以下代码：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>############################<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#123;</span>### <span class="token constant">WEBSITE</span> <span class="token constant">RUNNING</span> <span class="token constant">TIME</span> ###<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#123;</span>############################<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#123;</span><span class="token operator">%</span> <span class="token keyword">if</span> theme<span class="token punctuation">.</span>website_running_time<span class="token punctuation">.</span>enable <span class="token operator">%</span><span class="token punctuation">&#125;</span>
+<span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span> id<span class="token operator">=</span><span class="token string">"website-js"</span> src<span class="token operator">=</span><span class="token string">"/js/website.min.js"</span> code<span class="token operator">=</span><span class="token string">"all"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token punctuation">&#123;</span><span class="token operator">%</span> endif <span class="token operator">%</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>3.在<code>blog\source\js</code>下新建<code>website.js</code>加入倒计时：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">window<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">siteTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>    
+<span class="token keyword">function</span> <span class="token function">siteTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> seconds <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> minutes <span class="token operator">=</span> seconds <span class="token operator">*</span> <span class="token number">60</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> hours <span class="token operator">=</span> minutes <span class="token operator">*</span> <span class="token number">60</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> days <span class="token operator">=</span> hours <span class="token operator">*</span> <span class="token number">24</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> years <span class="token operator">=</span> days <span class="token operator">*</span> <span class="token number">365</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> today <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> todayYear <span class="token operator">=</span> today<span class="token punctuation">.</span><span class="token function">getFullYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> todayMonth <span class="token operator">=</span> today<span class="token punctuation">.</span><span class="token function">getMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> todayDate <span class="token operator">=</span> today<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> todayHour <span class="token operator">=</span> today<span class="token punctuation">.</span><span class="token function">getHours</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> todayMinute <span class="token operator">=</span> today<span class="token punctuation">.</span><span class="token function">getMinutes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> todaySecond <span class="token operator">=</span> today<span class="token punctuation">.</span><span class="token function">getSeconds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+    year - 作为date对象的年份，为4位年份值
+    month - 0-11之间的整数，做为date对象的月份
+    day - 1-31之间的整数，做为date对象的天数
+    hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+    minutes - 0-59之间的整数，做为date对象的分钟数
+    seconds - 0-59之间的整数，做为date对象的秒数
+    microseconds - 0-999之间的整数，做为date对象的毫秒数 */</span>
+    <span class="token keyword">const</span> t1 <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token constant">UTC</span><span class="token punctuation">(</span><span class="token number">2017</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//建站时间</span>
+    <span class="token keyword">const</span> t2 <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token constant">UTC</span><span class="token punctuation">(</span>todayYear<span class="token punctuation">,</span> todayMonth<span class="token punctuation">,</span> todayDate<span class="token punctuation">,</span> todayHour<span class="token punctuation">,</span> todayMinute<span class="token punctuation">,</span> todaySecond<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> diff <span class="token operator">=</span> t2 <span class="token operator">-</span> t1<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> diffYears <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>diff <span class="token operator">/</span> years<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> diffDays <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token punctuation">(</span>diff <span class="token operator">/</span> days<span class="token punctuation">)</span> <span class="token operator">-</span> diffYears <span class="token operator">*</span> <span class="token number">365</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> diffHours <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token punctuation">(</span>diff <span class="token operator">-</span> <span class="token punctuation">(</span>diffYears <span class="token operator">*</span> <span class="token number">365</span> <span class="token operator">+</span> diffDays<span class="token punctuation">)</span> <span class="token operator">*</span> days<span class="token punctuation">)</span> <span class="token operator">/</span> hours<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> diffMinutes <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token punctuation">(</span>diff <span class="token operator">-</span> <span class="token punctuation">(</span>diffYears <span class="token operator">*</span> <span class="token number">365</span> <span class="token operator">+</span> diffDays<span class="token punctuation">)</span> <span class="token operator">*</span> days <span class="token operator">-</span> diffHours <span class="token operator">*</span> hours<span class="token punctuation">)</span> <span class="token operator">/</span> minutes<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> diffSeconds <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token punctuation">(</span>diff <span class="token operator">-</span> <span class="token punctuation">(</span>diffYears <span class="token operator">*</span> <span class="token number">365</span> <span class="token operator">+</span> diffDays<span class="token punctuation">)</span> <span class="token operator">*</span> days <span class="token operator">-</span> diffHours <span class="token operator">*</span> hours <span class="token operator">-</span> diffMinutes <span class="token operator">*</span> minutes<span class="token punctuation">)</span> <span class="token operator">/</span> seconds<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#website-time'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span><span class="token string">" Run for "</span> <span class="token operator">+</span> diffYears <span class="token operator">+</span> <span class="token string">" Year "</span> <span class="token operator">+</span> diffDays <span class="token operator">+</span> <span class="token string">" Days "</span> <span class="token operator">+</span> diffHours <span class="token operator">+</span> <span class="token string">" Hours "</span> <span class="token operator">+</span> diffMinutes <span class="token operator">+</span> <span class="token string">" m "</span> <span class="token operator">+</span> diffSeconds <span class="token operator">+</span> <span class="token string">" s"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    window<span class="token punctuation">.</span><span class="token function">setTimeout</span><span class="token punctuation">(</span>siteTime<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>4.在<code>styles.styl</code>文件中给倒计时添加样式：</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.website-time-static</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+  <span class="token property">-webkit-background-clip</span><span class="token punctuation">:</span> text<span class="token punctuation">;</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">-webkit-linear-gradient</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> #aa4b6b<span class="token punctuation">,</span> #6b6b83<span class="token punctuation">,</span> #3b8d99<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">.website-time-dynamic</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+  <span class="token property">background-size</span><span class="token punctuation">:</span> 300% 100%<span class="token punctuation">;</span>
+  <span class="token property">-webkit-background-clip</span><span class="token punctuation">:</span> text<span class="token punctuation">;</span>
+  <span class="token property">animation</span><span class="token punctuation">:</span> general-animation 36s infinite linear<span class="token punctuation">;</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to right<span class="token punctuation">,</span> #077dcc 0%<span class="token punctuation">,</span> #f47920 10%<span class="token punctuation">,</span> #d71345 20%<span class="token punctuation">,</span> #ff2a2a 30%<span class="token punctuation">,</span> #7e36ff 40%<span class="token punctuation">,</span> #077dcc 50%<span class="token punctuation">,</span> #f47920 60%<span class="token punctuation">,</span> #d71345 70%<span class="token punctuation">,</span> #f7acbc 80%<span class="token punctuation">,</span> #ffd400 90%<span class="token punctuation">,</span> #077dcc 100%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>5.在主题配置文件中启用配置</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 网站运行时间</span>
+<span class="token key atrule">website_running_time</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token comment"># 默认 static 可选 dynamic</span>
+  <span class="token key atrule">style</span><span class="token punctuation">:</span> dynamic<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div class="note info"><h2 id="Hexo新建文章时自动打开编辑器"><a href="#Hexo新建文章时自动打开编辑器" class="headerlink" title="Hexo新建文章时自动打开编辑器"></a>Hexo新建文章时自动打开编辑器</h2></div>
+
+<p>首先在Hexo目录下的scripts目录中创建一个JavaScript脚本文件。<br>如果没有这个scripts目录，则新建一个。<br>scripts目录新建的JavaScript脚本文件可以任意取名。<br>通过这个脚本，我们用其来监听hexo new这个动作，并在检测到hexo new之后，执行编辑器打开的命令。</p>
+<p>如果你是windows平台的Hexo用户，则将下列内容写入你的脚本：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> spawn <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'child_process'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>exec<span class="token punctuation">;</span>
+hexo<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'new'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+  <span class="token function">spawn</span><span class="token punctuation">(</span><span class="token string">'start  "markdown编辑器绝对路径.exe" '</span> <span class="token operator">+</span> data<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果你是Mac平台的Hexo用户，则将下列内容写入你的脚本：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> exec <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'child_process'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>exec<span class="token punctuation">;</span>
+hexo<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'new'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">'open -a "markdown编辑器绝对路径.app" '</span> <span class="token operator">+</span> data<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h2><p>使用插件：<a target="_blank" rel="noopener" href="https://github.com/MikeCoder/hexo-blog-encrypt">hexo-blog-encrypt</a></p>
+<p>1.在博客根目录执行安装命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-blog-encrypt --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>2.在站点配置文件中加入以下内容：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Security</span>
+<span class="token key atrule">encrypt</span><span class="token punctuation">:</span>
+  <span class="token key atrule">abstract</span><span class="token punctuation">:</span> 本文章已加密🐇<span class="token punctuation">,</span> 请输入密码查看.
+  <span class="token key atrule">message</span><span class="token punctuation">:</span> ( ⓛ ω ⓛ <span class="token important">*)</span><span class="token punctuation">,</span> 请在此处输入密码，查看加密内容.
+  <span class="token key atrule">wrong_pass_message</span><span class="token punctuation">:</span> 抱歉<span class="token punctuation">,</span> 这个密码看着不太对<span class="token punctuation">,</span> 请再试试.
+  <span class="token key atrule">wrong_hash_message</span><span class="token punctuation">:</span> 抱歉<span class="token punctuation">,</span> 这个文章不能被校验<span class="token punctuation">,</span> 不过您还是能看看解密后的内容. <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>3.在需要加密的文章<code>Front-matter</code>里加入<code>password: 访问密码</code>即可。</p>
+<blockquote>
+<p>已知问题，解密后初次访问文章，极小部分布局错乱，代码块复制功能失效。刷新页面都可解决。更多高阶用法自行查阅官方文档。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+
+  <div class="complimentary-close">
+    --------- 本文结束
+        <i class="fas fa-paw"></i>
+    感谢您的阅读 ----------
+  </div>
+          <div class="reward-container">
+  <div>您的每一份支持,都是我继续写作的动力</div>
+  <button>
+    <i class="fas fa-hand-holding-heart" style="color:red;"></i>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="浮生 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="浮生 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>浮生
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://blog.yileaf.com/posts/15baca53/" title="Hexo-NexT 后续优化">https://blog.yileaf.com/posts/15baca53/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/overviews/tags/%E7%BE%8E%E5%8C%96/" rel="tag"><i class="fa fa-tag"></i> 美化</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/8613f919/" rel="prev" title="Hexo 建站">
+                  <i class="fa fa-chevron-left"></i> Hexo 建站
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/4657b735/" rel="next" title="Hexo 集成 Gitalk 评论系统">
+                  Hexo 集成 Gitalk 评论系统 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fas fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">浮生</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fas fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fas fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div><div id="website-time" class="website-time-dynamic"></div>
+
+    </div>
+  </footer>
+
+  
+  <script size="150" alpha="0.4" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script class="next-config" data-name="nprogress" type="application/json">{"enable":true,"spinner":true}</script>
+  <script src="/js/third-party/nprogress.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://waline.yileaf.com","placeholder":"Just go go","dark":"auto","avatar":"wavatar","meta":["nick","mail","link"],"pageSize":10,"visitor":true,"comment_count":true,"requiredMeta":["nick","mail"],"copyright":true,"login":"","avatarCDN":"https://sdn.geekzu.org/avatar/","libUrl":"https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/weibo","https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili","https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-emoji","https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq"],"locale":{"placeholder":"ヾﾉ≧∀≦)o来啊，快活啊!","admin":"博主","nick":"昵称","mail":"邮箱","link":"网址（https://）"},"el":"#waline-comments","path":"/posts/15baca53/"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  if(CONFIG.waline.qiniuDomain && CONFIG.waline.qiniuTokenUrl){
+    CONFIG.waline.uploadImage = qiniuUploadImage;
+  }
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => {
+    new Waline(CONFIG.waline);
+  });
+});
+</script>
+
+
+
+
+    <script type="text/javascript" src="/js/click-love.js"></script>
+
+
+
+
+
+
+<script type="text/javascript" id="website-js" src="/js/website.min.js" code="all"></script>
+
+</body>
+</html>

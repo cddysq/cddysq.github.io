@@ -1,0 +1,441 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon-next.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="/images/favicon/favicon-48x48.png" color="#222">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chgibb/css-spinners@2.2.1/css/spinners.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB+Garamond:400,700|Noto+Serif+SC:400,700&display=swap">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+    <script type="text/javascript" id="website-js" src="/js/website.min.js" code="404"></script>
+    <title>404 | moyuhs</title>
+    <style>
+        body, html {
+            background: #28254c;
+            font-family: "EB Garamond", "Noto Serif SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            font-weight: 700
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        .container .hitokoto, .container .box {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%)
+        }
+
+        .box {
+            top: 50%;
+            width: 350px;
+            height: 100%;
+            max-height: 600px;
+            min-height: 450px;
+            background: #332f63;
+            border-radius: 20px;
+            padding: 30px 50px
+        }
+
+        .container .box .box-ghost, .container .box .box-description {
+            position: absolute;
+            left: 50%
+        }
+
+        .box .box-ghost {
+            padding: 15px 25px 25px;
+            top: 20%;
+            transform: translate(-50%, -30%)
+        }
+
+        .box .box-ghost .symbol:nth-child(1) {
+            opacity: .2;
+            animation: shine 4s ease-in-out 3s infinite
+        }
+
+        .box .box-ghost .symbol:nth-child(1):after, .box .box-ghost .symbol:nth-child(1):before {
+            content: '';
+            width: 12px;
+            height: 4px;
+            background: #fff;
+            position: absolute;
+            border-radius: 5px;
+            bottom: 65px;
+            left: 0
+        }
+
+        .box .box-ghost .symbol:nth-child(1):before {
+            transform: rotate(45deg)
+        }
+
+        .box .box-ghost .symbol:nth-child(1):after {
+            transform: rotate(-45deg)
+        }
+
+        .box .box-ghost .symbol:nth-child(2) {
+            position: absolute;
+            left: -5px;
+            top: 30px;
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            opacity: .2;
+            animation: shine 4s ease-in-out 1.3s infinite
+        }
+
+        .box .box-ghost .symbol:nth-child(3) {
+            opacity: .2;
+            animation: shine 3s ease-in-out .5s infinite
+        }
+
+        .box .box-ghost .symbol:nth-child(3):after, .box .box-ghost .symbol:nth-child(3):before {
+            content: '';
+            width: 12px;
+            height: 4px;
+            background: #fff;
+            position: absolute;
+            border-radius: 5px;
+            top: 5px;
+            left: 40px
+        }
+
+        .box .box-ghost .symbol:nth-child(3):before {
+            transform: rotate(90deg)
+        }
+
+        .box .box-ghost .symbol:nth-child(3):after {
+            transform: rotate(180deg)
+        }
+
+        .box .box-ghost .symbol:nth-child(4) {
+            opacity: .2;
+            animation: shine 6s ease-in-out 1.6s infinite
+        }
+
+        .box .box-ghost .symbol:nth-child(4):after, .box .box-ghost .symbol:nth-child(4):before {
+            content: '';
+            width: 15px;
+            height: 4px;
+            background: #fff;
+            position: absolute;
+            border-radius: 5px;
+            top: 10px;
+            right: 30px
+        }
+
+        .box .box-ghost .symbol:nth-child(4):before {
+            transform: rotate(45deg)
+        }
+
+        .box .box-ghost .symbol:nth-child(4):after {
+            transform: rotate(-45deg)
+        }
+
+        .box .box-ghost .symbol:nth-child(5) {
+            position: absolute;
+            right: 5px;
+            top: 40px;
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            opacity: .2;
+            animation: shine 1.7s ease-in-out 7s infinite
+        }
+
+        .box .box-ghost .symbol:nth-child(6) {
+            opacity: .2;
+            animation: shine 2s ease-in-out 6s infinite
+        }
+
+        .box .box-ghost .symbol:nth-child(6):after, .box .box-ghost .symbol:nth-child(6):before {
+            content: '';
+            width: 15px;
+            height: 4px;
+            background: #fff;
+            position: absolute;
+            border-radius: 5px;
+            bottom: 65px;
+            right: -5px
+        }
+
+        .box .box-ghost .symbol:nth-child(6):before {
+            transform: rotate(90deg)
+        }
+
+        .box .box-ghost .symbol:nth-child(6):after {
+            transform: rotate(180deg)
+        }
+
+        .box .box-ghost .box-ghost-container {
+            background: #fff;
+            width: 100px;
+            height: 100px;
+            border-radius: 100px 100px 0 0;
+            position: relative;
+            margin: 0 auto;
+            animation: upndown 3s ease-in-out infinite
+        }
+
+        .box .box-ghost .box-ghost-container .box-ghost-eyes {
+            position: absolute;
+            left: 50%;
+            top: 45%;
+            height: 12px;
+            width: 70px
+        }
+
+        .box .box-ghost .box-ghost-container .box-ghost-eyes .box__eye-left {
+            width: 12px;
+            height: 12px;
+            background: #332f63;
+            border-radius: 50%;
+            margin: 0 10px;
+            position: absolute;
+            left: 0
+        }
+
+        .box .box-ghost .box-ghost-container .box-ghost-eyes .box__eye-right {
+            width: 12px;
+            height: 12px;
+            background: #332f63;
+            border-radius: 50%;
+            margin: 0 10px;
+            position: absolute;
+            right: 0
+        }
+
+        .box .box-ghost .box-ghost-container .box-ghost-bottom {
+            display: flex;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0
+        }
+
+        .box .box-ghost .box-ghost-container .box-ghost-bottom div {
+            flex-grow: 1;
+            position: relative;
+            top: -10px;
+            height: 20px;
+            border-radius: 100%;
+            background-color: #fff
+        }
+
+        .box .box-ghost .box-ghost-container .box-ghost-bottom div:nth-child(2n) {
+            top: -12px;
+            margin: 0 0;
+            border-top: 15px solid #332f63;
+            background: 0 0
+        }
+
+        .box .box-ghost .box-ghost-shadow {
+            height: 20px;
+            box-shadow: 0 50px 15px 5px #3b3769;
+            border-radius: 50%;
+            margin: 0 auto;
+            animation: smallnbig 3s ease-in-out infinite
+        }
+
+        .box .box-description {
+            bottom: 108px;
+            transform: translateX(-50%)
+        }
+
+        .box .box-description .box-description-container {
+            text-align: center;
+            width: 200px;
+            margin: 0 auto
+        }
+
+        .box .box-description .box-description-container .box-description-title {
+            color: #fff;
+            font-size: 28px;
+            letter-spacing: .5px
+        }
+
+        .box .box-description .box-description-container .box-description-text {
+            color: #8c8aa7;
+            font-size: 16px;
+            line-height: 20px;
+            margin-top: 20px
+        }
+
+        .box .box-description .box-button {
+            display: block;
+            position: relative;
+            background: #ff5e65;
+            border: 1px solid transparent;
+            border-radius: 50px;
+            height: 38px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            line-height: 38px;
+            font-size: 14px;
+            padding: 0;
+            white-space: nowrap;
+            margin-top: 25px;
+            transition: background .5s ease;
+            overflow: hidden
+        }
+
+        .box .box-description .box-button:before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 100px;
+            background: #fff;
+            bottom: -25px;
+            left: 0;
+            border: 2px solid #fff;
+            transform: translateX(-50px) rotate(45deg);
+            transition: transform .5s ease
+        }
+
+        .box .box-description .box-button:hover {
+            background: 0 0;
+            border-color: #fff
+        }
+
+        .box .box-description .box-button:hover:before {
+            transform: translateX(250px) rotate(45deg)
+        }
+
+        @keyframes upndown {
+            0% {
+                transform: translateY(5px)
+            }
+            50% {
+                transform: translateY(15px)
+            }
+            100% {
+                transform: translateY(5px)
+            }
+        }
+
+        @keyframes smallnbig {
+            0% {
+                width: 90px
+            }
+            50% {
+                width: 100px
+            }
+            100% {
+                width: 90px
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                opacity: .2
+            }
+            25% {
+                opacity: .1
+            }
+            50% {
+                opacity: .2
+            }
+            100% {
+                opacity: .2
+            }
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .hitokoto {
+            top: 8%;
+            height: 76px;
+            min-height: 38px;
+            width: 800px;
+            line-height: 38px;
+            font-size: 1.2em;
+            color: #CCFFCC;
+            z-index: 9999;
+            letter-spacing: 1px;
+            text-align: center;
+            font-family: cursive, "PingFang SC", Arial, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif
+        }
+
+        .fadeIn {
+            animation: fade-in 8s ease-in-out 0s 1;
+            animation-fill-mode: forwards
+        }
+
+        .hitokoto a {
+            text-decoration: none;
+            color: #999999
+        }
+
+        .hitokoto .hitokoto-author {
+            float: right;
+            font-size: 0.8em
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="hitokoto" class="hitokoto fadeIn">
+        <div id="hitokoto_content" class="hitokoto-content">
+            <a href="https://github.com/hitokoto-osc/hitokoto-api">一言获取中</a>
+            <div class="spinner-loader">Loading...</div>
+        </div>
+        <div id="hitokoto_author" class="hitokoto-author"></div>
+    </div>
+    <div class="box">
+        <div class="box-ghost">
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="box-ghost-container">
+                <div class="box-ghost-eyes">
+                    <div class="box__eye-left"></div>
+                    <div class="box__eye-right"></div>
+                </div>
+                <div class="box-ghost-bottom">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="box-ghost-shadow"></div>
+        </div>
+        <div class="box-description">
+            <div class="box-description-container">
+                <div class="box-description-title">404</div>
+                <div class="box-description-text">您似乎来到了</div>
+                <div class="box-description-text">没有知识存在的荒原……</div>
+                <div class="box-description-text">Page Not Found</div>
+            </div>
+            <a href="https://yileaf.com" class="box-button" onclick="return ban()">主页 Home</a>
+            <a href="https://blog.yileaf.com" class="box-button">博客 Blog</a>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function ban() {
+        alert('该页面尚未开发完毕,请耐心等待');
+        return false;
+    }
+    window.addEventListener('pjax:success', () => {
+        location.reload();
+    })
+</script>
+</html>

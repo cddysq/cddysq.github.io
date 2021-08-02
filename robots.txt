@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /posts/
+Allow: /overviews/
+Allow: /about/
+Allow: /links/
+
+Disallow: /js/
+Disallow: /css/
+Disallow: /lib/
+Disallow: /images/
+
+Sitemap: https://blog.yileaf.com/seo/sitemap.xml
+Sitemap: https://blog.yileaf.com/seo/baidusitemap.xml
