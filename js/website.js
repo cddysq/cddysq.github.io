@@ -11,6 +11,7 @@ window.onload = function () {
             break;
         case 'all':
             siteTime();
+            fix404Bug();
             break;
         default:
             console.log("This is a world of nothingness, please contact me");
@@ -104,4 +105,11 @@ function siteTime() {
     $('#website-time').html(" Run for " + diffYears + " Year " + diffDays + " Days " + diffHours + " Hours " + diffMinutes + " m " + diffSeconds + " s");
 
     window.setTimeout(siteTime, 1000);
+}
+
+function fix404Bug() {
+    let children = $('.site-nav .menu-item-links').children();
+    children.click(function (event) {
+        children.removeAttr("data-pjax-state");
+    });
 }
