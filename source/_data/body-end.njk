@@ -9,5 +9,23 @@
 {### WEBSITE RUNNING TIME ###}
 {############################}
 {% if theme.website_running_time.enable %}
-<script type="text/javascript" id="website-js" src="/js/website.min.js" code="all"></script>
+    <script type="text/javascript" id="website-js" src="/js/website.js" code="all"></script>
 {% endif %}
+
+{####################}
+{### WEBSITE DATA ###}
+{####################}
+{%- set ccIcon = '<i class="fab fa-fw fa-creative-commons"></i>' %}
+{%- set ccText = theme.creative_commons.license | upper %}
+<script class="next-config" data-name="website"  type="text/javascript">
+   var LOCAL = {
+        {%- if theme.creative_commons.license and theme.creative_commons.post and post.copyright !== false %}
+           copyright: '{{ _p("tips.copyright", ccIcon + ccText) }}'
+        {%- endif %}
+   }
+</script>
+<script>
+    document.addEventListener('pjax:success', () => {
+       postBeauty();
+   });
+</script>

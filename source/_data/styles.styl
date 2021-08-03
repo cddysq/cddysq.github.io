@@ -101,11 +101,11 @@
 .complimentary-close {
   text-align: center;
   color: $grey-light;
-  font-size: $font-size-largest;
+  font-size: $font-size-larger;
   letter-spacing: $font-spacing;
 
   +mobile() {
-    font-size: $font-size-medium;
+    font-size: $font-size-small;
   }
 }
 
@@ -129,7 +129,8 @@
 /* footer-不蒜子统计 */
 .busuanzi-count .post-meta-item:nth-child(1) {
   &::before {
-    content: '访客数'
+    content: '访客数';
+    margin-right: .5em;
   }
 
   &::after {
@@ -139,7 +140,8 @@
 
 .busuanzi-count .post-meta-item:nth-child(2) {
   & .post-meta-item-icon::before {
-    content: '总访问量'
+    content: '总访问量';
+    margin-right: .5em;
   }
 
   &::after {
@@ -169,7 +171,37 @@
   border-radius: $custom-radius !important;
 }
 
+/************************* Tip ************************/
+.tip {
+  position: fixed;
+  background: $grey-9-a4;
+  color: #fff;
+  top: 43%;
+  left: 50%;
+  z-index: $zindex-5;
+  padding: .625rem 1rem;
+  border-radius: .625rem;
+  transform: translate(50%, -50%);
+  text-align: center;
+  font-size: $font-size-small;
+  backdrop-filter: blur(.625rem);
+  animation: fadeIn .5s;
+
+  &.hide {
+    animation: fadeOut .3s;
+  }
+}
+
+/************************ Overview *************************/
+
+/* 修改选中字符的颜色 */
+::selection {
+  background: $color-orange;
+  color: $grey-2;
+}
+
 /****************** Animations ********************/
+
 @keyframes general-animation {
   0% {
     background-position: 0 0

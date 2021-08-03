@@ -668,7 +668,7 @@ Hexo默认的文章链接形式为 `:year/:month/:day/:title/`，是一个四级
 在博客根目录安装  `hexo-abbrlink`：
 
 ```bash
-npm install hexo-abbrlink --save
+npm i hexo-abbrlink --save
 ```
 
 打开站点配置文件，搜索  `permalink`  改为如下配置：
@@ -681,6 +681,36 @@ abbrlink:
   rep: hex    # 进制：dec(default) and hex
 ```
 
+### 代码压缩
+
+使用插件：[hexo-all-minifier](https://github.com/chenzhutian/hexo-all-minifier)
+
+在博客根目录下执行安装命令：
+
+```bash
+npm i hexo-all-minifier --save
+```
+
+打开站点配置文件添加代码压缩规则：
+
+```yaml
+# Minifier & Optimization plugin
+## See: https://github.com/chenzhutian/hexo-all-minifier
+all_minifier: true
+html_minifier:
+  enable: true
+css_minifier:
+  enable: true
+  exclude: 
+    - '*.min.css'
+js_minifier:
+  enable: true
+  exclude: 
+    - '*.min.js'    
+image_minifier:
+  enable: false
+```
+
 > 更多进阶配置请参考我的 [Hexo-NexT 后续优化](https://yileaf.com/archives/15baca53.html) 这篇文章
 
 ## 部署站点
@@ -688,7 +718,7 @@ abbrlink:
 1.在博客根目录安装部署插件：[hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git)
 
 ```bash
-npm install hexo-deployer-git --save
+npm i hexo-deployer-git --save
 ```
 
 2.打开站点配置文件，搜索 `deploy` 选项，填写对应Git仓库地址：

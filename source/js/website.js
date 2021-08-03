@@ -1,8 +1,10 @@
 // 一言请求错误次数
 let errorCount = 0;
 
+const BODY = document.getElementsByTagName('body')[0];
+
+// 资源加载完毕
 window.onload = function () {
-    // 页面初始化完毕执行js
     const code = $('#website-js').attr('code');
     switch (code) {
         case '404':
@@ -10,7 +12,7 @@ window.onload = function () {
             ghostAnimation();
             break;
         case 'all':
-            siteTime();
+            siteLoad();
             break;
         default:
             console.log("This is a world of nothingness, please contact me");
@@ -104,4 +106,72 @@ function siteTime() {
     $('#website-time').html(" Run for " + diffYears + " Year " + diffDays + " Days " + diffHours + " Hours " + diffMinutes + " m " + diffSeconds + " s");
 
     window.setTimeout(siteTime, 1000);
+}
+
+/**
+ * pjax导致侧边栏404无法正常定向
+ */
+function fix404Bug() {
+    let children = $('.site-nav .menu-item-links').children();
+    children.click(function (event) {
+        children.removeAttr("data-pjax-state");
+        window.location.href = this.href;
+    });
+}
+
+/**
+ * 加载网站资源
+ */
+const siteLoad = function () {
+    siteTime();
+    fix404Bug();
+    // 添加dom操作js
+    addScript("/js/dom.js")
+    postBeauty();
+}
+
+/**
+ * 页面美化
+ */
+function postBeauty() {
+    let article = document.getElementsByClassName('article-body')[0];
+    if (article) {
+        article.addEventListener('copy', function (e) {
+            showTip(LOCAL.copyright, "tip");
+            e.preventDefault();
+        });
+    }
+}
+
+/**
+ * 显示提示框
+ * @param msg 提示信息
+ * @param className 提示框样式
+ */
+function showTip(msg, className) {
+    if (!msg)
+        return
+
+    var tipBox = BODY.createChild('div', {
+        innerHTML: msg,
+        className: className
+    });
+
+    setTimeout(function () {
+        tipBox.addClass('hide')
+        setTimeout(function () {
+            BODY.removeChild(tipBox);
+        }, 300);
+    }, 3000);
+}
+
+/**
+ * 引入外部js
+ * @param url js路径
+ */
+function addScript(url) {
+    var script = document.createElement('script');
+    script.setAttribute('type', 'text/javascript');
+    script.setAttribute('src', url);
+    document.getElementsByTagName('head')[0].appendChild(script);
 }

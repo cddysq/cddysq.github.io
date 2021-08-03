@@ -18,7 +18,8 @@ date: 2021-07-26 16:29:57
 
 - 按照官方文档部署成功后可参照下图所示配置自定义域名。
 
-  ![自定义域名](https://cdn.jsdelivr.net/gh/moyuhs/images/20210729140734.png)
+<!-- more -->
+  <img src="https://cdn.jsdelivr.net/gh/moyuhs/images/20210729140734.png" alt="" style="zoom:60%;" />
 
 - 上图Domains下的域名即为你的Waline服务地址，请访问 `Waline服务地址/ui/register` 进行注册。首个注册的人会被设定成管理员。
 
@@ -27,7 +28,7 @@ date: 2021-07-26 16:29:57
 - 在博客根目录下执行[Waline插件](https://github.com/rqh656418510/hexo-waline-next)安装命令：
 
   ```bash
-  npm install hexo-waline-next --save
+  npm i hexo-waline-next --save
   ```
 
 - 打开主题配置文件填写Waline相关配置。
@@ -63,6 +64,65 @@ date: 2021-07-26 16:29:57
     copyright: true # 是否显示页脚版权信息    
     dark: auto # Dark mode css selector, for more information: https://waline.js.org/client/basic.html#dark 
   ```
-  
-  
+
+## 配置评论通知
+
+参考至[官方文档](https://waline.js.org/guide/server/notification.html#%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5)，由于回复评论者仅支持邮件通知，本站采用该方式进行配置演示。
+
+1. 根据 [这里](https://github.com/nodemailer/nodemailer/blob/master/lib/well-known/services.json) 查看所有支持的运营商，本次选择QQ邮箱。
+
+2. 开通QQ邮箱SMTP服务，并获取授权码, 具体操作请Google。
+
+3. 将以下邮件通知环境变量依次加入vercel中部署的waline服务，示例如下：
+
+   ```yaml
+   # ------ 必填 ------
+   SMTP_SERVICE:QQ #SMTP 邮件发送服务提供商
+   SMTP_USER: ****.qq.com #QQ邮箱账号
+   SMTP_PASS: #第二步生成的授权码
+   SITE_NAME: #网站名称
+   SITE_URL: https://.....com #网站地址
+   # ------ 推荐填写 ------
+   AUTHOR_EMAIL: #博主邮箱,该邮箱评论不会通知你
+   # ------ 选择性填写 ------ 参考源码:https://github.com/walinejs/waline/blob/master/packages/server/src/service/notify.js
+   MAIL_SUBJECT_ADMIN: 您的博客『{{site.name}}』收到了新评论 🕊  #发送给博主的新邮件通知标题
+   MAIL_SUBJECT: {{parent.nick}}，您在博客『{{site.name}}』上的评论收到了回复 📨 #发送给评论者的邮件标题 
+   MAIL_TEMPLATE: #发送给评论者的邮件正文，我的模板如下
+   ```
+
+   ```html
+   <div style="border-top:2px solid #12ADDB;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;margin:50px auto;font-size:12px;">
+       <h2 style="border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;">
+           您在博客<a style="text-decoration:none;color: #12ADDB;" href="{{site.url}}" target="_blank">{{site.name}}</a>上的评论有了新的回复💖
+       </h2>
+       {{parent.nick}}，您曾发表评论：
+       <div style="padding:0 12px 0 12px;margin-top:18px">
+           <div style="background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;">{{parent.comment | safe}}</div>
+           <p><strong>{{self.nick}}</strong>回复说：</p>
+           <div style="background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;">{{self.comment | safe}}</div>
+           <p>您可以点击<a style="text-decoration:none; color:#12addb" href="{{site.postUrl}}" target="_blank">查看回复的完整內容</a>，欢迎再次光临<a style="text-decoration:none; color:#12addb" href="{{site.url}}" target="_blank">{{site.name}}</a>。</p>
+           <br/>
+       </div>
+       <div style="border-top:1px solid #DDD; padding:13px 0 0 8px;">
+           <p style="text-align: right;">该邮件为系统自动发送的邮件，请勿直接回复❌</p>
+       </div>
+       <br/>
+   </div>
+   ```
+
+   ![环境变量添加示例](https://cdn.jsdelivr.net/gh/moyuhs/images/20210730112843.png)
+
+4. 重新部署waline服务。
+5. 邮箱收发效果图如下：
+   - 博主方
+   
+     <img src="https://cdn.jsdelivr.net/gh/moyuhs/images/20210730145048.png" alt="" style="zoom: 33%;" />
+   
+   - 评论方
+   
+      <img src="https://cdn.jsdelivr.net/gh/moyuhs/images/20210730150250.png" alt="" style="zoom: 33%;" />
+   
+   - 网页端
+   
+       <img src="https://cdn.jsdelivr.net/gh/moyuhs/images/20210730150516.png" alt="" style="zoom: 80%;" />
 

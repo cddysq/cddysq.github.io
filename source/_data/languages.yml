@@ -13,3 +13,11 @@ zh-CN:
       categories:
         one: <i class="fas fa-fw fa-th"></i> 目前共计 1 个分类
         other: <i class="fas fa-fw fa-th"></i> 目前共计 %d 个分类
+    tips:
+      copyright: "复制成功，转载请遵守 %s 协议。"
+zh-HK:
+    tips:
+      copyright: "複製成功，轉載請遵守 %s 協議。"
+en:
+  tips:
+    copyright: "Copied to clipboard successfully! <br> All articles in this blog are licensed under %s."
