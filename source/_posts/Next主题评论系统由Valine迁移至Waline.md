@@ -65,6 +65,42 @@ date: 2021-07-26 16:29:57
     dark: auto # Dark mode css selector, for more information: https://waline.js.org/client/basic.html#dark 
   ```
 
+## 美化Waline
+
+- 打开样式文件`styles.styl`加入如下css：
+
+  ```css
+  /* comment-圆角 */
+  .comments {
+    border-radius: $custom-radius !important;
+  }
+  
+  /* comment-提示 */
+  .vheader-item {
+    & label::after {
+      content: '：'
+    }
+  }
+  
+  /* comment-输入框背景图片 */
+  .veditor {
+    background: url($comment-bg-url) no-repeat right !important;
+  }
+  
+  .veditor:focus {
+    background-position-y: 200px !important;
+    transition: all .2s ease-in-out 0s !important;
+  }
+  ```
+
+- 打开`variables.styl`定义属性值，注意替换背景图为你的相应文件名。
+
+  ```stylus
+  $custom-radius                = 8px;
+  $img-cdn = '/' + hexo-config('images')+'/';
+  $comment-bg-url               = $img-cdn + "comment-bg.png";
+  ```
+
 ## 配置评论通知
 
 参考至[官方文档](https://waline.js.org/guide/server/notification.html#%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5)，由于回复评论者仅支持邮件通知，本站采用该方式进行配置演示。

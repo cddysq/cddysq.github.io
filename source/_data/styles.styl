@@ -171,6 +171,23 @@
   border-radius: $custom-radius !important;
 }
 
+/* comment-提示 */
+.vheader-item {
+  & label::after {
+    content: '：'
+  }
+}
+
+/* comment-输入框背景图片 */
+.veditor {
+  background: url($comment-bg-url) no-repeat right !important;
+}
+
+.veditor:focus {
+  background-position-y: 200px !important;
+  transition: all .2s ease-in-out 0s !important;
+}
+
 /************************* Tip ************************/
 .tip {
   position: fixed;
