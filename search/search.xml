@@ -58,6 +58,31 @@
     
     
     <entry>
+      <title>Linux 常见命令</title>
+      <link href="/posts/fa29a82/"/>
+      <url>/posts/fa29a82/</url>
+      
+        <content type="html"><![CDATA[<h1 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h1><ul><li><code>ls -l </code>：显示不隐藏的文件与文件夹的详细信息</li><li><code>tar -zxf [文件名]</code> ：解压文件到当前文件夹</li><li><code>pwd </code>：显示当前所在路径</li><li><code>cd ~</code> ： 回到用户主目录（/root）</li><li><code>cp [文件名]  [路径]</code>： 将文件拷贝到指定目录下</li></ul><span id="more"></span><h1 id="查询相关"><a href="#查询相关" class="headerlink" title="查询相关"></a>查询相关</h1><h2 id="ps-命令"><a href="#ps-命令" class="headerlink" title="ps 命令"></a>ps 命令</h2><ul><li>解释：<code>ps</code>是Linux下最常用的也是非常强大的进程查看命令。</li><li>语法：<code>ps [options]</code></li></ul><table><thead><tr><th>options</th><th>解释</th></tr></thead><tbody><tr><td>-e</td><td>显示所有进程，环境变量</td></tr><tr><td>-f</td><td>全格式</td></tr><tr><td>-h</td><td>不显示标题</td></tr><tr><td>-l</td><td>长格式</td></tr><tr><td>-w</td><td>宽输出</td></tr><tr><td>-a</td><td>显示终端上地所有进程，包括其他用户地进程</td></tr><tr><td>-r</td><td>只显示正在运行地进程</td></tr><tr><td>-x</td><td>显示没有控制终端地进程</td></tr></tbody></table><h2 id="grep-命令"><a href="#grep-命令" class="headerlink" title="grep 命令"></a>grep 命令</h2><ul><li>解释：<code>grep</code> 命令从文本文件或管道数据流中筛选匹配的行及数据。</li><li>语法：<code>grep [OPTION]... PATTERN [FILE]...</code></li></ul><table><thead><tr><th>options</th><th>解释</th></tr></thead><tbody><tr><td>-v</td><td>显示不包含匹配文本的所有行</td></tr></tbody></table><h2 id="find-命令"><a href="#find-命令" class="headerlink" title="find 命令"></a>find 命令</h2><ul><li>解释： <code>find</code> 命令用来在指定目录下查找文件。</li><li>语法：<code>find [-H] [-L] [-P] [-Olevel] [-D help|tree|search|stat|rates|opt|exec] [path...] [expression]</code></li></ul><table><thead><tr><th>expression</th><th>解释</th></tr></thead><tbody><tr><td>-name name, -iname name :</td><td>文件名称符合 name 的文件。iname 会忽略大小写</td></tr><tr><td>-cmin n</td><td>在过去 n 分钟内被修改过</td></tr></tbody></table><h2 id="dmidecode-命令"><a href="#dmidecode-命令" class="headerlink" title="dmidecode 命令"></a>dmidecode 命令</h2><ul><li>解释：在 Linux 系统下获取有关硬件方面的信息。</li><li>语法：<code>dmidecode [OPTIONS]</code></li></ul><table><thead><tr><th>options</th><th>解释</th></tr></thead><tbody><tr><td>-t（type）</td><td>只显示指定条目的信息</td></tr><tr><td>-s</td><td>只显示指定DMI字符串的信息</td></tr></tbody></table><h2 id="演示："><a href="#演示：" class="headerlink" title="演示："></a>演示：</h2><ol><li><p>查看指定进程：<code>ps -ef | grep 服务名</code></p> <pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># ps -ef | grep redisUID       PID   PPID    C     STIME    TTY       TIME       CMDroot      2650     1    0     Jun12     ?        00:01:25   .&#x2F;redis-server *:6379root      3564  3498    0     16:55    pts&#x2F;0     00:00:00   grep --color&#x3D;auto redisUID   ：该程序被该 UID 所拥有PID   ：这个程序的 ID PPID  ：其上级父程序的IDC     ：CPU使用的资源百分比STIME ：系统启动时间TTY   ：登入者的终端机位置TIME  ：使用掉的CPU时间CMD   ：所下达的指令注:中间的 | 是管道命令 是指ps命令与grep同时执行<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>查找文件路径：<code>find / -name 文件名</code></p> <pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">find &#x2F; -name test.txt # 查询根目录下名为test.txt的文件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>查看内存相关的硬件信息：<code>dmidecode -t memory</code></p><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># 查看机器内存信息，只显示大小并过滤掉未安装模块dmidecode -t memory | grep Size: | grep -v &quot;No Module Installed&quot; # 主要参数Maximum Memory Module Size: 32768 MB # 单条支持32GMaximum Total Memory Size: 491520 MB # 最大支持480GInstalled Size: 8192 MB (Single-bank Connection) # 卡槽安装8G单通道Enabled Size: 8192 MB (Single-bank Connection) # 启用8G单通道Installed Size: 2048 MB (Double-bank Connection) # 卡槽安装2G双通道Enabled Size: 2048 MB (Double-bank Connection) # 启用2G单通道Installed Size: Not Installed # 卡槽未安装Enabled Size: Not Installed # 未启用# 机器总内存 &#x3D; 10G<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ol><h1 id="编辑相关"><a href="#编辑相关" class="headerlink" title="编辑相关"></a>编辑相关</h1><h2 id="vim-命令"><a href="#vim-命令" class="headerlink" title="vim 命令"></a>vim 命令</h2><ul><li>解释：<code>vim</code> 强大的编辑器 </li></ul><h2 id="演示：-1"><a href="#演示：-1" class="headerlink" title="演示："></a>演示：</h2><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">1.编辑文件：vim + 文件名 （当前目录下存在该文件则打开，不存在进行新建） &#x2F;关键字 # 文件内容中的关键字搜索2.按 i 正式进入编辑模式3.按 esc 退出编辑:q!  不保存文件，强制退出vim命令:wq  保存文件，退出vim命令:w   保存文件，不退出vim命令<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="删除相关"><a href="#删除相关" class="headerlink" title="删除相关"></a>删除相关</h1><h2 id="rm-命令"><a href="#rm-命令" class="headerlink" title="rm 命令"></a>rm 命令</h2><ul><li>解释：Linux系统的删除命令</li><li>语法：<code>rm [options] [参数]</code>   (参数为目录或文件)</li></ul><table><thead><tr><th>options</th><th>解释</th></tr></thead><tbody><tr><td>-r</td><td>递归删除</td></tr><tr><td>-f</td><td>强行删除</td></tr></tbody></table><h2 id="演示：-2"><a href="#演示：-2" class="headerlink" title="演示："></a>演示：</h2><ol><li>删除整个系统：<code>rm -rf /*</code> <ul><li> <code>/</code>为系统根目录，<code>/*</code>为系统根目录下所有文件的意思。</li></ul></li></ol><h1 id="用户相关"><a href="#用户相关" class="headerlink" title="用户相关"></a>用户相关</h1><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 添加用户 </span>adduser zero<span class="token comment"># 设置用户密码</span><span class="token function">passwd</span> zero<span class="token comment"># 更改用户目录</span><span class="token function">usermod</span> -d /data/ zero<span class="token comment"># 禁止用户登录</span><span class="token function">usermod</span> -s /bin/false zero<span class="token comment"># 还原用户登录</span><span class="token function">usermod</span> -s /bin/bash zero<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo SEO 优化</title>
       <link href="/posts/Infinity/"/>
       <url>/posts/Infinity/</url>
@@ -75,6 +100,33 @@
         <tags>
             
             <tag> SEO </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo 添加全局 APlayer 播放器</title>
+      <link href="/posts/f5506a48/"/>
+      <url>/posts/f5506a48/</url>
+      
+        <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><a href="https://github.com/MoePlayer/hexo-tag-aplayer">hexo-tag-aplayer</a> 是 <a href="https://github.com/MoePlayer/APlayer">APlayer</a> 播放器的 Hexo 标签插件（现已支持 <a href="https://github.com/metowolf/MetingJS">MetingJS</a>），可以十分方便地在文章内插入音乐播放器。</p><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul><li>此处未采用单文章插入方式，而改用整站加载方式。</li></ul><span id="more"></span><p>找到<code>\theme\next\layout\_layout.swig</code>文件，将以下代码黏贴到body体内即可，如果你需要修改参数，<a href="https://github.com/metowolf/MetingJS#option">点击此处查看</a></p><pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span><span class="token comment">&lt;!-- require APlayer --></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span class="token comment">&lt;!-- require MetingJS --></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span class="token comment">&lt;!--如果将本体放在body里面，导致页面加载出现问题，请尝试放到body体后面--></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>aplayer<span class="token punctuation">"</span></span> <span class="token attr-name">data-id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3778678<span class="token punctuation">"</span></span> <span class="token attr-name">data-server</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>netease<span class="token punctuation">"</span></span> <span class="token attr-name">data-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>playlist<span class="token punctuation">"</span></span> <span class="token attr-name">data-fixed</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token attr-name">data-order</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>random<span class="token punctuation">"</span></span><span class="token attr-name">data-volume</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0.65<span class="token punctuation">"</span></span><span class="token attr-name">data-autoplay</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span>   <span class="token attr-name">date-preload</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>auto<span class="token punctuation">"</span></span><span class="token attr-name">data-theme</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#cc543a<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><blockquote><p><strong>注意：</strong> 如果你使用上述代码，请以<code>data-xxx</code>格式书写参数名</p></blockquote><h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p><a href="https://music.163.com/">网易云音乐网页版</a>底部的播放器，无论在网易云里如何跳转页面，只要还在当前标签页都是不重新加载的，这样就可以使正在播放中的音乐不随页面跳转中断。</p><p>在我们的博客中可以使用<code>pjax</code>实现迷你音乐播放器全站无刷新加载。</p><h3 id="以下为NexT启用pjax功能："><a href="#以下为NexT启用pjax功能：" class="headerlink" title="以下为NexT启用pjax功能："></a>以下为<code>NexT</code>启用<code>pjax</code>功能：</h3><ul><li><p>项目地址：<a href="https://github.com/theme-next/theme-next-pjax">https://github.com/theme-next/theme-next-pjax</a></p></li><li><p>过程演示</p><ul><li><p>在博客根目录执行以下命令</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> themes/next<span class="token function">git</span> clone https://github.com/theme-next/theme-next-pjax source/lib/pjax<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li><li><p>找到主题配置文件 → 搜索 <code>pjax</code> 设置为 <code>true</code> 即可</p><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Easily enable fast Ajax navigation on your website.</span><span class="token comment"># Dependencies: https://github.com/theme-next/theme-next-pjax</span><span class="token key atrule">pjax</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li><li><p>到此重新运行博客，切换页面，播放器歌曲已不再自动刷新</p></li></ul></li></ul><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://hakurei.red/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/#APlayer">添加全局APlayer播放器</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 美化 </tag>
+            
+            <tag> Aplayer </tag>
             
         </tags>
       
@@ -125,6 +177,31 @@
         <tags>
             
             <tag> 搬运 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo 开启字数统计及阅读时长</title>
+      <link href="/posts/21f27722/"/>
+      <url>/posts/21f27722/</url>
+      
+        <content type="html"><![CDATA[<p>项目地址：<a href="https://github.com/next-theme/hexo-word-counter">https://github.com/next-theme/hexo-word-counter</a></p><h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>在博客根目录执行以下命令：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-word-counter<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><span id="more"></span>    <h2 id="配置插件"><a href="#配置插件" class="headerlink" title="配置插件"></a>配置插件</h2><p>打开网站根目录下的<code>_config.yml</code>，加入以下配置(一般放在最后)：</p><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">symbols_count_time</span><span class="token punctuation">:</span>  <span class="token key atrule">symbols</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 文章字数</span>  <span class="token key atrule">time</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 阅读时长</span>  <span class="token key atrule">total_symbols</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 所有文章总字数</span>  <span class="token key atrule">total_time</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 所有文章阅读中时长</span>  <span class="token key atrule">exclude_codeblock</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 是否排除代码字数统计</span>  <span class="token key atrule">awl</span><span class="token punctuation">:</span> <span class="token number">4</span>  <span class="token key atrule">wpm</span><span class="token punctuation">:</span> <span class="token number">275</span>  <span class="token key atrule">suffix</span><span class="token punctuation">:</span> <span class="token string">"mins."</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>打开主题配置文件，以下可以进行合理配置：</p><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">post_meta</span><span class="token punctuation">:</span>  <span class="token key atrule">item_text</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token key atrule">symbols_count_time</span><span class="token punctuation">:</span>  <span class="token key atrule">separated_meta</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>   <span class="token key atrule">item_text_total</span><span class="token punctuation">:</span> <span class="token boolean important">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>其中<code>awl</code>（Average Word Length）的数值是设定多少字符统计为一个字（word），中文博客需要设置为 2</li><li><code>wpm</code>（Words Per Minute）是你的阅读速度，多少字（word）统计为阅读时长一分钟。以下是官方文档里的一些阅读速度参考数据：<ul><li>慢速：200</li><li>中速：275（默认）</li><li>快速：350</li></ul></li><li>中文用户的贴心提示：因为在中文中一个词语的平均长度在 1.5 字左右，所以一般建议设置为<code>awl=2</code>，<code>wpm=300</code>。</li></ul><p>合理配置后在博客根目录执行<code>hexo clean &amp;&amp; hexo s --debug</code>命令，回到浏览器访问即可看到效果。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 美化 </tag>
             
         </tags>
       
