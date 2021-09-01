@@ -298,12 +298,13 @@ $font-family-custom       = cursive, "Helvetica Neue", Helvetica, Arial, "PingFa
 
 ### 加载进度条
 
-打开主题配置文件，搜索  `nprogress`  选项：
+打开主题配置文件，搜索  `pace`  选项：
 
-```yml
-nprogress:
-  enable: true
-  spinner: true
+```yaml
+pace:
+  enable: true  # 启用动画
+  color: blue   # 动画颜色
+  theme: flash  # 动画效果
 ```
 
 ### 网站圆角
