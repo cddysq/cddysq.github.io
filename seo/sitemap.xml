@@ -186,14 +186,14 @@
   </url>
   
   <url>
-    <loc>https://blog.yileaf.com/overviews/tags/%E6%9D%82%E8%B0%88/</loc>
+    <loc>https://blog.yileaf.com/overviews/tags/Linux/</loc>
     <lastmod>2021-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.yileaf.com/overviews/tags/Linux/</loc>
+    <loc>https://blog.yileaf.com/overviews/tags/%E6%9D%82%E8%B0%88/</loc>
     <lastmod>2021-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -237,14 +237,14 @@
   </url>
   
   <url>
-    <loc>https://blog.yileaf.com/overviews/Java/</loc>
+    <loc>https://blog.yileaf.com/overviews/Linux/</loc>
     <lastmod>2021-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.yileaf.com/overviews/Linux/</loc>
+    <loc>https://blog.yileaf.com/overviews/Java/</loc>
     <lastmod>2021-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
