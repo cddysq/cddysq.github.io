@@ -136,6 +136,17 @@ baidu_url_submit:
   host: www.yileaf.com 	      # 百度站长平台中注册的域名
   token: 5J5x8ebbeOD6gEH3 	  # 秘钥，在主动推送文档有写
   path: seo/baidu_urls.txt    # 文本文档的地址,新链接会保存在此文本文档里
+  
+# 统计配置    
+symbols_count_time:
+  symbols: true # 文章字数
+  time: true # 阅读时长
+  total_symbols: true # 所有文章总字数
+  total_time: true # 所有文章阅读中时长
+  exclude_codeblock: false # 是否排除代码字数统计
+  awl: 2
+  wpm: 200
+  suffix: "mins."    
 
 # Minifier & Optimization plugin
 ## See: https://github.com/chenzhutian/hexo-all-minifier

@@ -671,7 +671,7 @@ google_analytics:
   tracking_id: G-FMWC81W2SX # Google Analytics 访问统计id
   # By default, NexT will load an external gtag.js script on your site.
   # If you only need the pageview feature, set the following option to true to get a better performance.
-  only_pageview: false
+  only_pageview: true
 
 # Baidu Analytics
 # See: https://tongji.baidu.com
@@ -886,6 +886,10 @@ images: images
 # 页面点击爱心特效
 click_love:
   enable: true
+  
+# 启用看板娘
+live2d:
+  enable: true  
 
 # 文章结束语配置
 complimentary_close:
