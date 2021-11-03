@@ -145,8 +145,8 @@ site_state: true
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
   简书: https://www.jianshu.com/u/ec346a4e0d4e || fas fa-heartbeat
-  GitHub: https://github.com/moyuhs || fab fa-github
-  Telegram: https://t.me/yileaf || fab fa-telegram
+  GitHub: https://github.com/cddysq || fab fa-github
+  Telegram: https://t.me/cddysq || fab fa-telegram
   E-Mail: mailto:2056423011@qq.com || fas fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
@@ -347,8 +347,10 @@ text_align:
 # Reduce padding / margin indents on devices with narrow width.
 mobile_layout_economy: false
 
-# Android Chrome header panel color ($brand-bg / $headband-bg => $black-deep).
-android_chrome_color: "#222"
+# Browser header panel color.
+theme_color:
+  light: "#222"
+  dark: "#222"
 
 # Override browsers' default behavior.
 body_scrollbar:
@@ -801,6 +803,8 @@ note:
 
 # Tabs tag
 tabs:
+  # Make the nav bar of tabs with long content stick to the top.
+  sticky: false
   transition:
     tabs: false
     labels: true
@@ -818,7 +822,9 @@ pdf:
 mermaid:
   enable: false
   # Available themes: default | dark | forest | neutral
-  theme: forest
+  theme:
+    light: default
+    dark: dark
 
 
 # ---------------------------------------------------------------

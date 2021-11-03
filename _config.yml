@@ -111,7 +111,7 @@ theme: next
 deploy:
   type: git
   repo:
-   github: git@github.com:moyuhs/moyuhs.github.io.git,master
+   github: git@github.com:cddysq/cddysq.github.io.git,master
    coding: https://e.coding.net/yiya/HexoNexT.git,master
    
 # ---- 自定义配置 ----
