@@ -845,7 +845,6 @@ motion:
     # Only for Pisces | Gemini.
     sidebar: fadeInUp
 
-# Progress bar in the top during page loading.
 # For more information: https://github.com/CodeByZach/pace
 pace:
   enable: true
@@ -892,10 +891,10 @@ images: images
 # 页面点击爱心特效
 click_love:
   enable: true
-  
+
 # 启用看板娘
 live2d:
-  enable: true  
+  enable: true
 
 # 文章结束语配置
 complimentary_close:
