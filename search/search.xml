@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>JetBrains旗下IDE最新UI抢先体验</title>
+      <link href="/posts/6627d822/"/>
+      <url>/posts/6627d822/</url>
+      
+        <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>IntelliJ IDEA 觉得过去的20年UI变化太小，所以决心改版，搞一套现代化UI。预计明年为新用户默认，老用户逐步推送。旧版UI大概保留一年，从此旗下产品都采用新UI。</p><span id="more"></span><blockquote><p>原文连接：<a href="https://blog.jetbrains.com/zh-hans/idea/2022/05/take-part-in-the-new-ui-preview-for-your-jetbrains-ide/">https://blog.jetbrains.com/zh-hans/idea/2022/05/take-part-in-the-new-ui-preview-for-your-jetbrains-ide/</a></p></blockquote><p>新UI目前还处在邀请体验阶段，特共享无邀请启用方式：</p><p><img src="https://cdn.jsdelivr.net/gh/cddysq/images/202206021418857.png" alt="邀请函"></p><h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="https://cdn.jsdelivr.net/gh/cddysq/images/202206021418889.png" alt="win ui"></p><p><img src="https://cdn.jsdelivr.net/gh/cddysq/images/202206021418914.png" alt="mac ui"></p><h3 id="体验方式"><a href="#体验方式" class="headerlink" title="体验方式"></a>体验方式</h3><ol><li><p>下载最新UI插件：<a href="https://wwt.lanzouf.com/in1bJ05rvjng">https://wwt.lanzouf.com/in1bJ05rvjng</a></p></li><li><p>保证 JetBrains IDE 的版本为 2022.2 EAP 否者会提示你版本不匹配</p><blockquote><p>EAP 下载地址：<a href="https://www.jetbrains.com/resources/eap/">https://www.jetbrains.com/resources/eap/</a></p></blockquote></li><li><p>安装插件到 IDE</p><p><img src="https://cdn.jsdelivr.net/gh/cddysq/images/202206021418865.png" alt="安装步骤"></p></li><li><p>重启 IDE 即可</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tool </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 白嫖 </tag>
+            
+            <tag> 杂谈 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>搭建UnblockNeteaseMusic解锁网易云音乐客户端变灰歌曲</title>
       <link href="/posts/8168b21/"/>
       <url>/posts/8168b21/</url>
